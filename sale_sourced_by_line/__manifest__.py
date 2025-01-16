@@ -1,5 +1,5 @@
 # Copyright 2013-2014 Camptocamp SA - Guewen Baconnier
-# © 2016-17 Eficent Business and IT Consulting Services S.L.
+# © 2016-17 ForgeFlow S.L.
 # © 2016 Serpent Consulting Services Pvt. Ltd.
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
@@ -8,16 +8,14 @@
     "summary": "Multiple warehouse source locations for Sale order",
     "version": "12.0.1.0.0",
     "author": "Camptocamp,"
-    "Eficent,"
+    "ForgeFlow,"
     "SerpentCS,"
     "Info a tout prix,"
     "Odoo Community Association (OCA)",
     "category": "Warehouse",
     "license": "AGPL-3",
     "website": "https://github.com/OCA/sale-workflow",
-    "depends": [
-        "sale_procurement_group_by_line",
-    ],
+    "depends": ["sale_stock", "sale_procurement_group_by_line"],
     "data": ["view/sale_view.xml"],
     "installable": True,
 }
