@@ -158,12 +158,14 @@ class PurchaseCostDistribution(models.Model):
                 raise UserError(_("You can't delete a confirmed cost distribution"))
         return super(PurchaseCostDistribution, self).unlink()
 
-    @api.model
-    def create(self, vals):
-        if vals.get('name', '/') == '/':
-            vals['name'] = self.env['ir.sequence'].next_by_code(
-                'purchase.cost.distribution')
-        return super(PurchaseCostDistribution, self).create(vals)
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            if vals.get("name", "/") == "/":
+                vals["name"] = self.env["ir.sequence"].next_by_code(
+                    "purchase.cost.distribution"
+                )
+        return super(PurchaseCostDistribution, self).create(vals_list)
 
     @api.multi
     def write(self, vals):
