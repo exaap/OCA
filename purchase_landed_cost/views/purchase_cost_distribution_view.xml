@@ -104,7 +104,7 @@
                         string="Set done"
                         states="calculated"
                         type="object"
-                        confirm="Are you sure that you want to set done state?"
+                        confirm="Are you sure that you want to update product prices?"
                         class="oe_highlight"
                     />
                     <button
