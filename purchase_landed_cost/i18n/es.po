@@ -6,16 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-20 14:05+0000\n"
-"PO-Revision-Date: 2024-09-20 14:05+0000\n"
-"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
+"POT-Creation-Date: 2025-01-22 21:47+0000\n"
+"PO-Revision-Date: 2025-01-22 21:47+0000\n"
+"Last-Translator: \n"
 "Language-Team: \n"
-"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"Plural-Forms: \n"
 
 #. module: purchase_landed_cost
 #: model:ir.model.fields,field_description:purchase_landed_cost.field_purchase_cost_distribution_expense__affected_lines
@@ -29,8 +27,8 @@ msgstr "Importe de línea"
 
 #. module: purchase_landed_cost
 #: model_terms:ir.ui.view,arch_db:purchase_landed_cost.purchase_cost_distribution_form
-msgid "Are you sure that you want to set done state?"
-msgstr "¿Estás seguro de que quieres establecer el estado hecho?"
+msgid "Are you sure that you want to update product prices?"
+msgstr "¿Está seguro/a de que desea actualizar los precios de los productos?"
 
 #. module: purchase_landed_cost
 #: model:ir.model.fields.selection,name:purchase_landed_cost.selection__purchase_expense_type__calculation_method__amount
@@ -137,6 +135,16 @@ msgid "Cost documentation"
 msgstr "Documentación del coste"
 
 #. module: purchase_landed_cost
+#: code:addons/purchase_landed_cost/models/purchase_cost_distribution.py:0
+#, python-format
+msgid ""
+"Cost update cannot be undone because there has been a later update. Restore "
+"correct price and try again."
+msgstr ""
+"La actualización de coste no puede deshacerse porque ha habido una "
+"actualización posterior. Restaure el precio correcto y pruebe otra vez."
+
+#. module: purchase_landed_cost
 #: model:ir.ui.menu,name:purchase_landed_cost.menu_purchase_cost_control
 msgid "Costs distributions"
 msgstr "Distribuciones de costes"
@@ -183,7 +191,7 @@ msgstr "Fecha en la que se ha procesado o cancelado la transferencia."
 #. module: purchase_landed_cost
 #: model:ir.model.fields,field_description:purchase_landed_cost.field_purchase_cost_distribution_line_expense__picking_date_done
 msgid "Date of Transfer"
-msgstr "Date of Transfer"
+msgstr "Fecha de transferencia"
 
 #. module: purchase_landed_cost
 #: model:ir.model.fields,field_description:purchase_landed_cost.field_purchase_expense_type__default_expense
@@ -205,6 +213,8 @@ msgstr ""
 " utilizado para calcular la distribución entre líneas."
 
 #. module: purchase_landed_cost
+#: model:ir.model.fields,field_description:purchase_landed_cost.field_account_move__display_name
+#: model:ir.model.fields,field_description:purchase_landed_cost.field_account_move_line__display_name
 #: model:ir.model.fields,field_description:purchase_landed_cost.field_import_invoice_line_wizard__display_name
 #: model:ir.model.fields,field_description:purchase_landed_cost.field_import_landed_cost_pickings_wizard__display_name
 #: model:ir.model.fields,field_description:purchase_landed_cost.field_picking_import_wizard__display_name
@@ -213,8 +223,10 @@ msgstr ""
 #: model:ir.model.fields,field_description:purchase_landed_cost.field_purchase_cost_distribution_line__display_name
 #: model:ir.model.fields,field_description:purchase_landed_cost.field_purchase_cost_distribution_line_expense__display_name
 #: model:ir.model.fields,field_description:purchase_landed_cost.field_purchase_expense_type__display_name
+#: model:ir.model.fields,field_description:purchase_landed_cost.field_purchase_order__display_name
+#: model:ir.model.fields,field_description:purchase_landed_cost.field_stock_picking__display_name
 msgid "Display Name"
-msgstr "Nombre mostrado"
+msgstr "Mostrar nombre"
 
 #. module: purchase_landed_cost
 #: model:ir.model.fields,field_description:purchase_landed_cost.field_purchase_cost_distribution_line_expense__distribution_expense
@@ -304,6 +316,8 @@ msgid "Group By"
 msgstr "agrupado por"
 
 #. module: purchase_landed_cost
+#: model:ir.model.fields,field_description:purchase_landed_cost.field_account_move__id
+#: model:ir.model.fields,field_description:purchase_landed_cost.field_account_move_line__id
 #: model:ir.model.fields,field_description:purchase_landed_cost.field_import_invoice_line_wizard__id
 #: model:ir.model.fields,field_description:purchase_landed_cost.field_import_landed_cost_pickings_wizard__id
 #: model:ir.model.fields,field_description:purchase_landed_cost.field_picking_import_wizard__id
@@ -312,8 +326,10 @@ msgstr "agrupado por"
 #: model:ir.model.fields,field_description:purchase_landed_cost.field_purchase_cost_distribution_line__id
 #: model:ir.model.fields,field_description:purchase_landed_cost.field_purchase_cost_distribution_line_expense__id
 #: model:ir.model.fields,field_description:purchase_landed_cost.field_purchase_expense_type__id
+#: model:ir.model.fields,field_description:purchase_landed_cost.field_purchase_order__id
+#: model:ir.model.fields,field_description:purchase_landed_cost.field_stock_picking__id
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 #. module: purchase_landed_cost
 #: model:ir.model.fields,help:purchase_landed_cost.field_purchase_expense_type__default_amount
@@ -356,7 +372,7 @@ msgstr "Importar costes en destino desde albaranes"
 #. module: purchase_landed_cost
 #: model:ir.model,name:purchase_landed_cost.model_import_landed_cost_pickings_wizard
 msgid "Import landed cost pickings"
-msgstr "Coste de importación en destino"
+msgstr "Importar costes en destino desde albaranes"
 
 #. module: purchase_landed_cost
 #: model:ir.actions.act_window,name:purchase_landed_cost.action_import_invoice_line_wizard
@@ -387,8 +403,8 @@ msgstr "Línea de factura"
 
 #. module: purchase_landed_cost
 #: model:ir.model,name:purchase_landed_cost.model_account_move
-msgid "Journal Entries"
-msgstr "Asientos contables"
+msgid "Journal Entry"
+msgstr "Asiento contable"
 
 #. module: purchase_landed_cost
 #: model:ir.model,name:purchase_landed_cost.model_account_move_line
@@ -396,8 +412,10 @@ msgid "Journal Item"
 msgstr "Apunte contable"
 
 #. module: purchase_landed_cost
+#: model:ir.model.fields,field_description:purchase_landed_cost.field_account_bank_statement_line__expense_line_ids
 #: model:ir.model.fields,field_description:purchase_landed_cost.field_account_move__expense_line_ids
 #: model:ir.model.fields,field_description:purchase_landed_cost.field_account_move_line__expense_line_ids
+#: model:ir.model.fields,field_description:purchase_landed_cost.field_account_payment__expense_line_ids
 #: model_terms:ir.ui.view,arch_db:purchase_landed_cost.purchase_order_form
 #: model_terms:ir.ui.view,arch_db:purchase_landed_cost.view_move_form
 #: model_terms:ir.ui.view,arch_db:purchase_landed_cost.view_picking_form
@@ -405,6 +423,8 @@ msgid "Landed costs"
 msgstr "Costes en destino"
 
 #. module: purchase_landed_cost
+#: model:ir.model.fields,field_description:purchase_landed_cost.field_account_move____last_update
+#: model:ir.model.fields,field_description:purchase_landed_cost.field_account_move_line____last_update
 #: model:ir.model.fields,field_description:purchase_landed_cost.field_import_invoice_line_wizard____last_update
 #: model:ir.model.fields,field_description:purchase_landed_cost.field_import_landed_cost_pickings_wizard____last_update
 #: model:ir.model.fields,field_description:purchase_landed_cost.field_picking_import_wizard____last_update
@@ -413,6 +433,8 @@ msgstr "Costes en destino"
 #: model:ir.model.fields,field_description:purchase_landed_cost.field_purchase_cost_distribution_line____last_update
 #: model:ir.model.fields,field_description:purchase_landed_cost.field_purchase_cost_distribution_line_expense____last_update
 #: model:ir.model.fields,field_description:purchase_landed_cost.field_purchase_expense_type____last_update
+#: model:ir.model.fields,field_description:purchase_landed_cost.field_purchase_order____last_update
+#: model:ir.model.fields,field_description:purchase_landed_cost.field_stock_picking____last_update
 msgid "Last Modified on"
 msgstr "Última modificación el"
 
@@ -513,7 +535,7 @@ msgstr "Posibles albaranes"
 #. module: purchase_landed_cost
 #: model:ir.model.fields,field_description:purchase_landed_cost.field_picking_import_wizard__prev_pickings
 msgid "Prev Pickings"
-msgstr "Selecciones Previas"
+msgstr "Albaranes previos"
 
 #. module: purchase_landed_cost
 #: model:ir.model.fields,field_description:purchase_landed_cost.field_purchase_cost_distribution_line__standard_price_old
@@ -596,11 +618,11 @@ msgstr "Linea de pedido de compra"
 #. module: purchase_landed_cost
 #: model:ir.model.fields,help:purchase_landed_cost.field_purchase_cost_distribution_expense__affected_lines
 msgid ""
-"Put here specific lines that this expense is going to be distributed across. "
-"Leave it blank to use all imported lines."
+"Put here specific lines that this expense is going to be distributed across."
+" Leave it blank to use all imported lines."
 msgstr ""
-"Ponga aquí las líneas específicas sobre las que este gasto será distribuido. "
-"Déjelo en blanco para usar todas las líneas importadas."
+"Ponga aquí las líneas específicas sobre las que este gasto será distribuido."
+" Déjelo en blanco para usar todas las líneas importadas."
 
 #. module: purchase_landed_cost
 #: model:ir.model.fields,field_description:purchase_landed_cost.field_purchase_cost_distribution_line__product_qty
@@ -627,7 +649,8 @@ msgstr "Buscar distribuciones de costes de compra"
 msgid ""
 "Select here the pickings for those you want to add their expenses lines."
 msgstr ""
-"Seleccione aquí los albaranes para los que quiere añadir sus líneas de gasto."
+"Seleccione aquí los albaranes para los que quiere añadir sus líneas de "
+"gasto."
 
 #. module: purchase_landed_cost
 #: model_terms:ir.ui.view,arch_db:purchase_landed_cost.picking_import_wizard_view
@@ -642,7 +665,7 @@ msgstr "Asistente para seleccionar la línea de factura de proveedor"
 #. module: purchase_landed_cost
 #: model_terms:ir.ui.view,arch_db:purchase_landed_cost.purchase_cost_distribution_form
 msgid "Set done"
-msgstr "Fijar hecho"
+msgstr "Establecer a hecho"
 
 #. module: purchase_landed_cost
 #: model_terms:ir.ui.view,arch_db:purchase_landed_cost.purchase_cost_distribution_form
@@ -682,9 +705,10 @@ msgid ""
 "picking confirmation (when costing method used is 'average price' or "
 "'real'). Value given in company currency and in product uom."
 msgstr ""
-"Campo técnico usado para registrar el coste de un producto establecido por el usuario durante la "
-"confirmación de recolección (cuando el método de coste usado es 'precio medio' o "
-"'real'). El valor viene dado en la moneda de la compañía y en la UdM del producto."
+"Campo técnico usado para guardar el coste de producto establecido por el "
+"usuario durante la confirmación del albarán (Cuando el método de coste usado"
+" es 'precio medio' o 'real'). Valor dado en la moneda de la compañía y en la"
+" UdM del producto."
 
 #. module: purchase_landed_cost
 #: code:addons/purchase_landed_cost/models/purchase_cost_distribution.py:0
@@ -725,7 +749,7 @@ msgstr "No hay líneas de albarán en la distribución"
 #. module: purchase_landed_cost
 #: model:ir.model.fields,field_description:purchase_landed_cost.field_purchase_cost_distribution__amount_total
 msgid "Total"
-msgstr "Total"
+msgstr ""
 
 #. module: purchase_landed_cost
 #: model_terms:ir.ui.view,arch_db:purchase_landed_cost.view_purchase_cost_distribution_line_form
@@ -765,7 +789,7 @@ msgstr "Volumen total"
 #. module: purchase_landed_cost
 #: model:ir.model,name:purchase_landed_cost.model_stock_picking
 msgid "Transfer"
-msgstr "Transferencia"
+msgstr "Albarán"
 
 #. module: purchase_landed_cost
 #: model:ir.model.fields,field_description:purchase_landed_cost.field_purchase_cost_distribution_line__cost_ratio
@@ -849,4 +873,4 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:purchase_landed_cost.import_landed_cost_pickings_wizard_view
 #: model_terms:ir.ui.view,arch_db:purchase_landed_cost.picking_import_wizard_view
 msgid "or"
-msgstr "0"
+msgstr "o"

@@ -1,0 +1,113 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* purchase_landed_cost_account
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-22 21:51+0000\n"
+"PO-Revision-Date: 2025-01-22 21:51+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: purchase_landed_cost_account
+#: model:ir.model.fields.selection,name:purchase_landed_cost_account.selection__purchase_cost_distribution__state__accounted
+msgid "Accounted"
+msgstr "Contabilizado"
+
+#. module: purchase_landed_cost_account
+#: model_terms:ir.ui.view,arch_db:purchase_landed_cost_account.view_move_line_form
+msgid "Amount"
+msgstr "Importe"
+
+#. module: purchase_landed_cost_account
+#: model:ir.model.fields,field_description:purchase_landed_cost_account.field_account_move_line__display_name
+#: model:ir.model.fields,field_description:purchase_landed_cost_account.field_purchase_cost_distribution__display_name
+#: model:ir.model.fields,field_description:purchase_landed_cost_account.field_purchase_cost_distribution_expense__display_name
+#: model:ir.model.fields,field_description:purchase_landed_cost_account.field_stock_picking__display_name
+msgid "Display Name"
+msgstr "Mostrar nombre"
+
+#. module: purchase_landed_cost_account
+#: model:ir.model.fields,field_description:purchase_landed_cost_account.field_account_move_line__expense_lines
+#: model_terms:ir.ui.view,arch_db:purchase_landed_cost_account.view_move_line_form
+msgid "Expenses of the Journal Item"
+msgstr "Gastos del apunte contable"
+
+#. module: purchase_landed_cost_account
+#: model:ir.model.fields,field_description:purchase_landed_cost_account.field_account_move_line__id
+#: model:ir.model.fields,field_description:purchase_landed_cost_account.field_purchase_cost_distribution__id
+#: model:ir.model.fields,field_description:purchase_landed_cost_account.field_purchase_cost_distribution_expense__id
+#: model:ir.model.fields,field_description:purchase_landed_cost_account.field_stock_picking__id
+msgid "ID"
+msgstr ""
+
+#. module: purchase_landed_cost_account
+#: model:ir.model,name:purchase_landed_cost_account.model_account_move_line
+msgid "Journal Item"
+msgstr "Apunte contable"
+
+#. module: purchase_landed_cost_account
+#: model_terms:ir.ui.view,arch_db:purchase_landed_cost_account.purchase_cost_distribution_form
+#: model_terms:ir.ui.view,arch_db:purchase_landed_cost_account.view_picking_form
+msgid "Journal Items"
+msgstr "Apuntes contables"
+
+#. module: purchase_landed_cost_account
+#: model:ir.model.fields,field_description:purchase_landed_cost_account.field_account_move_line____last_update
+#: model:ir.model.fields,field_description:purchase_landed_cost_account.field_purchase_cost_distribution____last_update
+#: model:ir.model.fields,field_description:purchase_landed_cost_account.field_purchase_cost_distribution_expense____last_update
+#: model:ir.model.fields,field_description:purchase_landed_cost_account.field_stock_picking____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: purchase_landed_cost_account
+#: model_terms:ir.ui.view,arch_db:purchase_landed_cost_account.purchase_cost_distribution_form
+msgid "Overwrite Journal Items"
+msgstr "Sobrescribir apuntes contables"
+
+#. module: purchase_landed_cost_account
+#: model:ir.model,name:purchase_landed_cost_account.model_purchase_cost_distribution_expense
+msgid "Purchase cost distribution expense"
+msgstr "Gasto de distribución de costes de compras"
+
+#. module: purchase_landed_cost_account
+#: model:ir.model,name:purchase_landed_cost_account.model_purchase_cost_distribution
+msgid "Purchase landed costs distribution"
+msgstr "Distribución de costes de compra"
+
+#. module: purchase_landed_cost_account
+#: model:ir.model.fields,field_description:purchase_landed_cost_account.field_purchase_cost_distribution__state
+#: model:ir.model.fields,field_description:purchase_landed_cost_account.field_purchase_cost_distribution_expense__state
+msgid "Status"
+msgstr "Estado"
+
+#. module: purchase_landed_cost_account
+#: model:ir.model,name:purchase_landed_cost_account.model_stock_picking
+msgid "Transfer"
+msgstr "Albarán"
+
+#. module: purchase_landed_cost_account
+#: model:ir.model.fields,field_description:purchase_landed_cost_account.field_account_move_line__cost_ratio
+msgid "Unit Cost"
+msgstr "Costo unitario"
+
+#. module: purchase_landed_cost_account
+#: model:ir.model.fields,field_description:purchase_landed_cost_account.field_account_move_line__value_without_landed_costs
+msgid "Value Without Landed Costs"
+msgstr "Valor sin costes adicionales"
+
+#. module: purchase_landed_cost_account
+#: code:addons/purchase_landed_cost_account/models/purchase_cost_distribution_expense.py:0
+#, python-format
+msgid ""
+"You cannot change the value of the expense amount if the status is 'Done' or"
+" 'Accounted'."
+msgstr ""
+"No puede cambiar el valor del importe del gasto si el estado es 'Hecho' o "
+"'Contabilizado'."

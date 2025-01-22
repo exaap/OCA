@@ -149,7 +149,7 @@ class PurchaseCostDistribution(models.Model):
                 raise UserError(_("You can't delete a confirmed cost distribution"))
         return super(PurchaseCostDistribution, self).unlink()
 
-    @api.model
+    @api.model_create_multi
     def create(self, vals_list):
         for vals in vals_list:
             if vals.get("name", "/") == "/":
@@ -277,11 +277,58 @@ class PurchaseCostDistribution(models.Model):
 
     def action_done(self):
         self.ensure_one()
+        d = {}
+        for line in self.cost_lines:
+            product = line.move_id.product_id
+            if (
+                product.cost_method != "average"
+                or line.move_id.location_id.usage != "supplier"
+            ):
+                continue
+            d.setdefault(product, [])
+            d[product].append(
+                (line.move_id, line.standard_price_new - line.standard_price_old),
+            )
+        for product, vals_list in d.items():
+            self._product_price_update(product, vals_list)
+            for move, price_diff in vals_list:
+                move.price_unit += price_diff
+                move.value = move.product_uom_qty * move.price_unit
         self.state = "done"
 
     def action_draft(self):
         self.ensure_one()
         self.state = "draft"
+        d = {}
+        for line in self.cost_lines:
+            product = line.move_id.product_id
+            if (
+                product.cost_method != "average"
+                or line.move_id.location_id.usage != "supplier"
+            ):
+                continue
+            if (
+                self.currency_id.compare_amounts(
+                    line.move_id.price_unit, line.standard_price_new
+                )
+                != 0
+            ):
+                raise UserError(
+                    _(
+                        "Cost update cannot be undone because there has "
+                        "been a later update. Restore correct price and try "
+                        "again."
+                    )
+                )
+            d.setdefault(product, [])
+            d[product].append(
+                (line.move_id, line.standard_price_old - line.standard_price_new),
+            )
+        for product, vals_list in d.items():
+            self._product_price_update(product, vals_list)
+            for move, price_diff in vals_list:
+                move.price_unit += price_diff
+                move._run_valuation()
 
 
 class PurchaseCostDistributionLine(models.Model):
