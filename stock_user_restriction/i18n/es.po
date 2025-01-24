@@ -1,0 +1,66 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* stock_user_restriction
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-24 00:27+0000\n"
+"PO-Revision-Date: 2025-01-24 00:27+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: stock_user_restriction
+#: model:ir.model.fields,field_description:stock_user_restriction.field_res_users__location_cancel_ids
+msgid "Allowed Cancel Stock Locations"
+msgstr "Ubicaciones de stock permitidas para cancelación"
+
+#. module: stock_user_restriction
+#: model:ir.model.fields,field_description:stock_user_restriction.field_res_users__location_done_ids
+msgid "Allowed Done Stock Locations"
+msgstr "Ubicaciones de stock permitidas para hecho"
+
+#. module: stock_user_restriction
+#: model:ir.model.fields,field_description:stock_user_restriction.field_res_users__picking_type_ids
+msgid "Allowed Picking Types"
+msgstr "Tipos de albarán permitidos"
+
+#. module: stock_user_restriction
+#: code:addons/stock_user_restriction/models/stock_move.py:0
+#, python-format
+msgid ""
+"Invalid Location./nYou cannot process this move since you do not control the"
+" location '%s'./nPlease contact your Adminstrator."
+msgstr ""
+"Ubicación no válida./nNo puedes procesar este movimiento ya que no controlas"
+" la ubicación '%s'./nPor favor contacte a su administrador."
+
+#. module: stock_user_restriction
+#: model:res.groups,name:stock_user_restriction.group_stock_picking_type_restriction
+msgid "Picking Types Restriction"
+msgstr "Restricción de tipos de albarán"
+
+#. module: stock_user_restriction
+#: model:ir.model.fields,field_description:stock_user_restriction.field_res_users__location_restriction
+msgid "Stock Locations Restriction?"
+msgstr "¿Restricción de ubicaciones de stock?"
+
+#. module: stock_user_restriction
+#: model:ir.model,name:stock_user_restriction.model_stock_move
+msgid "Stock Move"
+msgstr "Movimiento de existencias"
+
+#. module: stock_user_restriction
+#: model_terms:ir.ui.view,arch_db:stock_user_restriction.view_users_form
+msgid "Stock Restrictions"
+msgstr "Restricciones de stock"
+
+#. module: stock_user_restriction
+#: model:ir.model,name:stock_user_restriction.model_res_users
+msgid "Users"
+msgstr "Usuarios"
