@@ -33,8 +33,8 @@ msgstr "Tipos de albarán permitidos"
 #. module: stock_user_restriction
 #: code:addons/stock_user_restriction/models/stock_move.py:18
 #, python-format
-msgid "Invalid Location./nYou cannot process this move since you do not control the location '%s'./nPlease contact your Adminstrator."
-msgstr "Ubicación no válida./nNo puedes procesar este movimiento ya que no controlas la ubicación '%s'./nPor favor contacte a su administrador."
+msgid "Invalid Location.\nYou cannot process this move since you do not control the location '%s'.\nPlease contact your Adminstrator."
+msgstr "Ubicación no válida.\nNo puedes procesar este movimiento ya que no controlas la ubicación '%s'.\nPor favor contacte a su administrador."
 
 #. module: stock_user_restriction
 #: model:res.groups,name:stock_user_restriction.group_stock_picking_type_restriction

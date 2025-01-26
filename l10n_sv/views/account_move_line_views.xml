@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_move_form" model="ir.ui.view">
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='line_ids']/tree//field[@name='name']" position="after">
+                <field name="l10n_sv_account_document_id" groups="l10n_sv.group_l10n_sv_account_document_manager"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_move_line_form" model="ir.ui.view">
+        <field name="model">account.move.line</field>
+        <field name="inherit_id" ref="account.view_move_line_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="l10n_sv_account_document_id" groups="l10n_sv.group_l10n_sv_account_document_manager"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -33,7 +33,7 @@ msgstr ""
 #. module: stock_user_restriction
 #: code:addons/stock_user_restriction/models/stock_move.py:18
 #, python-format
-msgid "Invalid Location./nYou cannot process this move since you do not control the location '%s'./nPlease contact your Adminstrator."
+msgid "Invalid Location.\nYou cannot process this move since you do not control the location '%s'.\nPlease contact your Adminstrator."
 msgstr ""
 
 #. module: stock_user_restriction

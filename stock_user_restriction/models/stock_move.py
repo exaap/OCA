@@ -16,9 +16,9 @@ class StockMove(models.Model):
 
         if self.env.user.location_restriction:
             message = _(
-                "Invalid Location./n"
+                "Invalid Location.\n"
                 "You cannot process this move since you do not control "
-                "the location '%s'./n"
+                "the location '%s'.\n"
                 "Please contact your Adminstrator."
             )
             location_done_ids = self.env.user.location_done_ids
