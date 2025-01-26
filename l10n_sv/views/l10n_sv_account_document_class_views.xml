@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="l10n_sv_account_document_class_tree" model="ir.ui.view">
+        <field name="model">l10n_sv_account.document.class</field>
+        <field name="arch" type="xml">
+            <tree string="Document Classes">
+                <field name="code"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="l10n_sv_account_document_class_form" model="ir.ui.view">
+        <field name="model">l10n_sv_account.document.class</field>
+        <field name="arch" type="xml">
+            <form string="Document Classes">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="code"/>
+                        </group>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="l10n_sv_account_document_class_action" model="ir.actions.act_window">
+        <field name="name">Document Classes</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">l10n_sv_account.document.class</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="l10n_sv_account_document_main" name="Documents" parent="account.menu_finance"
+        groups="l10n_sv.group_l10n_sv_account_document_manager" sequence="5"/>
+
+    <menuitem id="l10n_sv_account_document_class_menu" name="Document Classes"
+        action="l10n_sv_account_document_class_action" parent="l10n_sv.l10n_sv_account_document_main" sequence="1"/>
+</odoo>
