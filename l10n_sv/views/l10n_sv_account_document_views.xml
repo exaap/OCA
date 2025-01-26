@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="l10n_sv_account_document_tree" model="ir.ui.view">
+        <field name="model">l10n_sv_account.document</field>
+        <field name="arch" type="xml">
+            <tree string="Documents">
+                <field name="date"/>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="classification"/>
+                <field name="classification_type"/>
+                <field name="l10n_sv_account_document_class_id"/>
+                <field name="l10n_sv_account_document_type_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="l10n_sv_account_document_form" model="ir.ui.view">
+        <field name="model">l10n_sv_account.document</field>
+        <field name="arch" type="xml">
+            <form string="Documents">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="date"/>
+                            <field name="code"/>
+                            <field name="name"/>
+                            <field name="partner_id"/>
+                        </group>
+                        <group>
+                            <field name="classification"/>
+                            <field name="classification_type"/>
+                            <field name="l10n_sv_account_document_class_id"/>
+                            <field name="l10n_sv_account_document_type_id"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="move_line_ids" mode="tree" readonly="1">
+                            <tree string="Journal Items">
+                                <field name="move_id"/>
+                                <field name="partner_id"/>
+                                <field name="account_id"/>
+                                <field name="name"/>
+                                <field name="debit" sum="Total Debit"/>
+                                <field name="credit" sum="Total Credit"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="l10n_sv_account_document_action" model="ir.actions.act_window">
+        <field name="name">Documents</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">l10n_sv_account.document</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="l10n_sv_account_document_menu" name="Documents" action="l10n_sv_account_document_action"
+        parent="l10n_sv.l10n_sv_account_document_main" sequence="3"/>
+</odoo>
