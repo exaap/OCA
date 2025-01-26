@@ -1,0 +1,5 @@
+id,code,name
+l10n_sv_account_document_class_1,1,IMPRESO POR IMPRENTA O TIQUETES
+l10n_sv_account_document_class_2,2,FORMULARIO UNICO
+l10n_sv_account_document_class_3,3,OTROS
+l10n_sv_account_document_class_4,4,DOCUMENTO TRIBUTARIO ELECTRONICO (DTE)

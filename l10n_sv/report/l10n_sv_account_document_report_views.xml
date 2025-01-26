@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="l10n_sv_account_document_report_tree" model="ir.ui.view">
+        <field name="model">l10n_sv_account.document.report</field>
+        <field name="arch" type="xml">
+            <tree string="Documents Report">
+                <field name="date"/>
+                <field name="code"/>
+                <field name="partner_id"/>
+                <field name="taxpayer_registration_number"/>
+                <field name="internal_exempt_purchases"/>
+                <field name="internal_taxable_purchases"/>
+                <field name="external_taxable_purchases"/>
+                <field name="fovial"/>
+                <field name="vat"/>
+                <field name="total"/>
+                <field name="operation_type"/>
+                <field name="classification"/>
+                <field name="classification_type"/>
+                <field name="l10n_sv_account_document_class_id"/>
+                <field name="l10n_sv_account_document_type_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="l10n_sv_account_document_report_action" model="ir.actions.act_window">
+        <field name="name">Documents Report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">l10n_sv_account.document.report</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <menuitem id="l10n_sv_account_document_report_menu" name="Documents Report"
+        action="l10n_sv_account_document_report_action" parent="l10n_sv.l10n_sv_account_document_main" sequence="4"/>
+</odoo>
