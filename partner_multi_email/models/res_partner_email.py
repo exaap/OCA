@@ -32,3 +32,11 @@ class ResPartnerEmail(models.Model):
             state = self.search([], limit=limit)
 
         return state.name_get()
+
+    @api.multi
+    def unlink(self):
+        for record in self:
+            if record.is_main:
+                record.partner_id.email = False
+
+        return super(ResPartnerEmail, self).unlink()
