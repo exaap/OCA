@@ -10,28 +10,29 @@ class StockMove(models.Model):
 
     @api.constrains("state", "location_id", "location_dest_id")
     def check_user_location_restriction(self):
-        if self.state not in ["done", "cancel"]:
-            return True
+        for move_id in self:
+            if move_id.state not in ["done", "cancel"]:
+                return True
 
-        if self.env.user.location_restriction:
-            message = _(
-                "Invalid Location.\n"
-                "You cannot process this move since you do not control "
-                "the location '%s'.\n"
-                "Please contact your Adminstrator."
-            )
-            location_done_ids = self.env.user.location_done_ids
+            if self.env.user.location_restriction:
+                msg = _(
+                    "Invalid Location.\n"
+                    "You cannot process this move since you do not control "
+                    "the location '%s'.\n"
+                    "Please contact your Adminstrator."
+                )
+                location_done_ids = self.env.user.location_done_ids
 
-            if self.state in ["done"]:
-                if self.location_id not in location_done_ids:
-                    raise AccessError(message % self.location_id.display_name)
-                elif self.location_dest_id not in location_done_ids:
-                    raise AccessError(message % self.location_dest_id.display_name)
+                if move_id.state in ["done"]:
+                    if move_id.location_id not in location_done_ids:
+                        raise AccessError(msg % move_id.location_id.display_name)
+                    elif move_id.location_dest_id not in location_done_ids:
+                        raise AccessError(msg % move_id.location_dest_id.display_name)
 
-            location_cancel_ids = self.env.user.location_cancel_ids
+                location_cancel_ids = self.env.user.location_cancel_ids
 
-            if self.state in ["cancel"]:
-                if self.location_id not in location_cancel_ids:
-                    raise AccessError(message % self.location_id.display_name)
-                elif self.location_dest_id not in location_cancel_ids:
-                    raise AccessError(message % self.location_dest_id.display_name)
+                if move_id.state in ["cancel"]:
+                    if move_id.location_id not in location_cancel_ids:
+                        raise AccessError(msg % move_id.location_id.display_name)
+                    elif move_id.location_dest_id not in location_cancel_ids:
+                        raise AccessError(msg % move_id.location_dest_id.display_name)
