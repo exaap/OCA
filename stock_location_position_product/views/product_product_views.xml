@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_normal_form_view" model="ir.ui.view">
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='route_ids']" position="before">
+                <field name="location_position_ids" widget="one2many_list" readonly="1">
+                    <tree editable="bottom">
+                        <field name="stock_location_id" options='{"no_open": True, "no_create": True}'/>
+                        <field name="initial_position"/>
+                        <field name="final_position"/>
+                    </tree>
+                </field>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_normal_form_view_group" model="ir.ui.view">
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product_normal_form_view"/>
+        <field name="groups_id"
+            eval="[(4, ref('stock_location_position_product.group_stock_location_position_manager'))]"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='location_position_ids']" position="attributes">
+                <attribute name="readonly">0</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

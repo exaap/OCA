@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="stock_location_position_tree" model="ir.ui.view">
+		<field name="model">stock.location.position</field>
+		<field name="arch" type="xml">
+			<tree string="Stock Location Positions">
+				<field name="product_template_id"/>
+				<field name="stock_location_id"/>
+				<field name="initial_position"/>
+				<field name="final_position"/>
+			</tree>
+		</field>
+	</record>
+
+	<record id="stock_location_position_form" model="ir.ui.view">
+		<field name="model">stock.location.position</field>
+		<field name="arch" type="xml">
+			<form string="Stock Location Positions">
+				<group>
+					<group>
+						<field name="product_template_id" options='{"no_open": True, "no_create": True}'/>
+						<field name="initial_position"/>
+					</group>
+					<group>
+						<field name="stock_location_id" options='{"no_open": True, "no_create": True}'/>
+						<field name="final_position"/>
+					</group>
+				</group>
+			</form>
+		</field>
+	</record>
+
+	<record id="stock_location_position_search" model="ir.ui.view">
+		<field name="model">stock.location.position</field>
+		<field name="arch" type="xml">
+			<search string="Stock Location Positions">
+				<field name="product_template_id"/>
+				<field name="stock_location_id"/>
+			</search>
+		</field>
+	</record>
+
+	<record id="stock_location_position_action" model="ir.actions.act_window">
+		<field name="name">Stock Location Positions</field>
+		<field name="res_model">stock.location.position</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+	<menuitem name="Stock Location Positions" id="stock_location_position_menu"
+		action="stock_location_position_action" parent="stock.menu_product_in_config_stock"
+		groups="stock_location_position_product.group_stock_location_position_manager"/>
+</odoo>
