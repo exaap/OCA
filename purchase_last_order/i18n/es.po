@@ -1,0 +1,39 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* purchase_last_order
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-30 15:47+0000\n"
+"PO-Revision-Date: 2025-01-30 15:47+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: purchase_last_order
+#: model:ir.model.fields,field_description:purchase_last_order.field_product_product__last_purchase_order_id
+#: model:ir.model.fields,field_description:purchase_last_order.field_product_template__last_purchase_order_id
+msgid "Last Purchase Order"
+msgstr "Último pedido de compra"
+
+#. module: purchase_last_order
+#: model:ir.model,name:purchase_last_order.model_product_template
+msgid "Product"
+msgstr "Producto"
+
+#. module: purchase_last_order
+#: model_terms:ir.ui.view,arch_db:purchase_last_order.product_normal_form_view
+#: model_terms:ir.ui.view,arch_db:purchase_last_order.view_product_supplier_inherit
+msgid "Purchase"
+msgstr "Compra"
+
+#. module: purchase_last_order
+#: model:ir.actions.server,name:purchase_last_order.cron_update_last_purchase_order_id_ir_actions_server
+#: model:ir.cron,cron_name:purchase_last_order.cron_update_last_purchase_order_id
+msgid "Update Last Purchase Order"
+msgstr "Actualizar último pedido de compra"
