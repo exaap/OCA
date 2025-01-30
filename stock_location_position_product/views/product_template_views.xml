@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_template_only_form_view" model="ir.ui.view">
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='route_ids']" position="before">
+                <field
+                    name="location_position_ids"
+                    widget="one2many_list"
+                    readonly="1"
+                    groups="!stock_location_position_product.group_stock_location_position_manager"
+                >
+                    <tree editable="bottom">
+                        <field name="stock_location_id" options='{"no_open": True, "no_create": True}'/>
+                        <field name="initial_position"/>
+                        <field name="final_position"/>
+                    </tree>
+                </field>
+                <field
+                    name="location_position_ids"
+                    widget="one2many_list"
+                    readonly="1"
+                    groups="stock_location_position_product.group_stock_location_position_manager"
+                >
+                    <tree editable="bottom">
+                        <field name="stock_location_id" options='{"no_open": True, "no_create": True}'/>
+                        <field name="initial_position"/>
+                        <field name="final_position"/>
+                    </tree>
+                </field>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_template_kanban_stock_view" model="ir.ui.view">
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="stock.product_template_kanban_stock_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@class='oe_kanban_details']" position="inside">
+                <div t-if="record.type.raw_value == 'product'">Position: <field name="location_position"/></div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_normal_form_view" model="ir.ui.view">
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='route_ids']" position="before">
+                <field
+                    name="location_position_ids"
+                    widget="one2many_list"
+                    readonly="1"
+                    groups="!stock_location_position_product.group_stock_location_position_manager"
+                >
+                    <tree editable="bottom">
+                        <field name="stock_location_id" options='{"no_open": True, "no_create": True}'/>
+                        <field name="initial_position"/>
+                        <field name="final_position"/>
+                    </tree>
+                </field>
+                <field
+                    name="location_position_ids"
+                    widget="one2many_list"
+                    readonly="1"
+                    groups="stock_location_position_product.group_stock_location_position_manager"
+                >
+                    <tree editable="bottom">
+                        <field name="stock_location_id" options='{"no_open": True, "no_create": True}'/>
+                        <field name="initial_position"/>
+                        <field name="final_position"/>
+                    </tree>
+                </field>
+            </xpath>
+        </field>
+    </record>
+</odoo>
