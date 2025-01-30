@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="stock_inventory_line_tree" model="ir.ui.view">
+        <field name="model">stock.inventory.line</field>
+        <field name="inherit_id" ref="stock.stock_inventory_line_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_qty']" position="after">
+                <field name="initial_position" readonly="1"/>
+                <field name="final_position" readonly="1"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="stock_inventory_line_tree_group" model="ir.ui.view">
+        <field name="model">stock.inventory.line</field>
+        <field name="inherit_id" ref="stock_inventory_line_tree"/>
+        <field name="groups_id"
+            eval="[(4, ref('stock_location_position_product.group_stock_location_position_manager'))]"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='initial_position']" position="attributes">
+                <attribute name="readonly">0</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='final_position']" position="attributes">
+                <attribute name="readonly">0</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>
