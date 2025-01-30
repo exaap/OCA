@@ -9,7 +9,6 @@ Stock Move Revaluation
 This module checks if the stock_move is a return of an inventory entry
 to perform the cost price revaluation.
 
-
 Credits
 =======
 

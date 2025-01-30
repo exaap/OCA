@@ -9,7 +9,6 @@ Sale Fiscal Unit
 This module allows to evaluate a tax at sale order level,
 using parameters such as total base and others.
 
-
 Credits
 =======
 

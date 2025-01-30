@@ -9,7 +9,6 @@ Manufacturing Stock Account
 Calculates the sum of the cost price of the raw material
 and assigns it to the manufactured product of the production order.
 
-
 Credits
 =======
 

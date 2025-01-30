@@ -9,7 +9,6 @@ Purchase Fiscal Unit
 This module allows to evaluate a tax at purchase order level,
 using parameters such as total base and others.
 
-
 Credits
 =======
 
