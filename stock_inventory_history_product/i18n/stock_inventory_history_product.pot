@@ -1,0 +1,63 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* stock_inventory_history_product
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-02-03 23:15+0000\n"
+"PO-Revision-Date: 2025-02-03 23:15+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: stock_inventory_history_product
+#: model:ir.model.fields,field_description:stock_inventory_history_product.field_stock_move_line__counted_inventory_quantity
+msgid "Counted Inventory Quantity"
+msgstr ""
+
+#. module: stock_inventory_history_product
+#: model_terms:ir.ui.view,arch_db:stock_inventory_history_product.product_template_form_view
+msgid "Inventory"
+msgstr ""
+
+#. module: stock_inventory_history_product
+#: model:ir.model.fields,field_description:stock_inventory_history_product.field_product_product__inventory_line_ids
+#: model:ir.model.fields,field_description:stock_inventory_history_product.field_product_template__inventory_line_ids
+msgid "Inventory Lines"
+msgstr ""
+
+#. module: stock_inventory_history_product
+#: model:ir.model.fields,field_description:stock_inventory_history_product.field_product_product__last_inventory_date
+#: model:ir.model.fields,field_description:stock_inventory_history_product.field_product_template__last_inventory_date
+msgid "Last Inventory Date"
+msgstr ""
+
+#. module: stock_inventory_history_product
+#: model:ir.model.fields,field_description:stock_inventory_history_product.field_stock_move_line__previous_inventory_quantity
+msgid "Previous Inventory Quantity"
+msgstr ""
+
+#. module: stock_inventory_history_product
+#: model:ir.model,name:stock_inventory_history_product.model_product_template
+msgid "Product"
+msgstr ""
+
+#. module: stock_inventory_history_product
+#: model:ir.model,name:stock_inventory_history_product.model_stock_move_line
+msgid "Product Moves (Stock Move Line)"
+msgstr ""
+
+#. module: stock_inventory_history_product
+#: model:ir.model,name:stock_inventory_history_product.model_product_product
+msgid "Product Variant"
+msgstr ""
+
+#. module: stock_inventory_history_product
+#: model:ir.model,name:stock_inventory_history_product.model_stock_quant
+msgid "Quants"
+msgstr ""
