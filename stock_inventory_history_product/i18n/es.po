@@ -1,0 +1,62 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* stock_inventory_history_product
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-31 21:23+0000\n"
+"PO-Revision-Date: 2025-01-31 21:23+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: stock_inventory_history_product
+#: model:ir.model.fields,help:stock_inventory_history_product.field_stock_inventory_line__date
+msgid "If the inventory adjustment is not validated, date at which the theoritical quantities have been checked.\n"
+"If the inventory adjustment is validated, date at which the inventory adjustment has been validated."
+msgstr "Si el ajuste de inventario no se valida, fecha en la que se verificaron las cantidades teóricas.\n"
+"Si se valida el ajuste de inventario, fecha en la que se ha validado el ajuste de inventario."
+
+#. module: stock_inventory_history_product
+#: model:ir.model,name:stock_inventory_history_product.model_stock_inventory
+#: model_terms:ir.ui.view,arch_db:stock_inventory_history_product.product_template_form_view
+msgid "Inventory"
+msgstr "Inventario"
+
+#. module: stock_inventory_history_product
+#: model:ir.model.fields,field_description:stock_inventory_history_product.field_stock_inventory_line__date
+msgid "Inventory Date"
+msgstr "Fecha del inventario"
+
+#. module: stock_inventory_history_product
+#: model:ir.model,name:stock_inventory_history_product.model_stock_inventory_line
+msgid "Inventory Line"
+msgstr "Línea inventario"
+
+#. module: stock_inventory_history_product
+#: model:ir.model.fields,field_description:stock_inventory_history_product.field_product_product__inventory_line_ids
+#: model:ir.model.fields,field_description:stock_inventory_history_product.field_product_template__inventory_line_ids
+msgid "Inventory Lines"
+msgstr "Líneas de inventario"
+
+#. module: stock_inventory_history_product
+#: model:ir.model.fields,field_description:stock_inventory_history_product.field_product_product__last_inventory_date
+#: model:ir.model.fields,field_description:stock_inventory_history_product.field_product_template__last_inventory_date
+msgid "Last Inventory Date"
+msgstr "Fecha del último inventario"
+
+#. module: stock_inventory_history_product
+#: model:ir.model,name:stock_inventory_history_product.model_product_product
+msgid "Product"
+msgstr "Producto"
+
+#. module: stock_inventory_history_product
+#: model:ir.model,name:stock_inventory_history_product.model_product_template
+msgid "Product Template"
+msgstr "Plantilla de producto"
+
