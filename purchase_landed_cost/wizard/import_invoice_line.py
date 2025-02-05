@@ -35,7 +35,7 @@ class ImportInvoiceLine(models.TransientModel):
         currency_from = self.invoice_line.currency_id
         amount = self.invoice_line.price_subtotal
         currency_to = distribution.currency_id
-        company = distribution.company_id or self.env.user.company_id
+        company = distribution.company_id or self.env.company
         cost_date = distribution.date or fields.Date.today()
         expense_amount = currency_from._convert(amount, currency_to, company, cost_date)
         self.env["purchase.cost.distribution.expense"].create(
