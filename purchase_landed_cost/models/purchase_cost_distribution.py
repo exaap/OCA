@@ -650,7 +650,7 @@ class PurchaseCostDistributionExpense(models.Model):
             currency_from = self.type.company_id.currency_id
             amount = self.type.default_amount
             currency_to = self.distribution.currency_id
-            company = self.company_id or self.env.user.company_id
+            company = self.company_id or self.env.company
             cost_date = self.distribution.date or fields.Date.today()
             self.expense_amount = currency_from._convert(
                 amount, currency_to, company, cost_date
@@ -663,7 +663,7 @@ class PurchaseCostDistributionExpense(models.Model):
         currency_from = self.invoice_line.company_id.currency_id
         amount = self.invoice_line.price_subtotal
         currency_to = self.distribution.currency_id
-        company = self.company_id or self.env.user.company_id
+        company = self.company_id or self.env.company
         cost_date = self.distribution.date or fields.Date.today()
         self.expense_amount = currency_from._convert(
             amount, currency_to, company, cost_date
