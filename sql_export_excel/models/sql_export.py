@@ -18,9 +18,7 @@ except ImportError:
 class SqlExport(models.Model):
     _inherit = "sql.export"
 
-    file_format = fields.Selection(
-        selection_add=[("excel", "Excel")], ondelete={"excel": "set default"}
-    )
+    file_format = fields.Selection(selection_add=[("excel", "Excel")])
     header = fields.Boolean(
         default=True, help="Indicate if the header should be exported to the file."
     )
