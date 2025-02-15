@@ -25,13 +25,13 @@
                 <page string="Equivalent Products">
                     <field name="product_equivalent_ids">
                         <tree>
-							<field name="sku"/>
-							<field name="manufacturer_pref"/>
+                            <field name="sku"/>
+                            <field name="manufacturer_pref"/>
                             <field name="print_to_pdf"/>
-							<field name="brand_id"/>
-							<field name="manufacturer_id"/>
-							<field name="manufacturer_pname"/>
-							<field name="product_id"/>
+                            <field name="brand_id"/>
+                            <field name="manufacturer_id"/>
+                            <field name="manufacturer_pname"/>
+                            <field name="product_id"/>
                         </tree>
                     </field>
                 </page>
@@ -61,12 +61,17 @@
                     '|',
                     '|',
                     '|',
-                    ('sku', 'ilike', self),
+                    '|',
+                    '|',
                     ('default_code', 'ilike', self),
+                    ('product_variant_ids.default_code', 'ilike', self),
                     ('name', 'ilike', self),
                     ('barcode', 'ilike', self),
+                    ('sku', 'ilike', self),
                     ('manufacturer_pref', 'ilike', self),
-                    ('product_equivalent_ids', 'ilike', self)]</attribute>
+                    ('product_equivalent_ids.sku', 'ilike', self),
+                    ('product_equivalent_ids.manufacturer_pref', 'ilike', self)]
+                </attribute>
             </field>
 
             <field name="name" position="after">

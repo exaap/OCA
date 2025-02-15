@@ -18,9 +18,11 @@ class ProductProduct(models.Model):
                 "|",
                 "|",
                 "|",
+                "|",
                 ("manufacturer_pref", operator, name),
                 ("sku", operator, name),
-                ("product_equivalent_ids", operator, name),
+                ("product_equivalent_ids.sku", operator, name),
+                ("product_equivalent_ids.manufacturer_pref", operator, name),
                 ('id', 'in', [x[0] for x in res])
             ]
 

@@ -13,11 +13,8 @@ class StockPicking(models.Model):
         lines = line_obj.search([("stock_move_id", "in", self.move_lines.ids)])
 
         if lines:
-            mod_obj = self.env["ir.model.data"]
-            model, action_id = tuple(
-                mod_obj.get_object_reference("account", "action_account_moves_all_a")
-            )
-            action = self.env[model].browse(action_id).read()[0]
+            xml_id = "account.action_account_moves_all_a"
+            action = self.env.ref(xml_id).read()[0]
             ids = set([x.id for x in lines])
             action["domain"] = "[('id', 'in', %s)]" % list(ids)
 

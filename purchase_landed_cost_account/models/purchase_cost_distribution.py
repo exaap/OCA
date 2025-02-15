@@ -1,7 +1,8 @@
 # Copyright 2024 Joan Marín <Github@JoanMarin>
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl-3.0).
 
-from odoo import fields, models
+from odoo import fields, models, _
+from odoo.exceptions import UserError
 
 
 class PurchaseCostDistribution(models.Model):
@@ -15,11 +16,8 @@ class PurchaseCostDistribution(models.Model):
         lines = line_obj.search([("stock_move_id", "in", list(stock_move_ids))])
 
         if lines:
-            mod_obj = self.env["ir.model.data"]
-            model, action_id = tuple(
-                mod_obj.get_object_reference("account", "action_account_moves_all_a")
-            )
-            action = self.env[model].browse(action_id).read()[0]
+            xml_id = "account.action_account_moves_all_a"
+            action = self.env.ref(xml_id).read()[0]
             ids = set([x.id for x in lines])
             action["domain"] = "[('id', 'in', %s)]" % list(ids)
 
@@ -69,28 +67,17 @@ class PurchaseCostDistribution(models.Model):
                     if line.move_id.state == "posted":
                         line.move_id.button_cancel()
 
-                    data_line = {
-                        "debit": 0.00,
-                        "credit": 0.00,
-                        "balance": 0.00,
-                        "debit_cash_basis": 0.00,
-                        "credit_cash_basis": 0.00,
-                        "balance_cash_basis": 0.00,
-                    }
+                    data_line = {"debit": 0.00, "credit": 0.00, "balance": 0.00}
                     landed_costs = line.cost_ratio * line.quantity
 
                     if line.value_without_landed_costs > 0.00:
                         debit = line.value_without_landed_costs + landed_costs
                         data_line["debit"] = debit
-                        data_line["debit_cash_basis"] = debit
                         data_line["balance"] = debit
-                        data_line["balance_cash_basis"] = debit
                     elif line.value_without_landed_costs < 0.00:
                         credit = (line.value_without_landed_costs * (-1)) + landed_costs
                         data_line["credit"] = credit
-                        data_line["credit_cash_basis"] = credit
                         data_line["balance"] = credit * (-1)
-                        data_line["balance_cash_basis"] = credit * (-1)
 
                     line.write(data_line)
 
@@ -109,22 +96,31 @@ class PurchaseCostDistribution(models.Model):
     def action_done(self):
         self.action_calculate()
         d = {}
+
         for line in self.cost_lines:
             product = line.move_id.product_id
+
             if (
                 product.cost_method != "average"
                 or line.move_id.location_id.usage != "supplier"
             ):
                 continue
+
             d.setdefault(product, [])
             d[product].append(
                 (line.move_id, line.standard_price_new - line.standard_price_old),
             )
+
         for product, vals_list in d.items():
             self._product_price_update(product, vals_list)
+
             for move, price_diff in vals_list:
                 move.price_unit += price_diff
-                move.value = move.product_uom_qty * move.price_unit
+
+                for layer_id in move.stock_valuation_layer_ids:
+                    layer_id.unit_cost = move.price_unit
+                    layer_id.value = layer_id.quantity * move.price_unit
+                    layer_id.remaining_value = layer_id.value
 
         return super(PurchaseCostDistribution, self).action_done()
 
@@ -132,13 +128,16 @@ class PurchaseCostDistribution(models.Model):
         res = super(PurchaseCostDistribution, self).action_draft()
         self.get_value_with_landed_costs()
         d = {}
+
         for line in self.cost_lines:
             product = line.move_id.product_id
+
             if (
                 product.cost_method != "average"
                 or line.move_id.location_id.usage != "supplier"
             ):
                 continue
+
             if (
                 self.currency_id.compare_amounts(
                     line.move_id.price_unit, line.standard_price_new
@@ -152,12 +151,15 @@ class PurchaseCostDistribution(models.Model):
                         "again."
                     )
                 )
+
             d.setdefault(product, [])
             d[product].append(
                 (line.move_id, line.standard_price_old - line.standard_price_new),
             )
+
         for product, vals_list in d.items():
             self._product_price_update(product, vals_list)
+
             for move, price_diff in vals_list:
                 move.price_unit += price_diff
                 move._run_valuation()

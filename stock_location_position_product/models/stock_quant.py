@@ -62,12 +62,12 @@ class StockQuant(models.Model):
                 [
                     "&",
                     ("product_template_id", "=", record.product_id.product_tmpl_id.id),
-                    ("stock_location_id", "=", record.location_id),
+                    ("stock_location_id", "=", record.location_id.id),
                 ]
             )
 
             if location_position_id:
-                vals["initial_position"] = location_position_id.initial_position
-                vals["final_position"] = location_position_id.final_position
+                record.initial_position = location_position_id.initial_position
+                record.final_position = location_position_id.final_position
 
         return rec
