@@ -1,0 +1,96 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* base_location_district
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-02-17 23:38+0000\n"
+"PO-Revision-Date: 2025-02-17 23:38+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: base_location_district
+#: model:ir.model,name:base_location_district.model_res_city_zip
+msgid "City/locations completion object"
+msgstr ""
+
+#. module: base_location_district
+#: model:ir.model,name:base_location_district.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: base_location_district
+#: model:ir.model.fields,field_description:base_location_district.field_res_city_zip_district__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: base_location_district
+#: model:ir.model.fields,field_description:base_location_district.field_res_city_zip_district__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: base_location_district
+#: model:ir.model.fields,field_description:base_location_district.field_res_city_zip_district__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: base_location_district
+#: model:ir.model.fields,field_description:base_location_district.field_res_city_zip_district__name
+#: model:ir.model.fields,field_description:base_location_district.field_res_partner__district_id
+#: model:ir.model.fields,field_description:base_location_district.field_res_users__district_id
+msgid "District"
+msgstr ""
+
+#. module: base_location_district
+#: model_terms:ir.ui.view,arch_db:base_location_district.view_partner_form
+msgid "District completion"
+msgstr ""
+
+#. module: base_location_district
+#: model:ir.model,name:base_location_district.model_res_city_zip_district
+#: model:ir.model.fields,field_description:base_location_district.field_res_city_zip__district_ids
+msgid "Districts"
+msgstr ""
+
+#. module: base_location_district
+#: model:ir.model.fields,field_description:base_location_district.field_res_city_zip_district__id
+msgid "ID"
+msgstr ""
+
+#. module: base_location_district
+#: model:ir.model.fields,field_description:base_location_district.field_res_city_zip_district____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: base_location_district
+#: model:ir.model.fields,field_description:base_location_district.field_res_city_zip_district__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: base_location_district
+#: model:ir.model.fields,field_description:base_location_district.field_res_city_zip_district__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: base_location_district
+#: model_terms:ir.ui.view,arch_db:base_location_district.res_city_zip_district_search
+msgid "Search"
+msgstr ""
+
+#. module: base_location_district
+#: model:ir.model.constraint,message:base_location_district.constraint_res_city_zip_district_name_zip_unique
+msgid ""
+"You already have a district with that name in the same zip. The district "
+"must be unique within it's zip."
+msgstr ""
+
+#. module: base_location_district
+#: model:ir.model.fields,field_description:base_location_district.field_res_city_zip_district__zip_id
+msgid "ZIP Location"
+msgstr ""
