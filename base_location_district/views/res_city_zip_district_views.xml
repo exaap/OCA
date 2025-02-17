@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_city_zip_district_tree" model="ir.ui.view">
+        <field name="model">res.city.zip.district</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="zip_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="res_city_zip_district_search" model="ir.ui.view">
+        <field name="model">res.city.zip.district</field>
+        <field name="arch" type="xml">
+            <search string="Search">
+                <field name="name"/>
+                <field name="zip_id"/>
+            </search>
+        </field>
+    </record>
+</odoo>
