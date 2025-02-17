@@ -53,10 +53,17 @@ class ResPartner(models.Model):
         return res
 
     @api.model_create_multi
-    def create(self, vals):
-        rec = super(ResPartner, self).create(vals)
+    def create(self, vals_list):
+        rec = super(ResPartner, self).create(vals_list)
+        email_ids_flag = False
 
-        if not vals.get("email_ids"):
+        for vals in vals_list:
+            if "email_ids" in vals:
+                email_ids_flag = True
+
+                break
+
+        if not email_ids_flag:
             return rec
 
         for partner_id in rec:
