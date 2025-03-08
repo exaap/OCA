@@ -7,9 +7,10 @@ from odoo import fields, models, api
 class ResPartnerEmail(models.Model):
     _name = "res.partner.email"
     _description = "Multiple Emails"
+    _order = "sequence, id"
 
     name = fields.Char(string="Email", required=True)
-    is_main = fields.Boolean(string="Is Main?", default=False)
+    sequence = fields.Integer(string="Sequence", default=0)
     partner_id = fields.Many2one(comodel_name="res.partner", string="Contact")
 
     def name_get(self):
@@ -32,11 +33,3 @@ class ResPartnerEmail(models.Model):
             state = self.search([], limit=limit)
 
         return state.name_get()
-
-    @api.multi
-    def unlink(self):
-        for record in self:
-            if record.is_main:
-                record.partner_id.email = False
-
-        return super(ResPartnerEmail, self).unlink()
