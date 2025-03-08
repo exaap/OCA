@@ -13,20 +13,27 @@ class ProductBarcode(models.Model):
     _description = "Individual item in a product's barcode list"
     _order = "sequence, id"
 
-    name = fields.Char(string="Barcode", required=True,)
-    sequence = fields.Integer(string="Sequence", default=0,)
+    name = fields.Char(
+        string="Barcode",
+        required=True,
+    )
+    sequence = fields.Integer(
+        default=0,
+    )
     product_id = fields.Many2one(
         string="Product",
         comodel_name="product.product",
-        compute="_compute_product",
+        #compute="_compute_product",
         store=True,
         readonly=False,
+        ondelete="cascade",
     )
     product_tmpl_id = fields.Many2one(
         comodel_name="product.template",
-        compute="_compute_product_tmpl",
+        #compute="_compute_product_tmpl",
         store=True,
         readonly=False,
+        ondelete="cascade",
     )
 
     @api.depends("product_id")
@@ -49,6 +56,9 @@ class ProductBarcode(models.Model):
             )
             if barcodes:
                 raise UserError(
-                    _('The Barcode "%s" already exists for product ' '"%s"')
-                    % (record.name, barcodes[0].product_id.name)
+                    _(
+                        'The Barcode "%(barcode)s" already exists for product '
+                        '"%(product)s"'
+                    )
+                    % {"barcode": record.name, "product": barcodes[0].product_id.name}
                 )
