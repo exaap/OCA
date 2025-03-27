@@ -11,7 +11,7 @@ class StockInventory(models.Model):
     def post_inventory(self):
         res = super(StockInventory, self).post_inventory()
 
-        for move_id in self.move_ids:
-            move_id.product_id.last_inventory_date = move_id.date
+        for line_id in self.line_ids:
+            line_id.product_id.last_inventory_date = self.date
 
         return res
