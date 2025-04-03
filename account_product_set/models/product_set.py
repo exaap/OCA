@@ -21,3 +21,4 @@ class ProductSet(models.Model):
     def _onchange_product_template_id(self):
         if self.product_template_id:
             self.ref = self.product_template_id.default_code
+            self.name = self.product_template_id.name
