@@ -4,7 +4,7 @@
 from odoo import models, fields
 
 
-class ProductSet(models.Model):
+class ProductSetLine(models.Model):
     _inherit = "product.set.line"
 
     product_template_id = fields.Many2one(related="product_set_id.product_template_id")

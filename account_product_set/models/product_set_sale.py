@@ -8,7 +8,7 @@ class ProductSetSale(models.Model):
     _name = "product.set.sale"
     _description = "Product Sets of the Sale"
 
-    order_id = fields.Many2one(comodel_name="sale.order", string="Sale Order")
+    sale_order_id = fields.Many2one(comodel_name="sale.order", string="Sale Order")
     product_id = fields.Many2one(
         comodel_name="product.product",
         string="Kit",

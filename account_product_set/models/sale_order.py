@@ -10,7 +10,7 @@ class SaleOrder(models.Model):
 
     product_set_sale_ids = fields.One2many(
         comodel_name="product.set.sale",
-        inverse_name="order_id",
+        inverse_name="sale_order_id",
         string="Product Sets of the Sale",
     )
 
@@ -74,15 +74,7 @@ class SaleOrder(models.Model):
 
     @api.multi
     def action_confirm(self):
-        if (
-            any(
-                [
-                    l.product_id.set_line_ids or l.product_set_sale_id
-                    for l in self.order_line
-                ]
-            )
-            or self.product_set_sale_ids
-        ):
+        if any([l.product_id.set_line_ids for l in self.order_line]):
             self.action_update_product_set_sale_ids()
 
         return super(SaleOrder, self).action_confirm()

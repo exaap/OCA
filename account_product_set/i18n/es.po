@@ -138,7 +138,7 @@ msgstr "Cantidad"
 
 #. module: account_product_set
 #: model:ir.model,name:account_product_set.model_sale_order
-#: model:ir.model.fields,field_description:account_product_set.field_product_set_sale__order_id
+#: model:ir.model.fields,field_description:account_product_set.field_product_set_sale__sale_order_id
 msgid "Sale Order"
 msgstr "Pedido de venta"
 
