@@ -4,12 +4,10 @@
 		<field name="model">product.equivalent</field>
 		<field name="arch" type="xml">
 			<tree string="Equivalent Products">
-				<field name="sku"/>
 				<field name="manufacturer_pref"/>
-				<field name="print_to_pdf"/>
+				<field name="manufacturer_pname"/>
 				<field name="brand_id"/>
 				<field name="manufacturer_id"/>
-				<field name="manufacturer_pname"/>
 				<field name="product_id"/>
 			</tree>
 		</field>
@@ -21,26 +19,22 @@
 			<form string="Equivalent Products">
 				<group>
 					<group>
-						<field name="sku"/>
 						<field name="manufacturer_pref"/>
-						<field name="print_to_pdf"/>
+						<field name="manufacturer_pname"/>
 						<field name="brand_id" options='{"no_open": True, "no_create": True}'/>
 						<field name="manufacturer_id" options='{"no_open": True, "no_create": True}'/>
-						<field name="manufacturer_pname"/>
 					</group>
 					<group>
 						<field name="product_id" options='{"no_create": True}'/>
-						<field name="classification_id"/>
 					</group>
 				</group>
 				<group>
 					<field name="product_template_ids">
 						<tree>
-							<field name="sku"/>
 							<field name="default_code"/>
+							<field name="name"/>
 							<field name="product_brand_id"/>
 							<field name="manufacturer"/>
-							<field name="name"/>
 						</tree>
 					</field>
 				</group>
@@ -49,11 +43,9 @@
 	</record>
 
 	<record id="product_equivalent_search" model="ir.ui.view">
-		<field name="name">product.equivalent.search</field>
 		<field name="model">product.equivalent</field>
 		<field name="arch" type="xml">
 			<search string="Equivalent Products">
-				<field name="sku"/>
 				<field name="manufacturer_pref"/>
 				<field name="brand_id"/>
 				<field name="manufacturer_id"/>

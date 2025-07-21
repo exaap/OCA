@@ -15,7 +15,7 @@
     ],
     "data": [
         "security/ir.model.access.csv",
-        "views/product_equivalent_classification_views.xml",
+        "views/product_equivalent_group_views.xml",
         "views/product_equivalent_views.xml",
         "views/product_product_views.xml",
         "views/product_template_views.xml",

@@ -7,8 +7,6 @@ from odoo import models, fields, api
 class ProductProduct(models.Model):
     _inherit = "product.product"
 
-    sku = fields.Char(string="Reference EXA", index=True)
-
     @api.model
     def name_search(self, name, args=None, operator="ilike", limit=100):
         res = super(ProductProduct, self).name_search(name, args, operator, limit)
@@ -19,8 +17,8 @@ class ProductProduct(models.Model):
                 "|",
                 "|",
                 ("manufacturer_pref", operator, name),
-                ("sku", operator, name),
                 ("product_equivalent_ids", operator, name),
+                ("old_product_equivalent_ids", operator, name),
                 ('id', 'in', [x[0] for x in res])
             ]
 

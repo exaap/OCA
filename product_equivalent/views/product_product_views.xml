@@ -4,35 +4,35 @@
 		<field name="model">product.product</field>
 		<field name="inherit_id" ref="product.product_normal_form_view"/>
 		<field name="arch" type="xml">
-			<field name="default_code" position="before">
-				<field name="sku"/>
-			</field>
-
 			<xpath expr="//notebook" position="inside">
 				<page string="Equivalent Products">
-					<field name="product_equivalent_ids">
-						<tree>
-							<field name="sku"/>
-							<field name="manufacturer_pref"/>
-							<field name="print_to_pdf"/>
-							<field name="brand_id"/>
-							<field name="manufacturer_id"/>
-							<field name="manufacturer_pname"/>
-							<field name="product_id"/>
-						</tree>
-					</field>
+					<group>
+                        <field name="product_equivalent_group_id"/>
+                    </group>
+					<group string="Equivalent Products">
+						<field name="product_equivalent_ids" nolabel="1">
+							<tree>
+								<field name="manufacturer_pref"/>
+								<field name="brand_id"/>
+								<field name="manufacturer_id"/>
+								<field name="manufacturer_pname"/>
+								<field name="product_id"/>
+							</tree>
+						</field>
+					</group>
+					<group string="Old Equivalent Products">
+						<field name="old_product_equivalent_ids" nolabel="1">
+							<tree>
+								<field name="manufacturer_pref"/>
+								<field name="brand_id"/>
+								<field name="manufacturer_id"/>
+								<field name="manufacturer_pname"/>
+								<field name="product_id"/>
+							</tree>
+						</field>
+					</group>
 				</page>
 			</xpath>
-		</field>
-	</record>
-
-	<record id="product_variant_easy_edit_view" model="ir.ui.view">
-		<field name="model">product.product</field>
-		<field name="inherit_id" ref="product.product_variant_easy_edit_view"/>
-		<field name="arch" type="xml">
-			<field name="default_code" position="before">
-				<field name="sku"/>
-			</field>
 		</field>
 	</record>
 </odoo>

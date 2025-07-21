@@ -8,9 +8,8 @@ class ProductEquivalent(models.Model):
     _name = "product.equivalent"
     _description = "Equivalent Products"
 
-    sku = fields.Char(string="Reference EXA")
     manufacturer_pref = fields.Char(string="Manuf. Product Code", required=True)
-    print_to_pdf = fields.Boolean(string="Print to PDF?")
+    manufacturer_pname = fields.Char(string="Manuf. Product Name")
     brand_id = fields.Many2one(
         string="Brand",
         comodel_name="product.brand",
@@ -22,22 +21,31 @@ class ProductEquivalent(models.Model):
         required=False,
         domain=[("is_manufacturer", "=", True)],
     )
-    manufacturer_pname = fields.Char(string="Manuf. Product Name")
-    classification_id = fields.Many2one(
-        string="Classification of Equivalent Product",
-        comodel_name="product.equivalent.classification",
-    )
     product_id = fields.Many2one(string="Product", comodel_name="product.product")
-    product_template_id = fields.Many2one(
-        string="Product Template", comodel_name="product.template"
+    product_equivalent_group_ids = fields.Many2many(
+        comodel_name="product.equivalent.group",
+        relation="product_equivalent_group_product_equivalent_rel",
+        column1="product_equivalent_id",
+        column2="product_equivalent_group_id",
+        string="Groups of Equivalent Products",
     )
     product_template_ids = fields.Many2many(
         comodel_name="product.template",
-        relation="product_template_product_equivalent_rel",
-        column1="product_equivalent_id",
-        column2="product_template_id",
         string="Related Products",
+        compute="_compute_product_template_ids",
+        store=False,
     )
+    product_template_id = fields.Many2one(
+        string="Product Template", comodel_name="product.template"
+    )
+
+    @api.depends("product_equivalent_group_ids")
+    def _compute_product_template_ids(self):
+        for equivalent_id in self:
+            product_template_ids = equivalent_id.product_equivalent_group_ids.mapped(
+                "product_template_ids"
+            )
+            equivalent_id.product_template_ids = product_template_ids
 
     def name_get(self):
         res = []
@@ -60,11 +68,7 @@ class ProductEquivalent(models.Model):
         args = args or []
 
         if name:
-            args = [
-                "|",
-                ("sku", operator, name),
-                ("manufacturer_pref", operator, name),
-            ] + args
+            args = [("manufacturer_pref", operator, name)] + args
 
         return self.search(args, limit=limit).name_get()
 
@@ -79,4 +83,3 @@ class ProductEquivalent(models.Model):
             record.manufacturer_pname = (
                 record.product_id.product_tmpl_id.manufacturer_pname
             )
-            record.product_template_id = record.product_id.product_tmpl_id

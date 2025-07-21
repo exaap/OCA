@@ -10,7 +10,7 @@ class ProductTemplate(models.Model):
     set_line_ids = fields.One2many(
         comodel_name="product.set.line",
         inverse_name="product_template_id",
-        string="Products",
+        string="Product set line",
     )
 
     @api.multi

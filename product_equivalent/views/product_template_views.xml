@@ -12,28 +12,37 @@
         <field name="model">product.template</field>
         <field name="inherit_id" ref="product.product_template_only_form_view"/>
         <field name="arch" type="xml">
-            <field name="default_code" position="before">
-                <field name="sku"
-                    attrs="{'invisible': [('product_variant_count', '&gt;', 1)]}"/>
-            </field>
-
             <field name="default_code" position="after">
                 <field name="manufacturer_pref"/>
             </field>
 
             <xpath expr="//notebook" position="inside">
                 <page string="Equivalent Products">
-                    <field name="product_equivalent_ids">
-                        <tree>
-							<field name="sku"/>
-							<field name="manufacturer_pref"/>
-                            <field name="print_to_pdf"/>
-							<field name="brand_id"/>
-							<field name="manufacturer_id"/>
-							<field name="manufacturer_pname"/>
-							<field name="product_id"/>
-                        </tree>
-                    </field>
+                    <group>
+                        <field name="product_equivalent_group_id"/>
+                    </group>
+                    <group string="Equivalent Products">
+                        <field name="product_equivalent_ids" nolabel="1">
+                            <tree>
+                                <field name="manufacturer_pref"/>
+                                <field name="brand_id"/>
+                                <field name="manufacturer_id"/>
+                                <field name="manufacturer_pname"/>
+                                <field name="product_id"/>
+                            </tree>
+                        </field>
+                    </group>
+                    <group string="Old Equivalent Products">
+                        <field name="old_product_equivalent_ids" nolabel="1">
+                            <tree>
+                                <field name="manufacturer_pref"/>
+                                <field name="brand_id"/>
+                                <field name="manufacturer_id"/>
+                                <field name="manufacturer_pname"/>
+                                <field name="product_id"/>
+                            </tree>
+                        </field>
+                    </group>
                 </page>
             </xpath>
         </field>
@@ -61,12 +70,12 @@
                     '|',
                     '|',
                     '|',
-                    ('sku', 'ilike', self),
                     ('default_code', 'ilike', self),
                     ('name', 'ilike', self),
                     ('barcode', 'ilike', self),
                     ('manufacturer_pref', 'ilike', self),
-                    ('product_equivalent_ids', 'ilike', self)]</attribute>
+                    ('product_equivalent_ids', 'ilike', self),
+                    ('old_product_equivalent_ids', 'ilike', self)]</attribute>
             </field>
 
             <field name="name" position="after">

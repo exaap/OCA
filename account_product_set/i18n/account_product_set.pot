@@ -121,14 +121,10 @@ msgstr ""
 
 #. module: account_product_set
 #: model:ir.model,name:account_product_set.model_product_set_line
-#: model_terms:ir.ui.view,arch_db:account_product_set.product_template_form_view
-msgid "Product set line"
-msgstr ""
-
-#. module: account_product_set
 #: model:ir.model.fields,field_description:account_product_set.field_product_product__set_line_ids
 #: model:ir.model.fields,field_description:account_product_set.field_product_template__set_line_ids
-msgid "Products"
+#: model_terms:ir.ui.view,arch_db:account_product_set.product_template_form_view
+msgid "Product set line"
 msgstr ""
 
 #. module: account_product_set
