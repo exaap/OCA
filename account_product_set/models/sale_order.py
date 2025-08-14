@@ -28,11 +28,12 @@ class SaleOrder(models.Model):
                             "product_id": order_line_id.product_id.id,
                             "product_qty": order_line_id.product_uom_qty,
                             "price_unit": order_line_id.price_unit,
-                            "discount": order_line_id.discount,
                         },
                     )
                 )
                 order_line_id.unlink()
+
+                continue
 
             if order_line_id.product_set_sale_id:
                 order_line_id.unlink()
@@ -64,7 +65,6 @@ class SaleOrder(models.Model):
                             "product_uom_qty": product_set_sale_id.product_qty
                             * set_line_id.quantity,
                             "price_unit": price_unit,
-                            "discount": set_line_id.discount,
                             "product_set_sale_id": product_set_sale_id.id,
                         },
                     )

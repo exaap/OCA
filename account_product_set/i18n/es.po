@@ -26,11 +26,6 @@ msgid "Created on"
 msgstr "Creado el"
 
 #. module: account_product_set
-#: model:ir.model.fields,field_description:account_product_set.field_product_set_sale__discount
-msgid "Discount"
-msgstr "Descuento"
-
-#. module: account_product_set
 #: model:ir.model.fields,field_description:account_product_set.field_product_set_sale__display_name
 msgid "Display Name"
 msgstr "Nombre mostrado"

@@ -16,7 +16,6 @@ class ProductSetSale(models.Model):
     )
     product_qty = fields.Float("Quantity")
     price_unit = fields.Float(string="Price Unit")
-    discount = fields.Float(string="Discount", default=0.00)
 
     def name_get(self):
         res = []
