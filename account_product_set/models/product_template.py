@@ -13,14 +13,32 @@ class ProductTemplate(models.Model):
         string="Product set line",
     )
 
-    @api.multi
+    @api.model
+    def create(self, vals):
+        set_line_ids = vals.pop("set_line_ids", False)
+        rec = super(ProductTemplate, self).create(vals)
+
+        if set_line_ids:
+            product_set_obj = self.env["product.set"]
+            product_set_id = product_set_obj.create(
+                {
+                    "product_template_id": rec.id,
+                    "is_kit": True,
+                    "ref": rec.default_code,
+                    "name": rec.name,
+                }
+            )
+            product_set_id.write({"set_line_ids": set_line_ids})
+
+        return rec
+
     def write(self, vals):
         if "set_line_ids" in vals:
             product_set_obj = self.env["product.set"]
 
             for record in self:
                 product_set_id = product_set_obj.search(
-                    [("product_template_id", "=", record.id)]
+                    [("product_template_id", "=", record.id)], limit=1
                 )
 
                 if not product_set_id:
