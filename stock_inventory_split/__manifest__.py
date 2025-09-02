@@ -11,7 +11,7 @@
     "maintainers": ["joanmarin"],
     "website": "https://github.com/OCA/stock-logistics-warehouse",
     "depends": [
-        "stock",
+        "stock_inventory_virtual_location",
     ],
     "data": [
         "views/stock_inventory_views.xml",

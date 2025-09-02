@@ -18,8 +18,8 @@ msgstr ""
 #. module: stock_inventory_split
 #: code:addons/stock_inventory_split/models/stock_inventory_line.py:36
 #, python-format
-msgid " - SPLITTED"
-msgstr " - DIVIDIDO"
+msgid " - RECOUNT"
+msgstr " - RECONTEO"
 
 #. module: stock_inventory_split
 #: model:ir.model,name:stock_inventory_split.model_stock_inventory

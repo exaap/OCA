@@ -9,38 +9,31 @@ class StockInventoryLine(models.Model):
     _inherit = "stock.inventory.line"
 
     def _generate_moves(self):
-        diff_lines = self.filtered(
-            lambda l: float_utils.float_compare(
-                l.theoretical_qty,
-                l.product_qty,
-                precision_rounding=l.product_id.uom_id.rounding,
-            )
-            != 0
-        )
-        usual_lines = self
+        line_ids = self.env["stock.inventory.line"]
         split_invetory_id = False
 
-        for line in diff_lines:
+        for line_id in self:
             diff = float_utils.float_compare(
-                line.theoretical_qty - line.product_qty,
+                line_id.theoretical_qty - line_id.product_qty,
                 0.0,
-                precision_rounding=line.product_uom_id.rounding,
+                precision_rounding=line_id.product_uom_id.rounding,
             )
 
-            if (diff < 0 and line.inventory_id.split_missing) or (
-                diff > 0 and line.inventory_id.split_surpluses
+            if (diff < 0 and line_id.inventory_id.split_missing) or (
+                diff > 0 and line_id.inventory_id.split_surpluses
             ):
                 if not split_invetory_id:
                     split_invetory_id = self.env["stock.inventory"].create(
                         {
-                            "name": line.inventory_id.name + _(" - SPLITTED"),
+                            "name": line_id.inventory_id.name + _(" - RECOUNT"),
                             "state": "confirm",
-                            "location_id": line.inventory_id.location_id.id,
-                            "filter": line.inventory_id.filter,
+                            "location_id": line_id.inventory_id.location_id.id,
+                            "filter": line_id.inventory_id.filter,
                         }
                     )
 
-                usual_lines -= line
-                line.inventory_id = split_invetory_id
+                line_id.inventory_id = split_invetory_id
+            else:
+                line_ids += line_id
 
-        return super(StockInventoryLine, usual_lines)._generate_moves()
+        return super(StockInventoryLine, line_ids)._generate_moves()
