@@ -10,7 +10,7 @@ class StockInventoryLine(models.Model):
 
     def _generate_moves(self):
         line_ids = self.env["stock.inventory.line"]
-        split_invetory_id = False
+        split_inventory_id = False
 
         for line_id in self:
             diff = float_utils.float_compare(
@@ -22,8 +22,8 @@ class StockInventoryLine(models.Model):
             if (diff < 0 and line_id.inventory_id.split_missing) or (
                 diff > 0 and line_id.inventory_id.split_surpluses
             ):
-                if not split_invetory_id:
-                    split_invetory_id = self.env["stock.inventory"].create(
+                if not split_inventory_id:
+                    split_inventory_id = self.env["stock.inventory"].create(
                         {
                             "name": line_id.inventory_id.name + _(" - RECOUNT"),
                             "state": "confirm",
@@ -32,7 +32,7 @@ class StockInventoryLine(models.Model):
                         }
                     )
 
-                line_id.inventory_id = split_invetory_id
+                line_id.inventory_id = split_inventory_id
             else:
                 line_ids += line_id
 

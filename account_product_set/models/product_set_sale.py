@@ -27,9 +27,10 @@ class ProductSetSale(models.Model):
         res = []
 
         for record in self:
-            name = "[%s] %s" % (
+            name = "[%s] %s (%s)" % (
                 record.product_id.default_code or "",
                 record.product_id.name or "",
+                str(record.price_unit or ""),
             )
             res.append((record.id, name))
 
