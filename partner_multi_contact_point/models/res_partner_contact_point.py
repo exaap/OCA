@@ -55,7 +55,16 @@ class ResPartnerContactPoint(models.Model):
                     if i == 0:
                         cp_id.with_context(no_edit=True).write({"name": cp_name})
                     else:
-                        cp_copy_id = cp_id.with_context(no_edit=True).copy()
+                        cp_copy_id = self.with_context(no_edit=True).create(
+                            {
+                                "name": cp_id.name,
+                                "type": cp_id.type,
+                                "partner_id": cp_id.partner_id.id,
+                                "phone_extension": cp_id.phone_extension,
+                                "contact_name": cp_id.contact_name,
+                                "job_position_id": cp_id.job_position_id.id or False,
+                            }
+                        )
                         cp_copy_id.with_context(no_edit=True).write({"name": cp_name})
 
     @api.model

@@ -38,10 +38,8 @@ class ResPartner(models.Model):
             )
 
             if cp_name and not cp_id and cp_create:
-                cp_id = (
-                    self.env["res.partner.contact.point"]
-                    .with_context(no_edit=True)
-                    .create({"name": cp_name, "partner_id": self.id, "type": cp_type})
+                cp_id = self.contact_point_ids.with_context(no_edit=True).create(
+                    {"name": cp_name, "partner_id": self.id, "type": cp_type}
                 )
 
                 if cp_type == "phone":
