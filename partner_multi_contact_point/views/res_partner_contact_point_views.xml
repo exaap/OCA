@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_partner_contact_point_tree" model="ir.ui.view">
+        <field name="model">res.partner.contact.point</field>
+        <field name="arch" type="xml">
+            <tree editable="top">
+                <field name="sequence" widget="handle"/>
+                <field name="partner_id"/>
+                <field name="name"/>
+                <field name="type"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="res_partner_contact_point_action" model="ir.actions.act_window">
+        <field name="res_model">res.partner.contact.point</field>
+        <field name="view_mode">tree,form</field>
+        <field name="name">Contact Points</field>
+    </record>
+
+    <menuitem id="res_partner_contact_point_menu" action="res_partner_contact_point_action" name="Contact Points"
+        sequence="2" parent="contacts.menu_contacts"/>
+</odoo>

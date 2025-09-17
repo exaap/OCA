@@ -17,7 +17,11 @@ class IrAttachment(models.Model):
         return url
 
     def _compute_mimetype(self, values):
-        if values.get("url") and values.get("type", "url") == "url":
+        if (
+            values.get("url")
+            and values.get("type") == "url"
+            and values.get("res_model") not in ["ir.module.module", "ir.ui.view"]
+        ):
             url = self._get_url(values.get("url"))
             response = requests.get(url.strip())
             content_type = response.headers.get("Content-Type")
