@@ -67,6 +67,20 @@ class ResPartnerContactPoint(models.Model):
                         )
                         cp_copy_id.with_context(no_edit=True).write({"name": cp_name})
 
+    def set_contact_points(self):
+        cp_id = self.partner_id.contact_point_ids.filtered(
+            lambda cp: cp.type == self.type
+        )[:1]
+        self.partner_id.write({self.type: cp_id.name})
+
+        if self.type == "phone":
+            self.partner_id.write(
+                {
+                    "phone_extension": cp_id.phone_extension,
+                    "job_position_id": cp_id.job_position_id.id or False,
+                }
+            )
+
     @api.model
     def create(self, vals):
         rec = super(ResPartnerContactPoint, self).create(vals)
@@ -84,9 +98,7 @@ class ResPartnerContactPoint(models.Model):
 
         if not self._context.get("no_edit"):
             self.check_contact_points()
-
-            for partner_id in self.mapped("partner_id"):
-                partner_id.set_contact_points()
+            self.set_contact_points()
 
         return res
 

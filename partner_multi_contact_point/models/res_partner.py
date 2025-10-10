@@ -57,7 +57,6 @@ class ResPartner(models.Model):
                 self.write(
                     {
                         "phone_extension": cp_id.phone_extension,
-                        "contact_name": cp_id.contact_name,
                         "job_position_id": cp_id.job_position_id.id or False,
                     }
                 )

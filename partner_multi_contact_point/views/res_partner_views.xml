@@ -4,10 +4,6 @@
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="partner_contact_job_position.view_partner_form_job_position"/>
         <field name="arch" type="xml">
-            <field name="job_position_id" position="attributes">
-                <attribute name="readonly">1</attribute>
-            </field>
-
             <field name="phone" position="attributes">
                 <attribute name="readonly">1</attribute>
             </field>
