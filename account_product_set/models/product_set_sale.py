@@ -15,7 +15,7 @@ class ProductSetSale(models.Model):
         domain=[("set_line_ids", "!=", False)],
         required=True,
     )
-    product_qty = fields.Float(string="Quantity", default=0)
+    product_qty = fields.Float(string="Quantity", default=1)
     price_unit = fields.Float(string="Price Unit")
 
     @api.onchange("product_id")

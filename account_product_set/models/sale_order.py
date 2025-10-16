@@ -77,4 +77,20 @@ class SaleOrder(models.Model):
         if any([l.product_id.set_line_ids for l in self.order_line]):
             self.action_update_product_set_sale_ids()
 
+        for set_sale_id in self.product_set_sale_ids:
+            order_line_ids = self.env["sale.order.line"].search(
+                [("product_set_sale_id", "=", set_sale_id.id)]
+            )
+            price_subtotal = set_sale_id.product_qty * set_sale_id.price_unit
+
+            for order_line_id in order_line_ids:
+                price_subtotal -= order_line_id.price_subtotal
+
+            if price_subtotal:
+                raise UserError(
+                    _(
+                        "Order lines do not add up to the same value as the product sets of the sale."
+                    )
+                )
+
         return super(SaleOrder, self).action_confirm()

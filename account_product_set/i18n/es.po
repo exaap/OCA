@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-01 22:55+0000\n"
-"PO-Revision-Date: 2025-04-01 22:55+0000\n"
+"POT-Creation-Date: 2025-10-16 13:18+0000\n"
+"PO-Revision-Date: 2025-10-16 13:18+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -38,12 +38,19 @@ msgstr ""
 #. module: account_product_set
 #: model:ir.model,name:account_product_set.model_account_invoice_line
 msgid "Invoice Line"
-msgstr "Linea de Factura"
+msgstr "Línea de factura"
 
 #. module: account_product_set
 #: model:ir.model.fields,field_description:account_product_set.field_product_set__is_kit
 msgid "Is Kit?"
 msgstr "¿Es Kit?"
+
+#. module: account_product_set
+#: model:ir.model.fields,field_description:account_product_set.field_account_invoice_line__product_set_sale_id
+#: model:ir.model.fields,field_description:account_product_set.field_product_set_sale__product_id
+#: model:ir.model.fields,field_description:account_product_set.field_sale_order_line__product_set_sale_id
+msgid "Kit"
+msgstr ""
 
 #. module: account_product_set
 #: model:ir.model.fields,field_description:account_product_set.field_product_set_sale____last_update
@@ -61,6 +68,12 @@ msgid "Last Updated on"
 msgstr "Última actualización el"
 
 #. module: account_product_set
+#: code:addons/account_product_set/models/sale_order.py:91
+#, python-format
+msgid "Order lines do not add up to the same value as the product sets of the sale."
+msgstr "Las líneas de pedido no suman el mismo valor que los conjuntos de productos de la venta."
+
+#. module: account_product_set
 #: model:ir.model.fields,field_description:account_product_set.field_product_set_line__percent_price
 msgid "Percentage Price (%)"
 msgstr "Porcentaje precio (%)"
@@ -68,7 +81,7 @@ msgstr "Porcentaje precio (%)"
 #. module: account_product_set
 #: model:ir.model.fields,help:account_product_set.field_product_set_line__percent_price
 msgid "Percentage from 0 to 100 regarding the price of the Kit."
-msgstr "Porcentaje de 0 a 100 sobre el precio del Kit."
+msgstr "Porcentaje de 0 a 100 con respecto al precio del Kit."
 
 #. module: account_product_set
 #: model:ir.model.fields,field_description:account_product_set.field_product_set_sale__price_unit
@@ -82,17 +95,6 @@ msgid "Product"
 msgstr "Producto"
 
 #. module: account_product_set
-#: model:ir.model.fields,field_description:account_product_set.field_product_set_sale__product_id
-msgid "Product Set"
-msgstr "Conjunto de productos"
-
-#. module: account_product_set
-#: model:ir.model.fields,field_description:account_product_set.field_account_invoice_line__product_set_sale_id
-#: model:ir.model.fields,field_description:account_product_set.field_sale_order_line__product_set_sale_id
-msgid "Product Set of the Sale"
-msgstr "Conjunto de productos de la venta"
-
-#. module: account_product_set
 #: model:ir.model,name:account_product_set.model_product_set_sale
 #: model:ir.model.fields,field_description:account_product_set.field_sale_order__product_set_sale_ids
 msgid "Product Sets of the Sale"
@@ -104,7 +106,7 @@ msgid "Product Template"
 msgstr "Plantilla de producto"
 
 #. module: account_product_set
-#: code:addons/account_product_set/models/sale_order.py:48
+#: code:addons/account_product_set/models/sale_order.py:49
 #, python-format
 msgid "Product quantity must be greater than zero."
 msgstr "La cantidad del producto debe ser mayor que cero."
