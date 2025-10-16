@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-21 13:05+0000\n"
-"PO-Revision-Date: 2025-07-21 13:05+0000\n"
+"POT-Creation-Date: 2025-10-16 12:38+0000\n"
+"PO-Revision-Date: 2025-10-16 12:38+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,11 +21,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_equivalent.field_product_equivalent_report__brand_id
 msgid "Brand"
 msgstr "Marca"
-
-#. module: product_equivalent
-#: model:ir.model,name:product_equivalent.model_product_equivalent_classification
-msgid "Classification of Equivalent Products"
-msgstr "Clasificación de Productos Equivalentes"
 
 #. module: product_equivalent
 #: model:ir.model.fields,field_description:product_equivalent.field_product_equivalent_group__code
@@ -194,4 +189,10 @@ msgstr "Plantillas de producto"
 #: model:ir.model.fields,field_description:product_equivalent.field_product_equivalent__product_template_ids
 msgid "Related Products"
 msgstr "Productos Relacionados"
+
+#. module: product_equivalent
+#: code:addons/product_equivalent/models/product_equivalent.py:59
+#, python-format
+msgid "The equivalent product must be unique by brand and manufacturer!"
+msgstr "¡El producto equivalente debe ser único por marca y fabricante!"
 

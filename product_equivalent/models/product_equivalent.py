@@ -1,7 +1,8 @@
 # Copyright 2024 Joan Marín <Github@JoanMarin>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import models, fields, api
+from odoo import models, fields, api, _
+from odoo.exceptions import ValidationError
 
 
 class ProductEquivalent(models.Model):
@@ -38,6 +39,27 @@ class ProductEquivalent(models.Model):
     product_template_id = fields.Many2one(
         string="Product Template", comodel_name="product.template"
     )
+
+    @api.constrains("manufacturer_pref", "brand_id", "manufacturer_id")
+    def _check_unique(self):
+        for rec in self:
+            domain = [
+                ("id", "!=", rec.id),
+                ("manufacturer_pref", "=", rec.manufacturer_pref),
+                ("brand_id", "=", rec.brand_id.id if rec.brand_id else False),
+                (
+                    "manufacturer_id",
+                    "=",
+                    rec.manufacturer_id.id if rec.manufacturer_id else False,
+                ),
+            ]
+
+            if self.search_count(domain):
+                raise ValidationError(
+                    _(
+                        "The equivalent product must be unique by brand and manufacturer!"
+                    )
+                )
 
     @api.depends("product_equivalent_group_ids")
     def _compute_product_template_ids(self):
