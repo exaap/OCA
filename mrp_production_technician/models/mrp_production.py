@@ -8,3 +8,6 @@ class MrpProduction(models.Model):
     _inherit = "mrp.production"
 
     user_technician_id = fields.Many2one(comodel_name="res.users", string="Technician")
+    user_machining_technician_id = fields.Many2one(
+        comodel_name="res.users", string="Machining Technician"
+    )
