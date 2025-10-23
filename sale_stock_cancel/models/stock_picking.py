@@ -8,18 +8,8 @@ from odoo.exceptions import UserError
 class StockPicking(models.Model):
     _inherit = "stock.picking"
 
-    @api.multi
-    def action_cancel(self):
-        done_move_ids = self.mapped("move_lines").filtered(lambda m: m.state == "done")
-        sale_ids = self.mapped("move_lines").mapped("picking_id").mapped("sale_id")
-
-        if not done_move_ids or not sale_ids:
-            return super(StockPicking, self).action_cancel()
-
-        msg = _(
-            "You cannot cancel a sale order that has a stock move that has been set to "
-            "'Done' and does not have its respective return."
-        )
+    def _get_is_anulled(self):
+        done_move_ids = self.mapped("move_lines")
         product_dict = {}
 
         for done_move_id in done_move_ids.sorted(key=lambda m: m.date):
@@ -44,7 +34,25 @@ class StockPicking(models.Model):
         for product_id in product_dict.keys():
             for location_id in product_dict[product_id].keys():
                 if product_dict[product_id][location_id] != 0:
-                    raise UserError(msg)
+                    return False
+
+        return True
+
+    @api.multi
+    def action_cancel(self):
+        done_picking_ids = self.filtered(lambda p: p.state == "done")
+        sale_ids = self.mapped("move_lines").mapped("picking_id").mapped("sale_id")
+
+        if not done_picking_ids or not sale_ids:
+            return super(StockPicking, self).action_cancel()
+
+        msg = _(
+            "You cannot cancel a sale order that has a stock move that has been set to "
+            "'Done' and does not have its respective return."
+        )
+
+        if not done_picking_ids._get_is_anulled():
+            raise UserError(msg)
 
         other_move_ids = self.mapped("move_lines").filtered(lambda m: m.state != "done")
 

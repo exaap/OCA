@@ -66,7 +66,7 @@ msgid "Transfer"
 msgstr "Albarán"
 
 #. module: sale_stock_cancel
-#: code:addons/sale_stock_cancel/models/stock_picking.py:19
+#: code:addons/sale_stock_cancel/models/stock_picking.py:49
 #, python-format
 msgid "You cannot cancel a sale order that has a stock move that has been set to 'Done' and does not have its respective return."
 msgstr "No se puede cancelar un pedido de venta que tenga un movimiento de stock que haya sido establecido como 'Hecho' y no tenga su respectiva devolución."

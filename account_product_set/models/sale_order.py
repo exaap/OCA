@@ -86,7 +86,7 @@ class SaleOrder(models.Model):
             for order_line_id in order_line_ids:
                 price_subtotal -= order_line_id.price_subtotal
 
-            if price_subtotal:
+            if round(price_subtotal, 2):
                 raise UserError(
                     _(
                         "Order lines do not add up to the same value as the product sets of the sale."
