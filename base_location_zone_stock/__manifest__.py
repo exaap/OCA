@@ -2,21 +2,20 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl-3.0).
 
 {
-    "name": "Base Location District",
+    "name": "Stock Location Zone",
     "version": "12.0.1.0.0",
-    "category": "Partner Management",
+    "category": "Warehouse",
     "author": "EXA Auto Parts Github@exaap, "
     "Joan Marín Github@JoanMarin, "
     "Odoo Community Association (OCA)",
     "maintainers": ["joanmarin"],
-    "website": "https://github.com/OCA/partner-contact",
+    "website": "https://github.com/OCA/stock-logistics-warehouse",
     "depends": [
-        "base_location",
+        "base_location_zone",
+        "stock",
     ],
     "data": [
-        "security/ir.model.access.csv",
-        "views/res_city_zip_district_views.xml",
-        "views/res_partner_views.xml",
+        "views/stock_picking_views.xml",
     ],
     "installable": True,
     "license": "AGPL-3",

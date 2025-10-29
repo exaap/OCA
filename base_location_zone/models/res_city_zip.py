@@ -1,0 +1,12 @@
+# Copyright 2024 Joan Marín <Github@JoanMarin>
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl-3.0).
+
+from odoo import models, fields
+
+
+class ResCityZip(models.Model):
+    _inherit = "res.city.zip"
+
+    zone_ids = fields.One2many(
+        comodel_name="res.city.zip.zone", inverse_name="zip_id", string="Zones"
+    )

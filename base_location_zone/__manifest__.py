@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl-3.0).
 
 {
-    "name": "Base Location District",
+    "name": "Base Location Zone",
     "version": "12.0.1.0.0",
     "category": "Partner Management",
     "author": "EXA Auto Parts Github@exaap, "
@@ -11,11 +11,12 @@
     "maintainers": ["joanmarin"],
     "website": "https://github.com/OCA/partner-contact",
     "depends": [
-        "base_location",
+        "base_location_district",
     ],
     "data": [
         "security/ir.model.access.csv",
-        "views/res_city_zip_district_views.xml",
+        "views/res_city_zip_zone_groups_views.xml",
+        "views/res_city_zip_zone_views.xml",
         "views/res_partner_views.xml",
     ],
     "installable": True,

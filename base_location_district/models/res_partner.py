@@ -12,6 +12,6 @@ class ResPartner(models.Model):
     )
 
     @api.onchange("district_id")
-    def onchange_district(self):
+    def _onchange_district_id(self):
         if self.district_id:
             self.zip_id = self.district_id.zip_id
