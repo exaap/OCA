@@ -4,31 +4,26 @@
         <field name="model">mrp.production</field>
         <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
         <field name="arch" type="xml">
+            <xpath expr="//button[@name='button_mark_done']" position="attributes">
+                <attribute name="attrs">{"invisible":
+                    ["|", ("check_to_done", "=", False), ("availability", "!=", "assigned")]}</attribute>
+            </xpath>
+
+            <xpath expr="//button[@name='action_assign']" position="attributes">
+                <attribute name="attrs">{"invisible":
+                    ["|", ("edit_raw_materials", "=", False), ("availability", "in", ("assigned", "none"))]}</attribute>
+            </xpath>
+
             <xpath expr="//button[@name='action_assign']" position="before">
                 <button string="Confirmed" name="action_confirm" type="object"
                     attrs="{'invisible': [('edit_raw_materials', '=', True)]}"/>
             </xpath>
 
-            <xpath expr="//button[@name='button_mark_done']" position="attributes">
-                <attribute name="attrs">{
-                    'invisible': ['|', ('check_to_done', '=', False), ('availability', '!=', 'assigned')]
-                    }</attribute>
-            </xpath>
-
-            <xpath expr="//button[@name='action_assign']" position="attributes">
-                <attribute name="attrs">{
-                    'invisible': [
-                    '|', ('edit_raw_materials', '=', False), ('availability', 'in', ('assigned', 'none'))
-                    ]
-                    }</attribute>
-            </xpath>
-
             <xpath expr="//button[6]" position="attributes">
-                <attribute name="attrs">{
-                    'invisible': ['|', '|', '|', '|', ('is_locked', '=', False),
-                    ('check_to_done', '=', True), ('availability', '!=', 'assigned'), ('state', 'not in',
-                    ('confirmed', 'progress')), ('routing_id', '!=', False)]
-                    }</attribute>
+                <attribute name="attrs">{"invisible":
+                    ["|", "|", "|", "|", ("is_locked", "=", False), ("check_to_done", "=", True),
+                    ("availability", "!=", "assigned"), ("state", "not in", ("confirmed", "progress")),
+                    ("routing_id", "!=", False)]}</attribute>
             </xpath>
 
             <xpath expr="//button[7]" position="attributes">
@@ -36,17 +31,20 @@
             </xpath>
 
             <xpath expr="//button[@name='post_inventory']" position="attributes">
-                <attribute name="attrs">{
-                    'invisible': ['|', ('post_visible', '=', False), ('availability', '!=', 'assigned')]
-                    }</attribute>
+                <attribute name="attrs">{"invisible":
+                    ["|", ("post_visible", "=", False), ("availability", "!=", "assigned")]}</attribute>
+            </xpath>
+
+            <xpath expr="//button[@name='button_scrap']" position="attributes">
+                <attribute name="invisible">1</attribute>
             </xpath>
 
             <xpath expr="//field[@name='product_qty']" position="attributes">
-                <attribute name="attrs">{'readonly': [('has_moves', '=', True), ('edit_raw_materials', '=', True)]}</attribute>
+                <attribute name="attrs">{"readonly": [("has_moves", "=", True), ("edit_raw_materials", "=", True)]}</attribute>
             </xpath>
 
             <xpath expr="//field[@name='product_uom_id']" position="attributes">
-                <attribute name="attrs">{'readonly': [('has_moves', '=', True), ('edit_raw_materials', '=', True)]}</attribute>
+                <attribute name="attrs">{"readonly": [("has_moves", "=", True), ("edit_raw_materials", "=", True)]}</attribute>
             </xpath>
 
             <xpath expr="//button[@name='%(mrp.action_change_production_qty)d']" position="attributes">
