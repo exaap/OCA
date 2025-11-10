@@ -15,6 +15,12 @@ class L10nSvAccountDocument(models.Model):
     partner_id = fields.Many2one(
         comodel_name="res.partner", string="Partner", required=True
     )
+    company_id = fields.Many2one(
+        comodel_name="res.company",
+        string="Company",
+        required=True,
+        default=lambda self: self.env.company,
+    )
     classification = fields.Selection(
         selection=[("expense", "Expense"), ("cost", "Cost")],
         string="Classification",

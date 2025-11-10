@@ -35,18 +35,20 @@
                             <field name="l10n_sv_account_document_type_id"/>
                         </group>
                     </group>
-                    <group>
-                        <field name="move_line_ids" mode="tree" readonly="1">
-                            <tree string="Journal Items">
-                                <field name="move_id"/>
-                                <field name="partner_id"/>
-                                <field name="account_id"/>
-                                <field name="name"/>
-                                <field name="debit" sum="Total Debit"/>
-                                <field name="credit" sum="Total Credit"/>
-                            </tree>
-                        </field>
-                    </group>
+                    <notebook>
+                        <page id="aml_tab" name="aml_tab" string="Journal Items">
+                            <field name="move_line_ids" mode="tree,kanban" readonly="1">
+                                <tree>
+                                    <field name="move_id"/>
+                                    <field name="partner_id"/>
+                                    <field name="account_id"/>
+                                    <field name="name"/>
+                                    <field name="debit" sum="Total Debit"/>
+                                    <field name="credit" sum="Total Credit"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>

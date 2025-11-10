@@ -8,5 +8,5 @@ class L10nSvAccountDocumentType(models.Model):
     _name = "l10n_sv_account.document.type"
     _description = "Document Types"
 
-    code = fields.Char(string="Code")
-    name = fields.Char(string="Name")
+    code = fields.Char(string="Code", required=True)
+    name = fields.Char(string="Name", required=True)

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="res_partner_industry_view_form" model="ir.ui.view">
+        <field name="model">res.partner.industry</field>
+        <field name="inherit_id" ref="partner_industry_secondary.res_partner_industry_view_form"/>
+        <field name="arch" type="xml">
+            <field name="name" position="before">
+                <field name="code"/>
+            </field>
+            <field name="full_name" position="after">
+                <field name="type" class="oe_inline"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="res_partner_industry_view_tree" model="ir.ui.view">
+        <field name="model">res.partner.industry</field>
+        <field name="inherit_id" ref="partner_industry_secondary.res_partner_industry_view_tree"/>
+        <field name="arch" type="xml">
+            <tree position="attributes">
+                <attribute name="decoration-info">type == 'view'</attribute>
+            </tree>
+            <field name="name" position="before">
+                <field name="code"/>
+            </field>
+            <field name="full_name" position="after">
+                <field name="type"/>
+            </field>
+        </field>
+    </record>
+</odoo>

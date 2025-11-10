@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-26 02:51+0000\n"
-"PO-Revision-Date: 2025-01-26 02:51+0000\n"
+"POT-Creation-Date: 2025-06-13 22:29+0000\n"
+"PO-Revision-Date: 2025-06-13 22:29+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -27,6 +27,11 @@ msgid "Admin"
 msgstr "ADMIN"
 
 #. module: l10n_sv
+#: model:l10n_latam.identification.type,name:l10n_sv.it_resident_card
+msgid "Carnet de Residente"
+msgstr ""
+
+#. module: l10n_sv
 #: model:ir.model.fields,field_description:l10n_sv.field_l10n_sv_account_document__classification
 #: model:ir.model.fields,field_description:l10n_sv.field_l10n_sv_account_document_report__classification
 msgid "Classification"
@@ -42,8 +47,20 @@ msgstr "Tipo de clasificación"
 #: model:ir.model.fields,field_description:l10n_sv.field_l10n_sv_account_document__code
 #: model:ir.model.fields,field_description:l10n_sv.field_l10n_sv_account_document_class__code
 #: model:ir.model.fields,field_description:l10n_sv.field_l10n_sv_account_document_type__code
+#: model:ir.model.fields,field_description:l10n_sv.field_res_partner_industry__code
 msgid "Code"
 msgstr "Código"
+
+#. module: l10n_sv
+#: model:ir.model.fields,field_description:l10n_sv.field_l10n_sv_account_document__company_id
+msgid "Company"
+msgstr "Compañía"
+
+#. module: l10n_sv
+#: model:ir.model.fields,field_description:l10n_sv.field_res_partner__company_type
+#: model:ir.model.fields,field_description:l10n_sv.field_res_users__company_type
+msgid "Company Type"
+msgstr "Tipo de compañía"
 
 #. module: l10n_sv
 #: model:ir.model,name:l10n_sv.model_res_partner
@@ -71,6 +88,11 @@ msgstr "Creado por"
 #: model:ir.model.fields,field_description:l10n_sv.field_l10n_sv_account_document_type__create_date
 msgid "Created on"
 msgstr "Creado el"
+
+#. module: l10n_sv
+#: model:l10n_latam.identification.type,name:l10n_sv.it_dui
+msgid "DUI"
+msgstr ""
 
 #. module: l10n_sv
 #: model:ir.model.fields,field_description:l10n_sv.field_l10n_sv_account_document__date
@@ -111,6 +133,11 @@ msgstr "Clase de documento"
 #: model_terms:ir.ui.view,arch_db:l10n_sv.l10n_sv_account_document_class_tree
 msgid "Document Classes"
 msgstr "Clases de documento"
+
+#. module: l10n_sv
+#: model:ir.model.fields,field_description:l10n_sv.field_l10n_latam_identification_type__l10n_sv_document_code
+msgid "Document Code"
+msgstr "Código del documento"
 
 #. module: l10n_sv
 #: model:ir.model.fields,field_description:l10n_sv.field_l10n_sv_account_document__l10n_sv_account_document_type_id
@@ -191,6 +218,22 @@ msgid "ID"
 msgstr ""
 
 #. module: l10n_sv
+#: model:ir.model.fields,field_description:l10n_sv.field_res_partner__l10n_latam_identification_type_id
+#: model:ir.model.fields,field_description:l10n_sv.field_res_users__l10n_latam_identification_type_id
+msgid "Identification Type"
+msgstr "Tipo de Identificación"
+
+#. module: l10n_sv
+#: model:ir.model,name:l10n_sv.model_l10n_latam_identification_type
+msgid "Identification Types"
+msgstr "Tipos de Identificación"
+
+#. module: l10n_sv
+#: model:ir.model,name:l10n_sv.model_res_partner_industry
+msgid "Industry"
+msgstr "Sector"
+
+#. module: l10n_sv
 #: model:ir.model.fields,field_description:l10n_sv.field_account_account__l10n_sv_is_internal_exempt_purchase
 msgid "Internal Exempt Purchase?"
 msgstr "¿Compra Exenta Interna?"
@@ -222,6 +265,11 @@ msgid "Journal Items"
 msgstr "Apuntes contables"
 
 #. module: l10n_sv
+#: model:ir.model.fields.selection,name:l10n_sv.selection__res_partner__company_type__company
+msgid "Juridical Person"
+msgstr "Persona Jurídica"
+
+#. module: l10n_sv
 #: model:ir.model.fields,field_description:l10n_sv.field_l10n_sv_account_document____last_update
 #: model:ir.model.fields,field_description:l10n_sv.field_l10n_sv_account_document_class____last_update
 #: model:ir.model.fields,field_description:l10n_sv.field_l10n_sv_account_document_report____last_update
@@ -244,15 +292,42 @@ msgid "Last Updated on"
 msgstr "Última actualización el"
 
 #. module: l10n_sv
+#: model:ir.model.fields,field_description:l10n_sv.field_res_partner__industry_id
+#: model:ir.model.fields,field_description:l10n_sv.field_res_users__industry_id
+msgid "Main Industry"
+msgstr "Sector principal"
+
+#. module: l10n_sv
+#: model:l10n_latam.identification.type,name:l10n_sv.it_nit
+msgid "NIT"
+msgstr ""
+
+#. module: l10n_sv
 #: model:ir.model.fields,field_description:l10n_sv.field_l10n_sv_account_document_class__name
 #: model:ir.model.fields,field_description:l10n_sv.field_l10n_sv_account_document_type__name
+#: model:ir.model.fields,field_description:l10n_sv.field_res_partner_industry__name
 msgid "Name"
 msgstr "Nombre"
+
+#. module: l10n_sv
+#: model:ir.model.fields.selection,name:l10n_sv.selection__res_partner__company_type__person
+msgid "Natural Person"
+msgstr "Persona Natural"
 
 #. module: l10n_sv
 #: model:ir.model.fields,field_description:l10n_sv.field_l10n_sv_account_document_report__operation_type
 msgid "Operation Type"
 msgstr "Tipo de operación"
+
+#. module: l10n_sv
+#: model:ir.model.fields.selection,name:l10n_sv.selection__res_partner_industry__type__other
+msgid "Other"
+msgstr "Otro"
+
+#. module: l10n_sv
+#: model:ir.model.fields,field_description:l10n_sv.field_res_partner_industry__parent_id
+msgid "Parent"
+msgstr "Padre"
 
 #. module: l10n_sv
 #: model:ir.model.fields,field_description:l10n_sv.field_l10n_sv_account_document__partner_id
@@ -267,12 +342,32 @@ msgid "Sales"
 msgstr "VENTAS"
 
 #. module: l10n_sv
+#: model:ir.model.fields,field_description:l10n_sv.field_res_partner__secondary_industry_ids
+#: model:ir.model.fields,field_description:l10n_sv.field_res_users__secondary_industry_ids
+msgid "Secondary Industries"
+msgstr "Sectores secundarios"
+
+#. module: l10n_sv
 #: model:ir.model.fields,field_description:l10n_sv.field_l10n_sv_account_document_report__taxpayer_registration_number
 #: model:ir.model.fields,field_description:l10n_sv.field_res_partner__taxpayer_registration_number
 #: model:ir.model.fields,field_description:l10n_sv.field_res_users__taxpayer_registration_number
 #: model:res.partner.id_category,name:l10n_sv.id_category_nrc
 msgid "Taxpayer Registration Number"
 msgstr "Número de registro del contribuyente"
+
+#. module: l10n_sv
+#. odoo-python
+#: code:addons/l10n_sv/models/res_partner_industry.py:0
+#: model:ir.model.constraint,message:l10n_sv.constraint_res_partner_industry_code_unique
+#, python-format
+msgid "The code must be unique!"
+msgstr "¡El código debe ser único!"
+
+#. module: l10n_sv
+#: model:ir.model.fields,help:l10n_sv.field_res_partner__l10n_latam_identification_type_id
+#: model:ir.model.fields,help:l10n_sv.field_res_users__l10n_latam_identification_type_id
+msgid "The type of identification"
+msgstr "Tipo de identificación"
 
 #. module: l10n_sv
 #: model:ir.model.fields,field_description:l10n_sv.field_l10n_sv_account_document_report__total
@@ -290,6 +385,11 @@ msgid "Total Debit"
 msgstr "Débito total"
 
 #. module: l10n_sv
+#: model:ir.model.fields,field_description:l10n_sv.field_res_partner_industry__type
+msgid "Type"
+msgstr "Tipo"
+
+#. module: l10n_sv
 #: model:res.groups,name:l10n_sv.group_l10n_sv_account_document_unlink
 msgid "Unlink Documents"
 msgstr "Eliminar Documentos"
@@ -298,3 +398,8 @@ msgstr "Eliminar Documentos"
 #: model:ir.model.fields,field_description:l10n_sv.field_l10n_sv_account_document_report__vat
 msgid "VAT"
 msgstr "IVA"
+
+#. module: l10n_sv
+#: model:ir.model.fields.selection,name:l10n_sv.selection__res_partner_industry__type__view
+msgid "View"
+msgstr "Vista"

@@ -1,0 +1,7 @@
+id,name,l10n_sv_document_code,country_id:id,is_vat,sequence,active
+it_nit,NIT,36,base.sv,TRUE,1,TRUE
+it_dui,DUI,13,base.sv,FALSE,2,TRUE
+l10n_latam_base.it_fid,Otro,37,,FALSE,3,TRUE
+l10n_latam_base.it_pass,Passport,03,,FALSE,4,TRUE
+it_resident_card,Carnet de Residente,02,,FALSE,5,TRUE
+l10n_latam_base.it_vat,NIT,,,TRUE,80,FALSE

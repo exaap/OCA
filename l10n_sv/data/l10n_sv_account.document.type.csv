@@ -1,7 +1,14 @@
 id,code,name
+l10n_sv_account_document_type_01,01,FACTURA
 l10n_sv_account_document_type_03,03,COMPROBANTE DE CRÉDITO FISCAL
+l10n_sv_account_document_type_04,04,NOTA DE REMISIÓN
 l10n_sv_account_document_type_05,05,NOTA DE CRÉDITO
 l10n_sv_account_document_type_06,06,NOTA DE DÉBITO
-l10n_sv_account_document_type_11,11,FACTURA DE EXPORTACIÓN
+l10n_sv_account_document_type_07,07,COMPROBANTE DE RETENCIÓN
+l10n_sv_account_document_type_08,08,COMPROBANTE DE LIQUIDACIÓN
+l10n_sv_account_document_type_09,09,DOCUMENTO CONTABLE DE LIQUIDACIÓN
+l10n_sv_account_document_type_11,11,FACTURAS DE EXPORTACIÓN
 l10n_sv_account_document_type_12,12,DECLARACIÓN DE MERCANCÍAS
 l10n_sv_account_document_type_13,13,MANDAMIENTO DE INGRESO
+l10n_sv_account_document_type_14,14,FACTURAS DE SUJETO EXCLUIDO
+l10n_sv_account_document_type_15,15,COMPROBANTE DE DONACIÓN
