@@ -1,0 +1,86 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* account_move_default_journal
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-03-07 22:00+0000\n"
+"PO-Revision-Date: 2025-03-07 22:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: account_move_default_journal
+#: model_terms:ir.ui.view,arch_db:account_move_default_journal.res_config_settings_view_form
+msgid "<span class=\"o_form_label\">Default Journals</span>"
+msgstr "<span class=\"o_form_label\">Diarios por defecto</span>"
+
+#. module: account_move_default_journal
+#: model:ir.model,name:account_move_default_journal.model_res_company
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: account_move_default_journal
+#: model:ir.model,name:account_move_default_journal.model_res_config_settings
+msgid "Config Settings"
+msgstr "Ajustes de configuración"
+
+#. module: account_move_default_journal
+#: model:ir.model.fields,field_description:account_move_default_journal.field_res_company__default_general_journal_id
+msgid "Default journal for new general bookings"
+msgstr "Diario por defecto para nuevas reservas generales"
+
+#. module: account_move_default_journal
+#: model:ir.model.fields,field_description:account_move_default_journal.field_res_config_settings__account_move_default_general_journal_id
+msgid "Default journal for new miscellaneous bookings"
+msgstr "Diario por defecto para nuevas reservas varias"
+
+#. module: account_move_default_journal
+#: model:ir.model.fields,field_description:account_move_default_journal.field_res_company__default_purchase_journal_id
+#: model:ir.model.fields,field_description:account_move_default_journal.field_res_config_settings__account_move_default_purchase_journal_id
+msgid "Default journal for new purchase bookings"
+msgstr "Diario por defecto para nuevas reservas de compras"
+
+#. module: account_move_default_journal
+#: model:ir.model.fields,field_description:account_move_default_journal.field_res_company__default_sale_journal_id
+#: model:ir.model.fields,field_description:account_move_default_journal.field_res_config_settings__account_move_default_sale_journal_id
+msgid "Default journal for new sale bookings"
+msgstr "Diario por defecto para nuevas reservas de ventas"
+
+#. module: account_move_default_journal
+#: model_terms:ir.ui.view,arch_db:account_move_default_journal.res_config_settings_view_form
+msgid "Default journals for new bookings and invoices."
+msgstr "Diarios por defecto para nuevas reservas y facturas."
+
+#. module: account_move_default_journal
+#: model_terms:ir.ui.view,arch_db:account_move_default_journal.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:account_move_default_journal.view_company_form
+msgid "General Journal"
+msgstr "Diario general"
+
+#. module: account_move_default_journal
+#: model:ir.model,name:account_move_default_journal.model_account_move
+msgid "Journal Entry"
+msgstr "Asiento contable"
+
+#. module: account_move_default_journal
+#: model_terms:ir.ui.view,arch_db:account_move_default_journal.res_config_settings_view_form
+msgid "Journals"
+msgstr "Diarios"
+
+#. module: account_move_default_journal
+#: model_terms:ir.ui.view,arch_db:account_move_default_journal.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:account_move_default_journal.view_company_form
+msgid "Purchase Journal"
+msgstr "Diario de compra"
+
+#. module: account_move_default_journal
+#: model_terms:ir.ui.view,arch_db:account_move_default_journal.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:account_move_default_journal.view_company_form
+msgid "Sale Journal"
+msgstr "Diario de venta"
