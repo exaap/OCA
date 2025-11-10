@@ -1,0 +1,45 @@
+id,code,name,state_id/id,country_id/id
+city_sv_0101,14,AHUACHAPAN CENTRO,state_sv_01,base.sv
+city_sv_0102,13,AHUACHAPAN NORTE,state_sv_01,base.sv
+city_sv_0103,15,AHUACHAPAN SUR,state_sv_01,base.sv
+city_sv_0201,15,SANTA ANA CENTRO,state_sv_02,base.sv
+city_sv_0202,16,SANTA ANA ESTE,state_sv_02,base.sv
+city_sv_0203,14,SANTA ANA NORTE,state_sv_02,base.sv
+city_sv_0204,17,SANTA ANA OESTE,state_sv_02,base.sv
+city_sv_0301,18,SONSONATE CENTRO,state_sv_03,base.sv
+city_sv_0302,19,SONSONATE ESTE,state_sv_03,base.sv
+city_sv_0303,17,SONSONATE NORTE,state_sv_03,base.sv
+city_sv_0304,20,SONSONATE OESTE,state_sv_03,base.sv
+city_sv_0401,35,CHALATENANGO CENTRO,state_sv_04,base.sv
+city_sv_0402,34,CHALATENANGO NORTE,state_sv_04,base.sv
+city_sv_0403,36,CHALATENANGO SUR,state_sv_04,base.sv
+city_sv_0501,24,LA LIBERTAD CENTRO,state_sv_05,base.sv
+city_sv_0502,27,LA LIBERTAD COSTA,state_sv_05,base.sv
+city_sv_0503,26,LA LIBERTAD ESTE,state_sv_05,base.sv
+city_sv_0504,23,LA LIBERTAD NORTE,state_sv_05,base.sv
+city_sv_0505,25,LA LIBERTAD OESTE,state_sv_05,base.sv
+city_sv_0506,28,LA LIBERTAD SUR,state_sv_05,base.sv
+city_sv_0601,23,SAN SALVADOR CENTRO,state_sv_06,base.sv
+city_sv_0602,22,SAN SALVADOR ESTE,state_sv_06,base.sv
+city_sv_0603,20,SAN SALVADOR NORTE,state_sv_06,base.sv
+city_sv_0604,21,SAN SALVADOR OESTE,state_sv_06,base.sv
+city_sv_0605,24,SAN SALVADOR SUR,state_sv_06,base.sv
+city_sv_0701,17,CUSCATLAN NORTE,state_sv_07,base.sv
+city_sv_0702,18,CUSCATLAN SUR,state_sv_07,base.sv
+city_sv_0801,24,LA PAZ CENTRO,state_sv_08,base.sv
+city_sv_0802,25,LA PAZ ESTE,state_sv_08,base.sv
+city_sv_0803,23,LA PAZ OESTE,state_sv_08,base.sv
+city_sv_0901,11,CABAÑAS ESTE,state_sv_09,base.sv
+city_sv_0902,10,CABAÑAS OESTE,state_sv_09,base.sv
+city_sv_1001,14,SAN VICENTE NORTE,state_sv_10,base.sv
+city_sv_1002,15,SAN VICENTE SUR,state_sv_10,base.sv
+city_sv_1101,25,USULUTAN ESTE,state_sv_11,base.sv
+city_sv_1102,24,USULUTAN NORTE,state_sv_11,base.sv
+city_sv_1103,26,USULUTAN OESTE,state_sv_11,base.sv
+city_sv_1201,22,SAN MIGUEL CENTRO,state_sv_12,base.sv
+city_sv_1202,21,SAN MIGUEL NORTE,state_sv_12,base.sv
+city_sv_1203,23,SAN MIGUEL OESTE,state_sv_12,base.sv
+city_sv_1301,27,MORAZAN NORTE,state_sv_13,base.sv
+city_sv_1302,28,MORAZAN SUR,state_sv_13,base.sv
+city_sv_1401,19,LA UNION NORTE,state_sv_14,base.sv
+city_sv_1402,20,LA UNION SUR,state_sv_14,base.sv
