@@ -1,0 +1,169 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* base_multi_branch_company
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-05-02 17:25+0000\n"
+"PO-Revision-Date: 2025-05-02 17:25+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: base_multi_branch_company
+#: model:ir.model.fields,field_description:base_multi_branch_company.field_res_branch__active
+msgid "Active"
+msgstr "Activo"
+
+#. module: base_multi_branch_company
+#: model_terms:ir.ui.view,arch_db:base_multi_branch_company.res_branch_view_form
+msgid "Address"
+msgstr "Dirección"
+
+#. module: base_multi_branch_company
+#: model_terms:ir.ui.view,arch_db:base_multi_branch_company.res_branch_view_form
+#: model_terms:ir.ui.view,arch_db:base_multi_branch_company.res_branch_view_search
+msgid "Archived"
+msgstr "Archivado"
+
+#. module: base_multi_branch_company
+#: model:ir.model.fields,field_description:base_multi_branch_company.field_res_branch__name
+#: model_terms:ir.ui.view,arch_db:base_multi_branch_company.res_branch_view_form
+#: model_terms:ir.ui.view,arch_db:base_multi_branch_company.res_branch_view_search
+msgid "Branch"
+msgstr "Sucursal"
+
+#. module: base_multi_branch_company
+#: model:ir.model.constraint,message:base_multi_branch_company.constraint_res_branch_name_uniq
+msgid "Branch must be unique!"
+msgstr "La sucursal debe ser única."
+
+#. module: base_multi_branch_company
+#: model:ir.actions.act_window,name:base_multi_branch_company.action_res_branch
+#: model:ir.model.fields,field_description:base_multi_branch_company.field_res_company__branch_ids
+#: model:ir.ui.menu,name:base_multi_branch_company.menu_action_res_branch
+msgid "Branches"
+msgstr "Sucursales"
+
+#. module: base_multi_branch_company
+#: model:ir.model.fields,field_description:base_multi_branch_company.field_res_branch__city
+#: model_terms:ir.ui.view,arch_db:base_multi_branch_company.res_branch_view_form
+msgid "City"
+msgstr "Ciudad"
+
+#. module: base_multi_branch_company
+#: model:ir.model,name:base_multi_branch_company.model_res_company
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: base_multi_branch_company
+#: model:ir.model.fields,field_description:base_multi_branch_company.field_res_branch__company_id
+#: model_terms:ir.ui.view,arch_db:base_multi_branch_company.res_branch_view_search
+msgid "Company"
+msgstr "Compañía"
+
+#. module: base_multi_branch_company
+#: model:ir.model,name:base_multi_branch_company.model_res_branch
+msgid "Company Branches"
+msgstr "Sucursales de la compañía"
+
+#. module: base_multi_branch_company
+#: model:ir.model.fields,field_description:base_multi_branch_company.field_res_branch__country_id
+#: model_terms:ir.ui.view,arch_db:base_multi_branch_company.res_branch_view_form
+msgid "Country"
+msgstr "País"
+
+#. module: base_multi_branch_company
+#: model:ir.model.fields,field_description:base_multi_branch_company.field_res_branch__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: base_multi_branch_company
+#: model:ir.model.fields,field_description:base_multi_branch_company.field_res_branch__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: base_multi_branch_company
+#: model:ir.model.fields,field_description:base_multi_branch_company.field_res_branch__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: base_multi_branch_company
+#: model:ir.model.fields,field_description:base_multi_branch_company.field_res_branch__email
+msgid "Email"
+msgstr "Correo electrónico"
+
+#. module: base_multi_branch_company
+#: model:ir.model.fields,field_description:base_multi_branch_company.field_res_branch__state_id
+msgid "Fed. State"
+msgstr "Provincia"
+
+#. module: base_multi_branch_company
+#: model_terms:ir.ui.view,arch_db:base_multi_branch_company.res_branch_view_search
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: base_multi_branch_company
+#: model:ir.model.fields,field_description:base_multi_branch_company.field_res_branch__id
+msgid "ID"
+msgstr ""
+
+#. module: base_multi_branch_company
+#: model:ir.model.fields,field_description:base_multi_branch_company.field_res_branch____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: base_multi_branch_company
+#: model:ir.model.fields,field_description:base_multi_branch_company.field_res_branch__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: base_multi_branch_company
+#: model:ir.model.fields,field_description:base_multi_branch_company.field_res_branch__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: base_multi_branch_company
+#: model:ir.model.fields,field_description:base_multi_branch_company.field_res_branch__phone
+msgid "Phone"
+msgstr "Teléfono"
+
+#. module: base_multi_branch_company
+#: model_terms:ir.ui.view,arch_db:base_multi_branch_company.res_branch_view_form
+msgid "State"
+msgstr "Estado"
+
+#. module: base_multi_branch_company
+#: model:ir.model.fields,field_description:base_multi_branch_company.field_res_branch__street
+msgid "Street"
+msgstr "Calle"
+
+#. module: base_multi_branch_company
+#: model_terms:ir.ui.view,arch_db:base_multi_branch_company.res_branch_view_form
+msgid "Street 2..."
+msgstr "Calle 2..."
+
+#. module: base_multi_branch_company
+#: model_terms:ir.ui.view,arch_db:base_multi_branch_company.res_branch_view_form
+msgid "Street..."
+msgstr "Calle..."
+
+#. module: base_multi_branch_company
+#: model:ir.model.fields,field_description:base_multi_branch_company.field_res_branch__street2
+msgid "Street2"
+msgstr "Calle2"
+
+#. module: base_multi_branch_company
+#: model_terms:ir.ui.view,arch_db:base_multi_branch_company.res_branch_view_form
+msgid "ZIP"
+msgstr "C.P."
+
+#. module: base_multi_branch_company
+#: model:ir.model.fields,field_description:base_multi_branch_company.field_res_branch__zip
+msgid "Zip"
+msgstr "C.P."
