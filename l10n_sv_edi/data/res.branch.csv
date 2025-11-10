@@ -1,2 +1,2 @@
 id,code,name,type,company_id/id
-res_branch_default,0001,Casa Matriz,02,base.main_company
+res_branch_default,M001,Casa Matriz,02,base.main_company

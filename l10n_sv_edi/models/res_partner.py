@@ -17,9 +17,8 @@ class ResPartner(models.Model):
         vat = self.vat.replace(self.country_id.code or "", "").replace("-", "")
 
         if self.l10n_latam_identification_type_id.l10n_sv_document_code == "13":
-            vat = (
-                vat[:-1] + ("" if dte_document_type in ["03", "14"] else "-") + vat[-1:]
-            )
+            if dte_document_type not in ["03", "05", "14"]:
+                vat = vat[:-1] + "-" + vat[-1:]
 
         return vat
 

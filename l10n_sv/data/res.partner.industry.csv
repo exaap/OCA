@@ -54,7 +54,7 @@ ciiu_sv_01622,01622,Servicios de mano de obra pecuaria,ciiu_sv_01,other
 ciiu_sv_01629,01629,Servicios pecuarios ncp,ciiu_sv_01,other
 ciiu_sv_01631,01631,Labores post cosecha de preparación de los productos agrícolas para su comercialización o para la industria,ciiu_sv_01,other
 ciiu_sv_01632,01632,Servicio de beneficio de café,ciiu_sv_01,other
-ciiu_sv_01635,01635,Servicio de beneficiado de plantas textiles (incluye el beneficiado cuando este es realizado en la misma explotación agropecuaria),ciiu_sv_01,other
+ciiu_sv_01633,01633,Servicio de beneficiado de plantas textiles (incluye el beneficiado cuando este es realizado en la misma explotación agropecuaria),ciiu_sv_01,other
 ciiu_sv_01640,01640,Tratamiento de semillas para la propagación,ciiu_sv_01,other
 ciiu_sv_01700,01700,"Caza ordinaria y mediante trampas, repoblación de animales de caza y servicios conexos",ciiu_sv_01,other
 ciiu_sv_02,02,SILVICULTURA Y EXTRACCIÓN DE MADERA,base.res_partner_industry_A,view
@@ -101,7 +101,7 @@ ciiu_sv_10108,10108,Elaboración de productos de carne ncp,ciiu_sv_10,other
 ciiu_sv_10201,10201,"Procesamiento y conservación de pescado, crustáceos y moluscos",ciiu_sv_10,other
 ciiu_sv_10209,10209,Fabricación de productos de pescado ncp,ciiu_sv_10,other
 ciiu_sv_10301,10301,Elaboración de jugos de frutas y hortalizas,ciiu_sv_10,other
-ciiu_sv_10302,10302,"Elaboración y envasado de jaleas, mermeladas y frutas deshidratadas",ciiu_sv_10,other
+ciiu_sv_10302,10302,"Elaboración y envase de jaleas, mermeladas y frutas deshidratadas",ciiu_sv_10,other
 ciiu_sv_10309,10309,Elaboración de productos de frutas y hortalizas n.c.p.,ciiu_sv_10,other
 ciiu_sv_10401,10401,Fabricación de aceites y grasas vegetales y animales comestibles,ciiu_sv_10,other
 ciiu_sv_10402,10402,Fabricación de aceites y grasas vegetales y animales no comestibles,ciiu_sv_10,other
@@ -122,8 +122,8 @@ ciiu_sv_10722,10722,Molienda de caña de azúcar para la elaboración de dulces,
 ciiu_sv_10723,10723,Elaboración de jarabes de azúcar y otros similares,ciiu_sv_10,other
 ciiu_sv_10724,10724,Maquilado de azúcar de caña,ciiu_sv_10,other
 ciiu_sv_10730,10730,"Fabricación de cacao, chocolates y productos de confitería",ciiu_sv_10,other
-ciiu_sv_10740,10740,"Fabricación de macarrones, fideos, y productos farináceos similares",ciiu_sv_10,other
-ciiu_sv_10750,10750,Elaboración de comidas y platos preparados para la reventa en,ciiu_sv_10,other
+ciiu_sv_10740,10740,"Elaboración de macarrones, fideos, y productos farináceos similares",ciiu_sv_10,other
+ciiu_sv_10750,10750,Elaboración de comidas y platos preparados para la reventa en locales y/o para exportación,ciiu_sv_10,other
 ciiu_sv_10791,10791,Elaboración de productos de café,ciiu_sv_10,other
 ciiu_sv_10792,10792,"Elaboración de especies, sazonadores y condimentos",ciiu_sv_10,other
 ciiu_sv_10793,10793,"Elaboración de sopas, cremas y consomé",ciiu_sv_10,other
@@ -171,7 +171,7 @@ ciiu_sv_14301,14301,"Fabricación de calcetines, calcetas, medias (panty house) 
 ciiu_sv_14302,14302,Fabricación de ropa interior de tejido de punto,ciiu_sv_14,other
 ciiu_sv_14309,14309,Fabricación de prendas de vestir de tejido de punto ncp,ciiu_sv_14,other
 ciiu_sv_15,15,FABRICACIÓN DE CUEROS Y PRODUCTOS CONEXOS,base.res_partner_industry_C,view
-ciiu_sv_15110,15110,Curtiido y adobo de cueros; adobo y teñido de pieles,ciiu_sv_15,other
+ciiu_sv_15110,15110,Curtido y adobo de cueros; adobo y teñido de pieles,ciiu_sv_15,other
 ciiu_sv_15121,15121,"Fabricación de maletas, bolsos de mano y otros artículos de marroquinería",ciiu_sv_15,other
 ciiu_sv_15122,15122,"Fabricación de monturas, accesorios y vainas talabartería",ciiu_sv_15,other
 ciiu_sv_15123,15123,Fabricación de artesanías principalmente de cuero natural y sintético,ciiu_sv_15,other
@@ -182,7 +182,7 @@ ciiu_sv_15208,15208,Maquilado de partes y accesorios de calzado,ciiu_sv_15,other
 ciiu_sv_16,16,PRODUCCIÓN DE MADERA Y FABRICACIÓN DE PRODUCTOS DE MADERA Y CORCHO EXCEPTO MUEBLES; FABRICACIÓN DE ARTÍCULOS DE PAJA Y DE MATERIALES TRENZABLES,base.res_partner_industry_C,view
 ciiu_sv_16100,16100,Aserradero y acepilladura de madera,ciiu_sv_16,other
 ciiu_sv_16210,16210,"Fabricación de madera laminada, terciada, enchapada y contrachapada, paneles para la construcción",ciiu_sv_16,other
-ciiu_sv_16220,16220,Fabricación de partes y piezas de carpintería para edificios y construcción,ciiu_sv_16,other
+ciiu_sv_16220,16220,Fabricación de partes y piezas de carpintería para edificios y construcciones,ciiu_sv_16,other
 ciiu_sv_16230,16230,Fabricación de envases y recipientes de madera,ciiu_sv_16,other
 ciiu_sv_16292,16292,"Fabricación de artesanías de madera, semillas, materiales trenzables",ciiu_sv_16,other
 ciiu_sv_16299,16299,"Fabricación de productos de madera, corcho, paja y materiales trenzables ncp",ciiu_sv_16,other
@@ -211,12 +211,12 @@ ciiu_sv_20210,20210,Fabricación de plaguicidas y otros productos químicos de u
 ciiu_sv_20220,20220,"Fabricación de pinturas, barnices y productos de revestimiento similares; tintas de imprenta y masillas",ciiu_sv_20,other
 ciiu_sv_20231,20231,"Fabricación de jabones, detergentes y similares para limpieza",ciiu_sv_20,other
 ciiu_sv_20232,20232,"Fabricación de perfumes, cosméticos y productos de higiene y cuidado personal, incluyendo tintes, champú, etc.",ciiu_sv_20,other
-ciiu_sv_20291,20291,Fabricación de tintas y colores para escribir y pintar; fabricación de tintas para impresoras,ciiu_sv_20,other
+ciiu_sv_20291,20291,Fabricación de tintas y colores para escribir y pintar; fabricación de cintas para impresoras,ciiu_sv_20,other
 ciiu_sv_20292,20292,"Fabricación de productos pirotécnicos, explosivos y municiones",ciiu_sv_20,other
 ciiu_sv_20299,20299,Fabricación de productos químicos n.c.p.,ciiu_sv_20,other
 ciiu_sv_20300,20300,Fabricación de fibras artificiales,ciiu_sv_20,other
 ciiu_sv_21,21,"FABRICACIÓN DE PRODUCTOS FARMACÉUTICOS, SUSTANCIAS QUÍMICAS MEDICINALES Y PRODUCTOS BOTÁNICOS DE USO FARMACÉUTICO",base.res_partner_industry_C,view
-ciiu_sv_21001,21001,"Fabricación de productos farmacéuticos, sustancias químicas y productos botánicos",ciiu_sv_21,other
+ciiu_sv_21001,21001,"Manufactura de productos farmacéuticos, sustancias químicas y productos botánicos",ciiu_sv_21,other
 ciiu_sv_21008,21008,Maquilado de medicamentos,ciiu_sv_21,other
 ciiu_sv_22,22,FABRICACIÓN DE PRODUCTOS DE CAUCHO Y PLÁSTICO,base.res_partner_industry_C,view
 ciiu_sv_22110,22110,Fabricación de cubiertas y cámaras; renovación y recauchutado de cubiertas,ciiu_sv_22,other
@@ -259,7 +259,7 @@ ciiu_sv_26,26,"FABRICACIÓN DE PRODUCTOS DE INFORMÁTICA, ELECTRÓNICA Y ÓPTICA
 ciiu_sv_26100,26100,Fabricación de componentes electrónicos,ciiu_sv_26,other
 ciiu_sv_26200,26200,Fabricación de computadoras y equipo conexo,ciiu_sv_26,other
 ciiu_sv_26300,26300,Fabricación de equipo de comunicaciones,ciiu_sv_26,other
-ciiu_sv_26400,26400,"Fabricación de aparatos electrónicos de consumo para audio, video, radio y televisión",ciiu_sv_26,other
+ciiu_sv_26400,26400,"Fabricación de aparatos electrónicos de consumo para audio, video radio y televisión",ciiu_sv_26,other
 ciiu_sv_26510,26510,"Fabricación de instrumentos y aparatos para medir, verificar, ensayar, navegar y de control de procesos industriales",ciiu_sv_26,other
 ciiu_sv_26520,26520,Fabricación de relojes y piezas de relojes,ciiu_sv_26,other
 ciiu_sv_26600,26600,Fabricación de equipo médico de irradiación y equipo electrónico de uso médico y terapéutico,ciiu_sv_26,other
@@ -285,7 +285,7 @@ ciiu_sv_28170,28170,Fabricación de maquinaria y equipo de oficina,ciiu_sv_28,ot
 ciiu_sv_28180,28180,Fabricación de herramientas manuales,ciiu_sv_28,other
 ciiu_sv_28190,28190,Fabricación de otros tipos de maquinaria de uso general,ciiu_sv_28,other
 ciiu_sv_28210,28210,Fabricación de maquinaria agropecuaria y forestal,ciiu_sv_28,other
-ciiu_sv_28220,28220,Fabricación de máquinas para conformar metales y maquinaria herramienta,ciiu_sv_28,other
+ciiu_sv_28220,28220,Fabricación de máquinas para conformar metales y maquinaria herramienta ,ciiu_sv_28,other
 ciiu_sv_28230,28230,Fabricación de maquinaria metalúrgica,ciiu_sv_28,other
 ciiu_sv_28240,28240,Fabricación de maquinaria para la explotación de minas y canteras y para obras de construcción,ciiu_sv_28,other
 ciiu_sv_28250,28250,"Fabricación de maquinaria para la elaboración de alimentos, bebidas y tabaco",ciiu_sv_28,other
@@ -294,7 +294,7 @@ ciiu_sv_28291,28291,Fabricación de máquinas para imprenta,ciiu_sv_28,other
 ciiu_sv_28299,28299,Fabricación de maquinaria de uso especial ncp,ciiu_sv_28,other
 ciiu_sv_29,29,"FABRICACIÓN DE VEHÍCULOS AUTOMOTORES, REMOLQUES Y SEMIRREMOLQUES",base.res_partner_industry_C,view
 ciiu_sv_29100,29100,Fabricación vehículos automotores,ciiu_sv_29,other
-ciiu_sv_29200,29200,Fabricación de carrocerías para vehículos automotores; fabricación de remolques y semirremolques,ciiu_sv_29,other
+ciiu_sv_29200,29200,Fabricación de carrocerías para vehículos automotores; fabricación de remolques y semiremolques,ciiu_sv_29,other
 ciiu_sv_29300,29300,"Fabricación de partes, piezas y accesorios para vehículos automotores",ciiu_sv_29,other
 ciiu_sv_30,30,FABRICACIÓN DE OTROS TIPOS DE EQUIPO DE TRANSPORTE,base.res_partner_industry_C,view
 ciiu_sv_30110,30110,Fabricación de buques,ciiu_sv_30,other
@@ -357,7 +357,7 @@ ciiu_sv_38302,38302,Reciclaje de desperdicios y desechos de plástico y caucho,c
 ciiu_sv_38303,38303,Reciclaje de desperdicios y desechos de vidrio,ciiu_sv_38,other
 ciiu_sv_38304,38304,Reciclaje de desperdicios y desechos de papel y cartón,ciiu_sv_38,other
 ciiu_sv_38305,38305,Reciclaje de desperdicios y desechos metálicos,ciiu_sv_38,other
-ciiu_sv_38309,38309,Reciclaje de desperdicios y desechos n.c.p.,ciiu_sv_38,other
+ciiu_sv_38309,38309,Reciclaje de desperdicios y desechos no metálicos n.c.p.,ciiu_sv_38,other
 ciiu_sv_39,39,ACTIVIDADES DE SANEAMIENTO Y OTROS SERVICIOS DE GESTIÓN DE DESECHOS,base.res_partner_industry_E,view
 ciiu_sv_39000,39000,Actividades de Saneamiento y otros Servicios de Gestión de Desechos,ciiu_sv_39,other
 base.res_partner_industry_F,F,CONSTRUCCIÓN,,view
@@ -418,7 +418,7 @@ ciiu_sv_46372,46372,"Venta al por mayor de pollos, gallinas destazadas, pavos y 
 ciiu_sv_46373,46373,"Venta al por mayor de carne bovina y porcina, productos de carne y embutidos",ciiu_sv_46,other
 ciiu_sv_46374,46374,Venta al por mayor de huevos,ciiu_sv_46,other
 ciiu_sv_46375,46375,Venta al por mayor de productos lácteos,ciiu_sv_46,other
-ciiu_sv_46376,46376,"Venta al por mayor de productos farináceos de panadería (pan dulce, cakes, repostería, etc.)",ciiu_sv_46,other
+ciiu_sv_46376,46376,"Venta al por mayor de productos farináceos de panadería (pan dulce, cakes, respostería, etc.)",ciiu_sv_46,other
 ciiu_sv_46377,46377,"Venta al por mayor de pastas alimenticias, aceites y grasas comestibles vegetal y animal",ciiu_sv_46,other
 ciiu_sv_46378,46378,Venta al por mayor de sal comestible,ciiu_sv_46,other
 ciiu_sv_46379,46379,Venta al por mayor de azúcar,ciiu_sv_46,other
@@ -427,8 +427,8 @@ ciiu_sv_46392,46392,Venta al por mayor de aguas gaseosas,ciiu_sv_46,other
 ciiu_sv_46393,46393,Venta al por mayor de agua purificada,ciiu_sv_46,other
 ciiu_sv_46394,46394,"Venta al por mayor de refrescos y otras bebidas, líquidas o en polvo",ciiu_sv_46,other
 ciiu_sv_46395,46395,Venta al por mayor de cerveza y licores,ciiu_sv_46,other
-ciiu_sv_46410,46410,Venta al por mayor de hielo,ciiu_sv_46,other
-ciiu_sv_46411,46411,"Venta al por mayor de hilados, tejidos y productos textiles de todo tipo",ciiu_sv_46,other
+ciiu_sv_46396,46396,Venta al por mayor de hielo,ciiu_sv_46,other
+ciiu_sv_46411,46411,"Venta al por mayor de hilados, tejidos y productos textiles de mercería",ciiu_sv_46,other
 ciiu_sv_46412,46412,Venta al por mayor de artículos textiles excepto confecciones para el hogar,ciiu_sv_46,other
 ciiu_sv_46413,46413,Venta al por mayor de confecciones textiles para el hogar,ciiu_sv_46,other
 ciiu_sv_46414,46414,Venta al por mayor de prendas de vestir y accesorios de vestir,ciiu_sv_46,other
@@ -483,7 +483,7 @@ ciiu_sv_46691,46691,Venta al por mayor de sal industrial sin yodar,ciiu_sv_46,ot
 ciiu_sv_46692,46692,Venta al por mayor de productos intermedios y desechos de origen textil,ciiu_sv_46,other
 ciiu_sv_46693,46693,Venta al por mayor de productos intermedios y desechos de origen metálico,ciiu_sv_46,other
 ciiu_sv_46694,46694,Venta al por mayor de productos intermedios y desechos de papel y cartón,ciiu_sv_46,other
-ciiu_sv_46695,46695,"Venta al por mayor de fertilizantes, abonos, agroquímicos y productos afines",ciiu_sv_46,other
+ciiu_sv_46695,46695,"Venta al por mayor fertilizantes, abonos, agroquímicos y productos similares",ciiu_sv_46,other
 ciiu_sv_46696,46696,Venta al por mayor de productos intermedios y desechos de origen plástico,ciiu_sv_46,other
 ciiu_sv_46697,46697,"Venta al por mayor de tintas para imprenta, productos curtientes y materias y productos colorantes",ciiu_sv_46,other
 ciiu_sv_46698,46698,Venta de productos intermedios y desechos de origen químico y de caucho,ciiu_sv_46,other
@@ -500,6 +500,7 @@ ciiu_sv_47,47,"COMERCIO AL POR MENOR, EXCEPTO DE VEHÍCULOS AUTOMOTORES Y MOTOCI
 ciiu_sv_47111,47111,Venta en supermercados,ciiu_sv_47,other
 ciiu_sv_47112,47112,Venta en tiendas de artículos de primera necesidad,ciiu_sv_47,other
 ciiu_sv_47119,47119,Almacenes (venta de diversos artículos),ciiu_sv_47,other
+ciiu_sv_47120,47120,"Almacenes (venta de diversos artículos), y venta de vehículos automotores y motocicletas",ciiu_sv_47,other
 ciiu_sv_47190,47190,Venta al por menor de otros productos en comercios no especializados,ciiu_sv_47,other
 ciiu_sv_47199,47199,"Venta de establecimientos no especializados con surtido compuesto principalmente de alimentos, bebidas y tabaco",ciiu_sv_47,other
 ciiu_sv_47211,47211,Venta al por menor de frutas y hortalizas,ciiu_sv_47,other
@@ -525,8 +526,8 @@ ciiu_sv_47521,47521,Venta al por menor de productos de madera,ciiu_sv_47,other
 ciiu_sv_47522,47522,Venta al por menor de artículos de ferretería,ciiu_sv_47,other
 ciiu_sv_47523,47523,Venta al por menor de productos de pinturerías,ciiu_sv_47,other
 ciiu_sv_47524,47524,Venta al por menor en vidrierías,ciiu_sv_47,other
-ciiu_sv_47529,47529,"Venta al por menor de materiales de construcción y artículos conexos,ciiu_sv_47,other
-ciiu_sv_47530,47530,Venta al por menor de tapices, alfombras y revestimientos de paredes y pisos en comercios especializados",ciiu_sv_47,other
+ciiu_sv_47529,47529,"Venta al por menor de materiales de construcción y artículos conexos",ciiu_sv_47,other
+ciiu_sv_47530,47530,"Venta al por menor de tapices, alfombras y revestimientos de paredes y pisos en comercios especializados",ciiu_sv_47,other
 ciiu_sv_47591,47591,Venta al por menor de muebles,ciiu_sv_47,other
 ciiu_sv_47592,47592,Venta al por menor de artículos de bazar,ciiu_sv_47,other
 ciiu_sv_47593,47593,"Venta al por menor de aparatos electrodomésticos, repuestos y accesorios",ciiu_sv_47,other
@@ -613,9 +614,8 @@ ciiu_sv_52102,52102,Alquiler de silos para conservación y almacenamiento de gra
 ciiu_sv_52103,52103,Alquiler de instalaciones con refrigeración para almacenamiento y conservación de alimentos y otros productos,ciiu_sv_52,other
 ciiu_sv_52109,52109,Alquiler de bodegas para almacenamiento y depósito n.c.p.,ciiu_sv_52,other
 ciiu_sv_52211,52211,Servicio de garaje y estacionamiento,ciiu_sv_52,other
-ciiu_sv_52212,52212,Servicio de terminales de pasajeros,ciiu_sv_52,other
-ciiu_sv_52213,52213,Servicio de terminales de carga,ciiu_sv_52,other
-ciiu_sv_52219,52219,Servicios de apoyo al transporte n.c.p.,ciiu_sv_52,other
+ciiu_sv_52212,52212,Servicios de terminales para el transporte por vía terrestre,ciiu_sv_52,other
+ciiu_sv_52219,52219,Servicios para el transporte por vía terrestre n.c.p.,ciiu_sv_52,other
 ciiu_sv_52220,52220,Servicios para el transporte acuático,ciiu_sv_52,other
 ciiu_sv_52230,52230,Servicios para el transporte aéreo,ciiu_sv_52,other
 ciiu_sv_52240,52240,Manipulación de carga,ciiu_sv_52,other
@@ -652,7 +652,9 @@ ciiu_sv_58190,58190,Otras actividades de edición,ciiu_sv_58,other
 ciiu_sv_58200,58200,Edición de programas informáticos (software),ciiu_sv_58,other
 ciiu_sv_59,59,"ACTIVIDADES DE PRODUCCIÓN DE PELÍCULAS CINEMATOGRÁFICAS, VIDEOS Y PROGRAMAS DE TELEVISIÓN, GRABACIÓN DE SONIDO Y EDICIÓN DE MÚSICA",base.res_partner_industry_J,view
 ciiu_sv_59110,59110,Actividades de producción cinematográfica,ciiu_sv_59,other
-ciiu_sv_59140,59140,Actividades de exhibición de películas cinematográficas y cintas de video,ciiu_sv_59,other
+ciiu_sv_59120,59120,"Actividades de post producción de películas, videos y programas de televisión",ciiu_sv_59,other
+ciiu_sv_59130,59130,"Actividades de distribución de películas cinematográficas, videos y programas de televisión",ciiu_sv_59,other
+ciiu_sv_59140,59140,Actividades de exhibición de películas cinematográficas y cintas de vídeo,ciiu_sv_59,other
 ciiu_sv_59200,59200,Actividades de edición y grabación de música,ciiu_sv_59,other
 ciiu_sv_60,60,ACTIVIDADES DE PROGRAMACIÓN Y TRANSMISIÓN,base.res_partner_industry_J,view
 ciiu_sv_60100,60100,Servicios de difusiones de radio,ciiu_sv_60,other
@@ -676,17 +678,17 @@ ciiu_sv_62010,62010,Programación Informática,ciiu_sv_62,other
 ciiu_sv_62020,62020,Consultorías y gestión de servicios informáticos,ciiu_sv_62,other
 ciiu_sv_62090,62090,Otras actividades de tecnología de información y servicios de computadora,ciiu_sv_62,other
 ciiu_sv_63,63,ACTIVIDADES DE SERVICIOS DE INFORMACIÓN,base.res_partner_industry_J,view
-ciiu_sv_63110,63110,Procesamiento de datos y actividades relacionadas,ciiu_sv_63,other
+ciiu_sv_63110,63110,Procesamiento de datos y Actividades relacionadas,ciiu_sv_63,other
 ciiu_sv_63120,63120,Portales WEB,ciiu_sv_63,other
 ciiu_sv_63910,63910,Servicios de Agencias de Noticias,ciiu_sv_63,other
 ciiu_sv_63990,63990,Otros servicios de información n.c.p.,ciiu_sv_63,other
 base.res_partner_industry_K,K,ACTIVIDADES FINANCIERAS Y DE SEGUROS,,view
 ciiu_sv_64,64,ACTIVIDADES DE SERVICIOS FINANCIEROS EXCEPTO LAS DE SEGUROS Y FONDOS DE PENSIONES,base.res_partner_industry_K,view
-ciiu_sv_64110,64110,Servicios provistos por el Banco Central de El Salvador,ciiu_sv_64,other
+ciiu_sv_64110,64110,Servicios provistos por el Banco Central de El salvador,ciiu_sv_64,other
 ciiu_sv_64190,64190,Bancos,ciiu_sv_64,other
-ciiu_sv_64219,64219,Entidades dedicadas al envío de remesas,ciiu_sv_64,other
+ciiu_sv_64192,64192,Entidades dedicadas al envío de remesas,ciiu_sv_64,other
 ciiu_sv_64199,64199,Otras entidades financieras,ciiu_sv_64,other
-ciiu_sv_64201,64201,Actividades de sociedades de cartera,ciiu_sv_64,other
+ciiu_sv_64200,64200,Actividades de sociedades de cartera,ciiu_sv_64,other
 ciiu_sv_64300,64300,"Fideicomisos, fondos y otras fuentes de financiamiento",ciiu_sv_64,other
 ciiu_sv_64910,64910,Arrendamientos financieros,ciiu_sv_64,other
 ciiu_sv_64920,64920,Asociaciones cooperativas de ahorro y crédito dedicadas a la intermediación financiera,ciiu_sv_64,other
@@ -694,7 +696,7 @@ ciiu_sv_64921,64921,Instituciones emisoras de tarjetas de crédito y otros,ciiu_
 ciiu_sv_64922,64922,Tipos de crédito ncp,ciiu_sv_64,other
 ciiu_sv_64928,64928,Prestamistas y casas de empeño,ciiu_sv_64,other
 ciiu_sv_64990,64990,"Actividades de servicios financieros, excepto la financiación de planes de seguros y de pensiones n.c.p.",ciiu_sv_64,other
-ciiu_sv_65,65,"SEGUROS, REASEGUROS Y FONDOS DE PENSIONES, EXCEPTO PLANES DE SEGURIDAD SOCIAL DE AFILIACIÓN OBLIGATORIA",base.res_partner_industry_K,view
+ciiu_sv_65,65,"SEGUROS, REASEGUROS Y FONDOS DE PENSIONES, EXCEPTO PLANES DE SEGURIDAD SOCIAL DE AFILIACIÓN OBLIGATORIA.",base.res_partner_industry_K,view
 ciiu_sv_65110,65110,Planes de seguros de vida,ciiu_sv_65,other
 ciiu_sv_65120,65120,Planes de seguro excepto de vida,ciiu_sv_65,other
 ciiu_sv_65199,65199,Seguros generales de todo tipo,ciiu_sv_65,other
@@ -717,7 +719,7 @@ base.res_partner_industry_M,M,"ACTIVIDADES PROFESIONALES, CIENTÍFICAS Y TÉCNIC
 ciiu_sv_69,69,ACTIVIDADES JURÍDICAS Y CONTABLES,base.res_partner_industry_M,view
 ciiu_sv_69100,69100,Actividades jurídicas,ciiu_sv_69,other
 ciiu_sv_69200,69200,"Actividades de contabilidad, teneduría de libros y auditoría; asesoramiento en materia de impuestos",ciiu_sv_69,other
-ciiu_sv_70,70,ACTIVIDADES DE OFICINAS CENTRALES; ACTIVIDADES DE CONSULTORÍA EN GESTIÓN EMPRESARIAL,base.res_partner_industry_M,view
+ciiu_sv_70,70,ACTIVIDADES DE OFICINAS CENTRALES; ACTIVIDADES DE CONSULTORIA EN GESTIÓN EMPRESARIAL,base.res_partner_industry_M,view
 ciiu_sv_70100,70100,Actividades de oficinas centrales de sociedades de cartera,ciiu_sv_70,other
 ciiu_sv_70200,70200,Actividades de consultoría en gestión empresarial,ciiu_sv_70,other
 ciiu_sv_71,71,ACTIVIDADES DE ARQUITECTURA E INGENIERÍA; ENSAYOS Y ANÁLISIS TÉCNICOS,base.res_partner_industry_M,view
@@ -792,7 +794,7 @@ ciiu_sv_85101,85101,Guardería educativa,ciiu_sv_85,other
 ciiu_sv_85102,85102,Enseñanza preescolar o parvularia,ciiu_sv_85,other
 ciiu_sv_85103,85103,Enseñanza primaria,ciiu_sv_85,other
 ciiu_sv_85104,85104,Servicio de educación preescolar y primaria integrada,ciiu_sv_85,other
-ciiu_sv_85211,85211,"Enseñanza secundaria tercer ciclo (7º, 8º y 9º)",ciiu_sv_85,other
+ciiu_sv_85211,85211,"Enseñanza secundaria tercer ciclo (7°, 8° y 9°)",ciiu_sv_85,other
 ciiu_sv_85212,85212,Enseñanza secundaria de formación general bachillerato,ciiu_sv_85,other
 ciiu_sv_85221,85221,Enseñanza secundaria de formación técnica y profesional,ciiu_sv_85,other
 ciiu_sv_85222,85222,Enseñanza secundaria de formación técnica y profesional integrada con enseñanza primaria,ciiu_sv_85,other
@@ -832,7 +834,7 @@ ciiu_sv_91030,91030,"Actividades de jardines botánicos, zoológicos y de reserv
 ciiu_sv_92,92,ACTIVIDADES DE JUEGOS DE AZAR Y APUESTAS,base.res_partner_industry_R,view
 ciiu_sv_92000,92000,Actividades de juegos y apuestas,ciiu_sv_92,other
 ciiu_sv_93,93,"ACTIVIDADES DEPORTIVAS, DE ESPARCIMIENTO Y RECREATIVAS",base.res_partner_industry_R,view
-ciiu_sv_93110,93110,Gestion de instalaciones deportivas,ciiu_sv_93,other
+ciiu_sv_93110,93110,Gestión de instalaciones deportivas,ciiu_sv_93,other
 ciiu_sv_93120,93120,Actividades de clubes deportivos,ciiu_sv_93,other
 ciiu_sv_93190,93190,Otras actividades deportivas,ciiu_sv_93,other
 ciiu_sv_93210,93210,Actividades de parques de atracciones y parques temáticos,ciiu_sv_93,other
@@ -858,7 +860,7 @@ ciiu_sv_95291,95291,Reparación de Instrumentos musicales,ciiu_sv_95,other
 ciiu_sv_95292,95292,Servicios de cerrajería y copiado de llaves,ciiu_sv_95,other
 ciiu_sv_95293,95293,Reparación de joyas y relojes,ciiu_sv_95,other
 ciiu_sv_95294,95294,"Reparación de bicicletas, sillas de ruedas y rodados n.c.p.",ciiu_sv_95,other
-ciiu_sv_95299,95299,Reparación de enseres personales n.c.p.,ciiu_sv_95,other
+ciiu_sv_95299,95299,Reparaciones de enseres personales n.c.p.,ciiu_sv_95,other
 ciiu_sv_96,96,OTRAS ACTIVIDADES DE SERVICIOS PERSONALES,base.res_partner_industry_S,view
 ciiu_sv_96010,96010,"Lavado y limpieza de prendas de tela y de piel, incluso la limpieza en seco",ciiu_sv_96,other
 ciiu_sv_96020,96020,Peluquería y otros tratamientos de belleza,ciiu_sv_96,other

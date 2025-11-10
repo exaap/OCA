@@ -347,7 +347,7 @@ class AccountMove(models.Model):
 
         return [
             {
-                "tipoDocumento": document_id.dte_document_type_id.code,
+                "tipoDocumento": document_id.journal_id.dte_document_type_id.code,
                 "tipoGeneracion": 2 if document_id.dte_control_number else 1,
                 "numeroDocumento": related_document,
                 "fechaEmision": str(document_id.invoice_date),
@@ -445,19 +445,13 @@ class AccountMove(models.Model):
                 num_item, dte_document_type, related_document
             )
 
-            if (
-                line_id.display_type == "product"
-                and item["ventaNoSuj"]
-                and line_id.account_id.l10n_sv_unsent_account
-            ):
-                totals["totalNotSent"] += item["ventaNoSuj"] or 0.00
-
-                continue
-
-            values.append(item)
-
             if line_id.display_type == "product":
                 if dte_document_type in ["01", "03", "04", "05", "06", "08"]:
+                    if item["ventaNoSuj"] and line_id.account_id.l10n_sv_unsent_account:
+                        totals["totalNotSent"] += item["ventaNoSuj"] or 0.00
+
+                        continue
+
                     totals["totalNoSuj"] += item["ventaNoSuj"] or 0.00
                     totals["totalExenta"] += item["ventaExenta"] or 0.00
 
@@ -465,6 +459,11 @@ class AccountMove(models.Model):
                     totals["totalGravada"] += item["ventaGravada"] or 0.00
 
                 if dte_document_type == "14":
+                    if item["compra"] and line_id.account_id.l10n_sv_unsent_account:
+                        totals["totalNotSent"] += item["compra"] or 0.00
+
+                        continue
+
                     totals["totalCompra"] += item["compra"] or 0.00
 
                 if dte_document_type in ["01", "03", "11"]:
@@ -477,6 +476,7 @@ class AccountMove(models.Model):
                 totals["totalMontoSujetoGrav"] += item["montoSujetoGrav"] or 0.00
                 totals["totalIvaRetenido"] += item["ivaRetenido"] or 0.00
 
+            values.append(item)
             num_item += 1
 
         return values, totals

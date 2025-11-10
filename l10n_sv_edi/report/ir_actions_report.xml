@@ -142,7 +142,7 @@
             <t t-set="invoice_date" t-value="o.invoice_date"/>
             <t t-set="dte_issue_time" t-value="o.dte_issue_time"/>
             <t t-set="invoice_date_due" t-value="o.invoice_date_due"/>
-            <div class="page" style="font-size: 12px;">
+            <div class="page" style="font-size: 13px;">
                 <div class="row">
                     <div class="col-9 border rounded">
                         <table class="table-borderless" style="border: none;" width="100%">
@@ -174,7 +174,7 @@
                                     </t>
                                     <t
                                         t-elif="o.partner_id.l10n_latam_identification_type_id.l10n_sv_document_code == '13'">
-                                        <span t-esc="nit[-1:] + '-' + nit[:-1]"/>
+                                        <span t-esc="nit[:-1] + '-' + nit[-1:]"/>
                                     </t>
                                     <t t-else="">
                                         <span t-esc="nit"/>
@@ -265,14 +265,14 @@
                 <div class="row">
                     <table class="table-borderless" width="100%">
                         <tr>
-                            <th class="text-start" style="border: 1px solid black;" width="2%">
+                            <th class="text-start" style="border: 1px solid black;" width="3%">
                                 <span>N°</span>
                             </th>
-                            <th class="text-start" style="border: 1px solid black;" width="8%">
+                            <th class="text-center" style="border: 1px solid black;" width="5%">
                                 <span>Quantity</span>
                             </th>
                             <th class="text-start" style="border: 1px solid black;"
-                                t-att-width="('49' if display_discount else '57') + '%'">
+                                t-att-width="('51' if display_discount else '59') + '%'">
                                 <span>Description</span>
                             </th>
                             <th class="text-center" style="border: 1px solid black;" width="8%">
@@ -345,9 +345,9 @@
                                         <span t-esc="item"/>
                                     </td>
                                     <t t-set="item" t-value="item + 1"/>
-                                    <td class="text-start">
-                                        <span t-esc="line.quantity"/>
-                                        <span t-field="line.product_uom_id"/>
+                                    <td class="text-end">
+                                        <span t-esc="'{0:,.0f}'.format(line.quantity) + '&#160;'"/> 
+                                        <!--span t-field="line.product_uom_id"/-->
                                     </td>
                                     <td class="text-start">
                                         <t t-if="line.product_id and line.product_id.type != 'service'">
@@ -361,33 +361,33 @@
                                         </t>
                                     </td>
                                     <td class="text-end">
-                                        <span class="text-nowrap" t-esc="'{0:,.2f}'.format(price_unit)"/>
+                                        <span class="text-nowrap" t-esc="'{0:,.2f}'.format(price_unit) + '&#160;'"/>
                                     </td>
                                     <td class="text-end" t-if="display_discount">
-                                        <span class="text-nowrap" t-esc="'{0:,.2f}'.format(line.discount)"/>
+                                        <span class="text-nowrap" t-esc="'{0:,.2f}'.format(line.discount) + '&#160;'"/>
                                     </td>
                                     <td class="text-end" t-if="display_unsent_sales">
                                         <t t-if="not iva and line.account_id.l10n_sv_unsent_account">
                                             <t t-set="unsent_total" t-value="unsent_total + total"/>
                                         </t>
                                         <span class="text-nowrap"
-                                            t-esc="'{0:,.2f}'.format(total if not iva and line.account_id.l10n_sv_unsent_account else 0.00)"/>
+                                            t-esc="'{0:,.2f}'.format(total if not iva and line.account_id.l10n_sv_unsent_account else 0.00) + '&#160;'"/>
                                     </td>
                                     <td class="text-end">
                                         <t t-if="not iva and not line.account_id.l10n_sv_unsent_account">
                                             <t t-set="non_taxable_total" t-value="non_taxable_total + total"/>
                                         </t>
                                         <span class="text-nowrap"
-                                            t-esc="'{0:,.2f}'.format(total if not iva and not line.account_id.l10n_sv_unsent_account else 0.00)"/>
+                                            t-esc="'{0:,.2f}'.format(total if not iva and not line.account_id.l10n_sv_unsent_account else 0.00) + '&#160;'"/>
                                     </td>
                                     <td class="text-end">
-                                        <span class="text-nowrap" t-esc="'{0:,.2f}'.format(exempt_total)"/>
+                                        <span class="text-nowrap" t-esc="'{0:,.2f}'.format(exempt_total) + '&#160;'"/>
                                     </td>
                                     <td class="text-end">
                                         <t t-if="iva">
                                             <t t-set="taxable_total" t-value="taxable_total + total"/>
                                         </t>
-                                        <span class="text-nowrap" t-esc="'{0:,.2f}'.format(total if iva else 0.00)"/>
+                                        <span class="text-nowrap" t-esc="'{0:,.2f}'.format(total if iva else 0.00) + '&#160;'"/>
                                     </td>
                                 </t>
                                 <t t-if="line.display_type == 'line_section'">
@@ -459,7 +459,7 @@
                                 </td>
                                 <td style="background-color: white; color: black;" class="text-end"
                                     t-att-width="('24' if display_unsent_sales else '36') + '%'">
-                                    <span t-esc="'{0:,.2f}'.format(non_taxable_total + taxable_total)"/>
+                                    <span t-esc="'{0:,.2f}'.format(non_taxable_total + taxable_total) + '&#160;'"/>
                                 </td>
                             </tr>
                             <t t-if="o.dte_document_type_id.code != '01'">
@@ -468,7 +468,7 @@
                                         <span>VAT 13%</span>
                                     </td>
                                     <td style="background-color: white; color: black;" class="text-end">
-                                        <span t-esc="'{0:,.2f}'.format(total_vat)"/>
+                                        <span t-esc="'{0:,.2f}'.format(total_vat) + '&#160;'"/>
                                     </td>
                                 </tr>
                             </t>
@@ -477,7 +477,7 @@
                                     <span>Subtotal</span>
                                 </td>
                                 <td style="background-color: white; color: black;" class="text-end">
-                                    <span t-esc="'{0:,.2f}'.format(non_taxable_total + taxable_total)"/>
+                                    <span t-esc="'{0:,.2f}'.format(non_taxable_total + taxable_total) + '&#160;'"/>
                                 </td>
                             </tr>
                             <tr>
@@ -485,7 +485,7 @@
                                     <span>(+) VAT collected</span>
                                 </td>
                                 <td style="background-color: white; color: black;" class="text-end">
-                                    <span t-esc="'{0:,.2f}'.format(0.00)"/>
+                                    <span t-esc="'{0:,.2f}'.format(0.00) + '&#160;'"/>
                                 </td>
                             </tr>
                             <tr>
@@ -493,7 +493,7 @@
                                     <span>(-) VAT withheld</span>
                                 </td>
                                 <td style="background-color: white; color: black;" class="text-end">
-                                    <span t-esc="'{0:,.2f}'.format(total_vat_withheld)"/>
+                                    <span t-esc="'{0:,.2f}'.format(total_vat_withheld) + '&#160;'"/>
                                 </td>
                             </tr>
                             <tr>
@@ -501,15 +501,15 @@
                                     <span>(-) Income withholding</span>
                                 </td>
                                 <td style="background-color: white; color: black;" class="text-end">
-                                    <span t-esc="'{0:,.2f}'.format(total_income_withholding)"/>
+                                    <span t-esc="'{0:,.2f}'.format(total_income_withholding) + '&#160;'"/>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr t-if="display_unsent_sales">
                                 <td style="background-color: white; color: black;">
                                     <span>Unsent total</span>
                                 </td>
                                 <td style="background-color: white; color: black;" class="text-end">
-                                    <span t-esc="'{0:,.2f}'.format(unsent_total)"/>
+                                    <span t-esc="'{0:,.2f}'.format(unsent_total) + '&#160;'"/>
                                 </td>
                             </tr>
                             <tr>
@@ -517,7 +517,7 @@
                                     <span>Total to pay</span>
                                 </td>
                                 <td style="background-color: white; color: black;" class="text-end">
-                                    <span t-esc="'{0:,.2f}'.format(o.amount_total)"/>
+                                    <span t-esc="'{0:,.2f}'.format(o.amount_total) + '&#160;'"/>
                                 </td>
                             </tr>
                             <t t-if="not o.dte_document_type_id">
