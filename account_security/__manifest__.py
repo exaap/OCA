@@ -11,7 +11,7 @@
     "maintainers": ["joanmarin"],
     "website": "https://github.com/OCA/account-financial-tools",
     "depends": [
-        "account",
+        "account_move_name_sequence",
     ],
     "data": [
         "security/res_groups.xml",

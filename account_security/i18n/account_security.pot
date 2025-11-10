@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-24 21:52+0000\n"
-"PO-Revision-Date: 2024-09-24 21:52+0000\n"
+"POT-Creation-Date: 2025-07-09 17:45+0000\n"
+"PO-Revision-Date: 2025-07-09 17:45+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -36,8 +36,28 @@ msgid "Choose Journal in Invoice"
 msgstr ""
 
 #. module: account_security
+#: model:res.groups,name:account_security.group_account_move_action_post_button
+msgid "Confirm Invoice Button"
+msgstr ""
+
+#. module: account_security
+#: model:ir.model,name:account_security.model_account_move
+msgid "Journal Entry"
+msgstr ""
+
+#. module: account_security
 #. odoo-python
 #: code:addons/account_security/models/account_account.py:0
 #, python-format
 msgid "You can't archive accounts"
+msgstr ""
+
+#. module: account_security
+#. odoo-python
+#: code:addons/account_security/models/account_move.py:0
+#, python-format
+msgid ""
+"You cannot delete an journal entry after it has been validated(and received "
+"a number). You can set it back to \"Draft\"state and modify its content, "
+"then re-confirm it."
 msgstr ""

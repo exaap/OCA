@@ -15,7 +15,16 @@
             </xpath>
 
             <xpath expr="//div[@name='journal_div']/field[@name='journal_id']" position="attributes">
+                <attribute name="attrs">{"readonly": [("state", "!=", "draft")]}</attribute>
                 <attribute name="groups">account_security.group_account_move_choose_journal</attribute>
+            </xpath>
+
+            <xpath expr="//button[1]" position="attributes">
+                <attribute name="groups">account_security.group_account_move_action_post_button</attribute>
+            </xpath>
+
+            <xpath expr="//button[2]" position="attributes">
+                <attribute name="groups">account_security.group_account_move_action_post_button</attribute>
             </xpath>
         </field>
     </record>
