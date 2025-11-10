@@ -53,11 +53,11 @@ class StockQuant(models.Model):
 
         return res
 
-    @api.model
+    @api.model_create_multi
     def create(self, vals):
-        rec = super(StockQuant, self).create(vals)
+        records = super(StockQuant, self).create(vals)
 
-        for record in rec:
+        for record in records:
             location_position_id = self.env["stock.location.position"].search(
                 [
                     "&",
@@ -70,4 +70,4 @@ class StockQuant(models.Model):
                 record.initial_position = location_position_id.initial_position
                 record.final_position = location_position_id.final_position
 
-        return rec
+        return records

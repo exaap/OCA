@@ -8,8 +8,8 @@ class ProductTemplate(models.Model):
     _inherit = "product.template"
 
     inventory_line_ids = fields.One2many(
-        related="product_variant_id.inventory_line_ids"
+        related="product_variant_ids.inventory_line_ids"
     )
     last_inventory_date = fields.Datetime(
-        related="product_variant_id.last_inventory_date"
+        related="product_variant_ids.last_inventory_date"
     )

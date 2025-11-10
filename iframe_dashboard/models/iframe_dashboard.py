@@ -22,26 +22,28 @@ class iFrameDashboard(models.Model):
     )
 
     """
-    @api.model
-    def create(self, vals):
-        rec = super(iFrameDashboard, self).create(vals)
+    @api.model_create_multi
+    def create(self, vals_list):
+        records = super(iFrameDashboard, self).create(vals_list)
         action_id = self.sudo().env.ref("iframe_dashboard.iframe_dashboard_action")
-        context_to_save = {
-            "lang": rec.create_uid._context["lang"],
-            "tz": rec.create_uid._context["tz"],
-            "uid": rec.create_uid._context["uid"],
-            "group_by": [],
-            "orderedBy": [],
-            "dashboard_merge_domains_contexts": False,
-        }
         board = Board()
-        board.add_to_dashboard(
-            action_id=action_id.id,
-            context_to_save=context_to_save,
-            domain=[("id", "=", rec.id)],
-            view_mode="kanban",
-            name=vals["name"],
-        )
 
-        return rec
+        for record in records:
+            context_to_save = {
+                "lang": record.create_uid._context["lang"],
+                "tz": record.create_uid._context["tz"],
+                "uid": record.create_uid._context["uid"],
+                "group_by": [],
+                "orderedBy": [],
+                "dashboard_merge_domains_contexts": False,
+            }
+            board.add_to_dashboard(
+                action_id=action_id.id,
+                context_to_save=context_to_save,
+                domain=[("id", "=", record.id)],
+                view_mode="kanban",
+                name=vals["name"],
+            )
+
+        return records
     """

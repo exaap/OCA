@@ -80,9 +80,9 @@ class StockLocationPosition(models.Model):
 
         return res
 
-    @api.model
-    def create(self, vals):
-        rec = super(StockLocationPosition, self).create(vals)
-        rec.update_stock_quant()
+    @api.model_create_multi
+    def create(self, vals_list):
+        records = super(StockLocationPosition, self).create(vals_list)
+        records.update_stock_quant()
 
-        return rec
+        return records

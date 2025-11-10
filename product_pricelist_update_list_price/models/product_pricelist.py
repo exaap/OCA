@@ -11,14 +11,14 @@ class ProductPricelist(models.Model):
     update_list_price = fields.Boolean(string="Update Sales Price?")
 
     @api.model
-    def create(self, vals):
-        rec = super(ProductPricelist, self).create(vals)
+    def create(self, vals_list):
+        records = super(ProductPricelist, self).create(vals_list)
 
-        for product_priceliste_id in rec:
+        for product_priceliste_id in records:
             if product_priceliste_id.update_list_price:
                 product_priceliste_id.check_update_list_price()
 
-        return rec
+        return records
 
     def write(self, vals):
         res = super(ProductPricelist, self).write(vals)

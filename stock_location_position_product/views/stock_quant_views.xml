@@ -11,18 +11,16 @@
                     groups="!stock_location_position_product.group_stock_location_position_manager"
                 />
                 <field
-                    name="initial_position"
+                    name="final_position"
                     readonly="1"
                     groups="!stock_location_position_product.group_stock_location_position_manager"
                 />
                 <field
-                    name="final_position"
-                    readonly="0"
+                    name="initial_position"
                     groups="stock_location_position_product.group_stock_location_position_manager"
                 />
                 <field
                     name="final_position"
-                    readonly="0"
                     groups="stock_location_position_product.group_stock_location_position_manager"
                 />
             </field>

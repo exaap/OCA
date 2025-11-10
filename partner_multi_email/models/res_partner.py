@@ -54,7 +54,7 @@ class ResPartner(models.Model):
 
     @api.model_create_multi
     def create(self, vals_list):
-        rec = super(ResPartner, self).create(vals_list)
+        records = super(ResPartner, self).create(vals_list)
         email_ids_flag = False
 
         for vals in vals_list:
@@ -64,9 +64,9 @@ class ResPartner(models.Model):
                 break
 
         if not email_ids_flag:
-            return rec
+            return records
 
-        for partner_id in rec:
+        for partner_id in records:
             main_emails = [
                 email_id.name for email_id in partner_id.email_ids if email_id.is_main
             ]
@@ -79,4 +79,4 @@ class ResPartner(models.Model):
                 partner_id.email_ids[0].is_main = True
                 partner_id.email = partner_id.email_ids[0].name
 
-        return rec
+        return records

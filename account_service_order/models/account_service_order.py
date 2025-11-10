@@ -132,14 +132,14 @@ class AccountServiceOrder(models.Model):
         return True
 
     @api.model_create_multi
-    def create(self, vals):
-        res = super(AccountServiceOrder, self).create(vals)
-        res.set_name()
+    def create(self, vals_list):
+        records = super(AccountServiceOrder, self).create(vals_list)
+        records.set_name()
 
-        return res
+        return records
 
     def write(self, vals):
-        rec = super(AccountServiceOrder, self).write(vals)
+        res = super(AccountServiceOrder, self).write(vals)
 
         if vals.get("name"):
             for service_order in self:
@@ -151,7 +151,7 @@ class AccountServiceOrder(models.Model):
                     if vals.get("name") == name or vals.get("name") == str(
                         service_order.number_x
                     ):
-                        return rec
+                        return res
                     else:
                         raise UserError(
                             _(
@@ -160,7 +160,7 @@ class AccountServiceOrder(models.Model):
                             )
                         )
         else:
-            return rec
+            return res
 
     def unlink(self):
         service_orders_obj = self.env["account.service.order"]
