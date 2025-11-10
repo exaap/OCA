@@ -1,0 +1,12 @@
+id,l10n_sv_document_code
+account.incoterm_EXW,01
+account.incoterm_FCA,02
+account.incoterm_CPT,03
+account.incoterm_CIP,04
+account.incoterm_DAP,05
+account.incoterm_DPU,06
+account.incoterm_DDP,07
+account.incoterm_FAS,08
+account.incoterm_FOB,09
+account.incoterm_CFR,10
+account.incoterm_CIF,11

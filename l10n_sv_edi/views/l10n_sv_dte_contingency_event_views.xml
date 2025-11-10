@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="l10n_sv_dte_contingency_event_view_tree" model="ir.ui.view">
+        <field name="model">l10n_sv_dte.contingency.event</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="type"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="stamp_received"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="l10n_sv_dte_contingency_event_view_form" model="ir.ui.view">
+        <field name="model">l10n_sv_dte.contingency.event</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="sales_point_id" invisible="1"/>
+                            <field name="company_id" attrs="{'readonly': [('stamp_received', '!=', False)]}"/>
+                            <label for="generation_code"/>
+                            <div>
+                                <field name="generation_code"/>
+                                <button name="action_post_contingencia"
+                                    string="contingencia(POST)"
+                                    type="object"
+                                    class="oe_stat_button"
+                                    icon="fa-check"
+                                    attrs="{'invisible': ['|', ('type', '=', False), ('stamp_received', '!=', False)]}"
+                                />
+                            </div>
+                            <field name="type" attrs="{'readonly': [('stamp_received', '!=', False)]}"/>
+                            <field name="reason" widget="text"
+                                attrs="{
+                                'readonly': [('stamp_received', '!=', False)],
+                                'invisible': [
+                                    '|',
+                                    ('type', '=', False),
+                                    '&amp;',
+                                    ('stamp_received', '!=', False),
+                                    ('reason', '=', False)
+                                ],
+                                'required': [('type', '=', '5')]
+                            }"
+                            />
+                        </group>
+                        <group>
+                            <field name="start_date" attrs="{'readonly': [('stamp_received', '!=', False)]}"/>
+                            <field name="end_date" attrs="{'readonly': [('stamp_received', '!=', False)]}"/>
+                            <field name="stamp_received"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="response_contingencia"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="l10n_sv_dte_contingency_event_action" model="ir.actions.act_window">
+        <field name="name">DTE Contingency Events</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">l10n_sv_dte.contingency.event</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="l10n_sv_dte_contingency_event_menu" name="DTE Contingency Events"
+        action="l10n_sv_dte_contingency_event_action" parent="l10n_sv.l10n_sv_account_document_main" sequence="5"/>
+</odoo>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_company_form" model="ir.ui.view">
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="E-invoicing">
+                    <group>
+                        <group>
+                            <field name="l10n_sv_edi_enabled"/>
+                            <field name="l10n_sv_destination_environment"
+                                attrs="{'required': [('l10n_sv_edi_enabled', '=', True)]}"/>
+                        </group>
+                        <group>
+                            <field name="l10n_sv_automatic_dte_sending"
+                                attrs="{'readonly': [('l10n_sv_edi_enabled', '!=', True)]}"/>
+                            <field name="l10n_sv_automatic_email_sending"
+                                attrs="{'readonly': [('l10n_sv_edi_enabled', '!=', True)]}"/>
+                            <field name="l10n_sv_dte_error_email"
+                                attrs="{'readonly': [('l10n_sv_edi_enabled', '!=', True)]}"/>
+                            <field name="l10n_sv_invoice_report_id"
+                                attrs="{'readonly': [('l10n_sv_edi_enabled', '!=', True)]}"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="API">
+                            <label for="l10n_sv_api_password"/>
+                            <div>
+                                <field name="l10n_sv_api_password"
+                                    attrs="{'required': [('l10n_sv_edi_enabled', '=', True)]}"/>
+                                <button name="action_post_auth"
+                                    string="Verify API"
+                                    type="object"
+                                    class="oe_stat_button"
+                                    icon="fa-check"
+                                    attrs="{'invisible': [
+                                        '|',
+                                        ('l10n_sv_edi_enabled', '!=', True),
+                                        ('l10n_sv_api_password', 'in', (False, '')),
+                                    ]}"
+                                />
+                            </div>
+                            <field name="l10n_sv_api_token_date"
+                                attrs="{'invisible': [
+                                    '|',
+                                    ('l10n_sv_edi_enabled', '!=', True),
+                                    ('l10n_sv_api_password', 'in', (False, '')),
+                                ]}"
+                            />
+                            <field name="l10n_sv_api_token"
+                                attrs="{'invisible': [
+                                    '|',
+                                    ('l10n_sv_edi_enabled', '!=', True),
+                                    ('l10n_sv_api_password', 'in', (False, '')),
+                                ]}"
+                            />
+                        </group>
+                        <group string="Signer">
+                            <field name="l10n_sv_signer_url"
+                                attrs="{'required': [('l10n_sv_edi_enabled', '=', True)]}"/>
+                            <label for="l10n_sv_certificate_password"/>
+                            <div>
+                                <field name="l10n_sv_certificate_password"
+                                    attrs="{'required': [('l10n_sv_edi_enabled', '=', True)]}"/>
+                                <button name="action_post_signer"
+                                    string="Verify Signer"
+                                    type="object"
+                                    class="oe_stat_button"
+                                    icon="fa-check"
+                                    attrs="{'invisible': [
+                                        '|',
+                                        '|',
+                                        ('l10n_sv_edi_enabled', '=', False),
+                                        ('l10n_sv_signer_url', 'in', (False, '')),
+                                        ('l10n_sv_certificate_password', 'in', (False, '')),
+                                    ]}"
+                                />
+                            </div>
+                        </group>
+                    </group>
+                    <group string="Testing"
+                        attrs="{'invisible': [('l10n_sv_destination_environment', '!=', '00')]}">
+                        <group>
+                            <field name="l10n_sv_dte_01_move_id"/>
+                            <field name="l10n_sv_dte_03_move_id"/>
+                            <field name="l10n_sv_dte_05_move_id"/>
+                        </group>
+                        <group>
+                            <field name="l10n_sv_dte_11_move_id"/>
+                            <label for="l10n_sv_dte_14_move_id"/>
+                            <div>
+                                <field name="l10n_sv_dte_14_move_id"/>
+                                <button name="action_run_dte_tests"
+                                    string="Run DTE Tests"
+                                    type="object"
+                                    class="oe_stat_button"
+                                    icon="fa-check"
+                                />
+                            </div>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

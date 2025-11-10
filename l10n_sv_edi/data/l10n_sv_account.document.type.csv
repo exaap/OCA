@@ -1,0 +1,12 @@
+id,version,invoicing_model,transmission_type
+l10n_sv.l10n_sv_account_document_type_01,1,2,2
+l10n_sv.l10n_sv_account_document_type_03,3,2,2
+l10n_sv.l10n_sv_account_document_type_04,3,2,2
+l10n_sv.l10n_sv_account_document_type_05,3,2,2
+l10n_sv.l10n_sv_account_document_type_06,3,2,2
+l10n_sv.l10n_sv_account_document_type_07,1,1,1
+l10n_sv.l10n_sv_account_document_type_08,1,1,1
+l10n_sv.l10n_sv_account_document_type_09,1,1,1
+l10n_sv.l10n_sv_account_document_type_11,1,2,2
+l10n_sv.l10n_sv_account_document_type_14,1,2,2
+l10n_sv.l10n_sv_account_document_type_15,1,1,1

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_sales_point_view_tree" model="ir.ui.view">
+        <field name="model">res.sales.point</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="code"/>
+                <field name="branch_id"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

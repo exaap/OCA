@@ -1,0 +1,1359 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_sv_edi
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-10 23:09+0000\n"
+"PO-Revision-Date: 2025-07-10 23:09+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_sv_edi
+#. odoo-python
+#: code:addons/l10n_sv_edi/models/account_move.py:0
+#, python-format
+msgid " Cent(s)"
+msgstr " Centavo(s)"
+
+#. module: l10n_sv_edi
+#. odoo-python
+#: code:addons/l10n_sv_edi/models/res_partner.py:0
+#, python-format
+msgid "%s does not have an identification number!"
+msgstr "¡%s no tiene un número de identificación!"
+
+#. module: l10n_sv_edi
+#: model:mail.template,body_html:l10n_sv_edi.mail_template_dte_error
+msgid ""
+"<div class=\"text-center\" style=\"font-size: 13px; font-family: Arial, sans-serif; color: #333;\">\n"
+"                <img t-att-src=\"'/logo.png?company=%s' % (object.company_id.id or 0)\">\n"
+"                <p>\n"
+"                    <span>Review the Electronic Tax Document:</span>\n"
+"                    <strong>\n"
+"                        <t t-out=\"object.dte_control_number\"></t>\n"
+"                    </strong>\n"
+"                </p>\n"
+"\n"
+"                <br>\n"
+"\n"
+"                <p>Best regards,</p>\n"
+"                <p>\n"
+"                    <strong>\n"
+"                        <t t-out=\"object.company_id.name\"></t>\n"
+"                    </strong>\n"
+"                </p>\n"
+"            </div>\n"
+"        "
+msgstr ""
+"<div class=\"text-center\" style=\"box-sizing:border-box;text-align:center;font-size: 13px; font-family: Arial, sans-serif; color: #333;\">\n"
+"                <img t-att-src=\"'/logo.png?company=%s' % (object.company_id.id or 0)\" style=\"box-sizing:border-box;vertical-align:middle;\">\n"
+"                <p style=\"margin:0px 0 12px 0;box-sizing:border-box;\">\n"
+"                    Revisar el Documento Tributario Electrónico:\n"
+"                    <strong style=\"box-sizing:border-box;font-weight:bolder;\">\n"
+"                        <t t-out=\"object.dte_control_number\"></t>\n"
+"                    </strong>\n"
+"                </p>\n"
+"\n"
+"                <br>\n"
+"\n"
+"                <p style=\"margin:0px 0 12px 0;box-sizing:border-box;\">Atentamente,</p>\n"
+"                <p style=\"margin:0px 0 12px 0;box-sizing:border-box;\">\n"
+"                    <strong style=\"box-sizing:border-box;font-weight:bolder;\">\n"
+"                        <t t-out=\"object.company_id.name\"></t>\n"
+"                    </strong>\n"
+"                </p>\n"
+"            </div>\n"
+"        "
+
+#. module: l10n_sv_edi
+#: model:mail.template,body_html:l10n_sv_edi.mail_template_dte
+msgid ""
+"<div class=\"text-center\" style=\"font-size: 13px; font-family: Arial, sans-serif; color: #333;\">\n"
+"                <img t-att-src=\"'/logo.png?company=%s' % (object.company_id.id or 0)\">\n"
+"                <p>Dear customer</p>\n"
+"                <p>\n"
+"                    <strong>\n"
+"                        <t t-out=\"object.partner_id.name\"></t>\n"
+"                    </strong>\n"
+"                </p>\n"
+"\n"
+"                <br>\n"
+"\n"
+"                <p>\n"
+"                    <span>Receive a cordial greeting from</span>\n"
+"                    <strong>\n"
+"                        <t t-out=\"object.company_id.name\"></t>\n"
+"                    </strong>\n"
+"                </p>\n"
+"                <p>\n"
+"                    <span>We send you the</span>\n"
+"                    <strong>Electronic Tax Document,</strong>\n"
+"                    <span>in JSON and PDF format, as required by current tax regulations.</span>\n"
+"                </p>\n"
+"                <p>This document has been validated by the General Directorate of Internal Revenue (DGII).</p>\n"
+"\n"
+"                <br>\n"
+"\n"
+"                <p>Best regards,</p>\n"
+"                <p>\n"
+"                    <strong>\n"
+"                        <t t-out=\"object.company_id.name\"></t>\n"
+"                    </strong>\n"
+"                </p>\n"
+"                <p>\n"
+"                    <span>\n"
+"                        <t t-out=\"object.company_id.street\"></t>\n"
+"                    </span>\n"
+"                    <span>\n"
+"                        <t t-out=\"object.company_id.street2\"></t>\n"
+"                    </span>\n"
+"                    <span>\n"
+"                        <t t-out=\"object.company_id.partner_id.district_id.name\"></t>\n"
+"                    </span>\n"
+"                </p>\n"
+"\n"
+"                <br>\n"
+"\n"
+"                <p>\n"
+"                    <span>If you have any questions regarding your DTE, please contact us at the email:</span>\n"
+"                    <strong>\n"
+"                        <t t-out=\"object.company_id.email\"></t>\n"
+"                    </strong>\n"
+"                </p>\n"
+"            </div>\n"
+"        "
+msgstr ""
+"<div class=\"text-center\" style=\"box-sizing:border-box;text-align:center;font-size: 13px; font-family: Arial, sans-serif; color: #333;\">\n"
+"                <img t-att-src=\"'/logo.png?company=%s' % (object.company_id.id or 0)\" style=\"box-sizing:border-box;vertical-align:middle;\">\n"
+"                <p style=\"margin:0px 0 12px 0;box-sizing:border-box;\">Apreciable cliente</p>\n"
+"                <p style=\"margin:0px 0 12px 0;box-sizing:border-box;\">\n"
+"                    <strong style=\"box-sizing:border-box;font-weight:bolder;\">\n"
+"                        <t t-out=\"object.partner_id.name\"></t>\n"
+"                    </strong>\n"
+"                </p>\n"
+"\n"
+"                <br>\n"
+"\n"
+"                <p style=\"margin:0px 0 12px 0;box-sizing:border-box;\">\n"
+"                    Reciba un cordial saludo de\n"
+"                    <strong style=\"box-sizing:border-box;font-weight:bolder;\">\n"
+"                        <t t-out=\"object.company_id.name\"></t>\n"
+"                    </strong>\n"
+"                </p>\n"
+"                <p style=\"margin:0px 0 12px 0;box-sizing:border-box;\">\n"
+"                    Le remitimos el\n"
+"                    <strong style=\"box-sizing:border-box;font-weight:bolder;\">Documento Tributario Electrónico,</strong>\n"
+"                    en formato JSON y PDF, según lo requerido en la normativa tributaria vigente.\n"
+"                </p>\n"
+"                <p style=\"margin:0px 0 12px 0;box-sizing:border-box;\">Este documento ha sido validado por la Dirección General de Impuestos Internos (DGII).</p>\n"
+"\n"
+"                <br>\n"
+"\n"
+"                <p style=\"margin:0px 0 12px 0;box-sizing:border-box;\">Atentamente,</p>\n"
+"                <p style=\"margin:0px 0 12px 0;box-sizing:border-box;\">\n"
+"                    <strong style=\"box-sizing:border-box;font-weight:bolder;\">\n"
+"                        <t t-out=\"object.company_id.name\"></t>\n"
+"                    </strong>\n"
+"                </p>\n"
+"                <p style=\"margin:0px 0 12px 0;box-sizing:border-box;\">\n"
+"                    \n"
+"                        <t t-out=\"object.company_id.street\"></t>\n"
+"                    \n"
+"                    \n"
+"                        <t t-out=\"object.company_id.street2\"></t>\n"
+"                    \n"
+"                    \n"
+"                        <t t-out=\"object.company_id.partner_id.district_id.name\"></t>\n"
+"                    \n"
+"                </p>\n"
+"\n"
+"                <br>\n"
+"\n"
+"                <p style=\"margin:0px 0 12px 0;box-sizing:border-box;\">\n"
+"                    En caso de consultas respecto a tu DTE, por favor contactarnos al correo electronico:\n"
+"                    <strong style=\"box-sizing:border-box;font-weight:bolder;\">\n"
+"                        <t t-out=\"object.company_id.email\"></t>\n"
+"                    </strong>\n"
+"                </p>\n"
+"            </div>\n"
+"        "
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.report_invoice_document
+msgid "<span>(+) VAT collected</span>"
+msgstr "<span>(+) IVA percibido</span>"
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.report_invoice_document
+msgid "<span>(-) Income withholding</span>"
+msgstr "<span>(-) Retención renta</span>"
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.report_invoice_document
+msgid "<span>(-) VAT withheld</span>"
+msgstr "<span>(-) IVA retenido</span>"
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.report_invoice_document
+msgid "<span>Address:</span>"
+msgstr "<span>Dirección:</span>"
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.report_invoice_document
+msgid "<span>Condition of the operation:</span>"
+msgstr "<span>Condición de la operación:</span>"
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.report_invoice_document
+msgid "<span>Currency:</span>"
+msgstr "<span>Moneda:</span>"
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.report_invoice_document
+msgid "<span>Description</span>"
+msgstr "<span>Descripción</span>"
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.report_invoice_document
+msgid "<span>Disc.%</span>"
+msgstr "<span>Desct.%</span>"
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.report_invoice_document
+msgid "<span>Document number:</span>"
+msgstr "<span>Número de documento:</span>"
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.report_invoice_document
+msgid "<span>Economic activity:</span>"
+msgstr "<span>Actividad económica:</span>"
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.report_invoice_document
+msgid "<span>Email:</span>"
+msgstr ""
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.report_invoice_document
+msgid "<span>Exempt sales</span>"
+msgstr "<span>Ventas exentas</span>"
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.report_invoice_document
+msgid "<span>Incoterms:</span>"
+msgstr ""
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.report_invoice_document
+msgid "<span>Internal number:</span>"
+msgstr "<span>Número interno:</span>"
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.report_invoice_document
+msgid "<span>NIT:</span>"
+msgstr ""
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.report_invoice_document
+msgid "<span>NRC:</span>"
+msgstr ""
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.report_invoice_document
+msgid "<span>Name or company name:</span>"
+msgstr "<span>Nombre o razón social:</span>"
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.report_invoice_document
+msgid "<span>Non-taxable sales</span>"
+msgstr "<span>Ventas no sujetas</span>"
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.external_layout_boxed
+msgid "<span>Normal</span>"
+msgstr ""
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.report_invoice_document
+msgid "<span>N°</span>"
+msgstr ""
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.report_invoice_document
+msgid "<span>Phone:</span>"
+msgstr "<span>Teléfono:</span>"
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.external_layout_boxed
+msgid "<span>Prior</span>"
+msgstr "<span>Previo</span>"
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.report_invoice_document
+msgid "<span>Quantity</span>"
+msgstr "<span>Cantidad</span>"
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.report_invoice_document
+msgid "<span>Subtotal</span>"
+msgstr ""
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.report_invoice_document
+msgid "<span>Sum</span>"
+msgstr "<span>Suma</span>"
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.report_invoice_document
+msgid "<span>Taxable sales</span>"
+msgstr "<span>Ventas gravadas</span>"
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.report_invoice_document
+msgid "<span>Total to pay</span>"
+msgstr "<span>Total a pagar</span>"
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.report_invoice_document
+msgid "<span>Unit Price</span>"
+msgstr "<span>Precio unitario</span>"
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.report_invoice_document
+msgid "<span>Unsent sales</span>"
+msgstr "<span>Cargos cuenta ajena</span>"
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.report_invoice_document
+msgid "<span>Unsent total</span>"
+msgstr "<span>Total ajeno</span>"
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.external_layout_boxed
+msgid "<span>Unsent</span>"
+msgstr "<span>No enviado</span>"
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.report_invoice_document
+msgid "<span>VAT 13%</span>"
+msgstr "<span>IVA 13%</span>"
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.report_invoice_document
+msgid "<span>Value in letters:</span>"
+msgstr "<span>Valor en letras:</span>"
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.report_invoice_document
+msgid "<strong class=\"mr16\">Subtotal</strong>"
+msgstr ""
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.external_layout_boxed
+msgid "<strong>Control number:</strong>"
+msgstr "<strong>Número de control:</strong>"
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.external_layout_boxed
+msgid "<strong>Due date:</strong>"
+msgstr "<strong>Fecha de vencimiento:</strong>"
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.external_layout_boxed
+msgid "<strong>ELECTRONIC TAX DOCUMENT</strong>"
+msgstr "<strong>DOCUMENTO TRIBUTARIO ELECTRÓNICO</strong>"
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.external_layout_boxed
+msgid "<strong>Generation code:</strong>"
+msgstr "<strong>Código de generación:</strong>"
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.external_layout_boxed
+msgid "<strong>Invoicing model:</strong>"
+msgstr "<strong>Modelo de facturación:</strong>"
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.external_layout_boxed
+msgid "<strong>Issue date:</strong>"
+msgstr "<strong>Fecha de emisión:</strong>"
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.report_invoice_document
+msgid "<strong>Observations:</strong>"
+msgstr "<strong>Observaciones:</strong>"
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.external_layout_boxed
+msgid "<strong>Stamp received:</strong>"
+msgstr "<strong>Sello recibido:</strong>"
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.external_layout_boxed
+msgid "<strong>Transmission type:</strong>"
+msgstr "<strong>Tipo de transmisión:</strong>"
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.view_company_form
+msgid "API"
+msgstr ""
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_res_company__l10n_sv_api_password
+msgid "API Password"
+msgstr "Contraseña de la API"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_res_company__l10n_sv_api_token
+msgid "API Token"
+msgstr "Token de la API"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_res_company__l10n_sv_api_token_date
+msgid "API Token Date"
+msgstr "Fecha del token de la API"
+
+#. module: l10n_sv_edi
+#: model:ir.model,name:l10n_sv_edi.model_account_account
+msgid "Account"
+msgstr "Cuenta"
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.report_invoice_document
+msgid "Amount Due"
+msgstr "Importe adeudado"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_res_company__l10n_sv_automatic_dte_sending
+msgid "Automatic DTE sending?"
+msgstr "¿Envío automático de DTE?"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_res_company__l10n_sv_automatic_email_sending
+msgid "Automatic email sending?"
+msgstr "¿Envío automático de correo electrónico?"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_res_sales_point__branch_id
+#: model:ir.model.fields.selection,name:l10n_sv_edi.selection__res_branch__type__01
+msgid "Branch"
+msgstr "Sucursal"
+
+#. module: l10n_sv_edi
+#: model:ir.model.constraint,message:l10n_sv_edi.constraint_res_branch_code_unique
+msgid "Branch code must be unique per company!"
+msgstr "¡El código de sucursal debe ser único por compañia!"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_res_company__l10n_sv_certificate_password
+msgid "Certificate Password"
+msgstr "Contraseña del certificado"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,help:l10n_sv_edi.field_account_journal__debitnote_sequence
+msgid ""
+"Check this box if you don't want to share the same sequence\n"
+"                for invoices and debit notes made from this journal"
+msgstr ""
+"Marca esta casilla si no quieres compartir la misma secuencia\n"
+"                para las facturas y notas de débito hechas en este diario"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_l10n_sv_export_regime__code
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_l10n_sv_fiscal_warehouse__code
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_res_branch__code
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_res_sales_point__code
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_uom_uom__code
+msgid "Code"
+msgstr "Código"
+
+#. module: l10n_sv_edi
+#: model:ir.model,name:l10n_sv_edi.model_res_company
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_l10n_sv_dte_contingency_event__company_id
+msgid "Company"
+msgstr "Compañía"
+
+#. module: l10n_sv_edi
+#: model:ir.model,name:l10n_sv_edi.model_res_branch
+msgid "Company Branches"
+msgstr "Sucursales de la compañía"
+
+#. module: l10n_sv_edi
+#: model:ir.model,name:l10n_sv_edi.model_res_sales_point
+msgid "Company Sales Points"
+msgstr "Puntos de venta de la compañia"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_res_sales_point__consecutive_count
+msgid "Consecutive Count"
+msgstr "Conteo consecutivo"
+
+#. module: l10n_sv_edi
+#: model:ir.model,name:l10n_sv_edi.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields.selection,name:l10n_sv_edi.selection__l10n_sv_account_document_type__transmission_type__2
+msgid "Contingency"
+msgstr "Contingencia"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields.selection,name:l10n_sv_edi.selection__res_branch__type__07
+msgid "Courtyard"
+msgstr "Patio"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_l10n_sv_dte_contingency_event__create_uid
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_l10n_sv_export_regime__create_uid
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_l10n_sv_fiscal_warehouse__create_uid
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_res_sales_point__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_l10n_sv_dte_contingency_event__create_date
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_l10n_sv_export_regime__create_date
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_l10n_sv_fiscal_warehouse__create_date
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_res_sales_point__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.view_move_form
+msgid "DTE"
+msgstr ""
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_bank_statement_line__dte_contingency_event_id
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_move__dte_contingency_event_id
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_payment__dte_contingency_event_id
+msgid "DTE Contingency Event"
+msgstr "Evento de contingencia DTE"
+
+#. module: l10n_sv_edi
+#: model:ir.actions.act_window,name:l10n_sv_edi.l10n_sv_dte_contingency_event_action
+#: model:ir.model,name:l10n_sv_edi.model_l10n_sv_dte_contingency_event
+#: model:ir.ui.menu,name:l10n_sv_edi.l10n_sv_dte_contingency_event_menu
+msgid "DTE Contingency Events"
+msgstr "Eventos de contingencia DTE"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_bank_statement_line__dte_control_number
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_move__dte_control_number
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_payment__dte_control_number
+msgid "DTE Control Number"
+msgstr "Número de control del DTE"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_bank_statement_line__dte_document_type_id
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_journal__dte_document_type_id
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_move__dte_document_type_id
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_payment__dte_document_type_id
+msgid "DTE Document Type"
+msgstr "Tipo de documento del DTE"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_res_company__l10n_sv_dte_error_email
+msgid "DTE Error Email"
+msgstr "Correo electrónico de error de DTE"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_bank_statement_line__dte_generation_code
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_move__dte_generation_code
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_payment__dte_generation_code
+msgid "DTE Generation Code"
+msgstr "Código de generación del DTE"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields.selection,name:l10n_sv_edi.selection__account_move__dte_state__dte_invalidated
+msgid "DTE Invalidated"
+msgstr "DTE invalidado"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_bank_statement_line__dte_invalidation_generation_code
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_move__dte_invalidation_generation_code
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_payment__dte_invalidation_generation_code
+msgid "DTE Invalidation Generation Code"
+msgstr "Código de generación de invalidación del DTE"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_bank_statement_line__dte_invalidation_reason
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_move__dte_invalidation_reason
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_payment__dte_invalidation_reason
+msgid "DTE Invalidation Reason"
+msgstr "Motivo de invalidación de DTE"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields.selection,name:l10n_sv_edi.selection__account_move__dte_state__dte_invalidation_rejected
+msgid "DTE Invalidation Rejected"
+msgstr "Invalidación del DTE rechazada"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_bank_statement_line__dte_invalidation_stamp_received
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_move__dte_invalidation_stamp_received
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_payment__dte_invalidation_stamp_received
+msgid "DTE Invalidation Stamp Received"
+msgstr "Sello recibido de la invalidación del DTE "
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_bank_statement_line__dte_invalidation_type
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_move__dte_invalidation_type
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_payment__dte_invalidation_type
+msgid "DTE Invalidation Type"
+msgstr "Tipo de invalidación del DTE"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_bank_statement_line__dte_issue_time
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_move__dte_issue_time
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_payment__dte_issue_time
+msgid "DTE Issue Time"
+msgstr "Hora de emisión de DTE"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields.selection,name:l10n_sv_edi.selection__account_move__dte_state__dte_rejected
+msgid "DTE Rejected"
+msgstr "DTE rechazado"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_bank_statement_line__dte_stamp_received
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_move__dte_stamp_received
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_payment__dte_stamp_received
+msgid "DTE Stamp Received"
+msgstr "Sello recibido del DTE"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_bank_statement_line__dte_state
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_move__dte_state
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_payment__dte_state
+msgid "DTE State"
+msgstr "Estado del DTE"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields.selection,name:l10n_sv_edi.selection__account_move__dte_state__dte_transmitted
+msgid "DTE Transmitted"
+msgstr "DTE transmitido"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_res_company__l10n_sv_dte_01_move_id
+msgid "DTE Type 01"
+msgstr "DTE Tipo 01"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_res_company__l10n_sv_dte_03_move_id
+msgid "DTE Type 03"
+msgstr "DTE Tipo 03"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_res_company__l10n_sv_dte_05_move_id
+msgid "DTE Type 05"
+msgstr "DTE Tipo 05"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_res_company__l10n_sv_dte_11_move_id
+msgid "DTE Type 11"
+msgstr "DTE Tipo 11"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_res_company__l10n_sv_dte_14_move_id
+msgid "DTE Type 14"
+msgstr "DTE Tipo 14"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_bank_statement_line__dte_url
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_move__dte_url
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_payment__dte_url
+msgid "DTE URL"
+msgstr "URL del DTE"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields.selection,name:l10n_sv_edi.selection__account_move__dte_state__dte_unsent
+msgid "DTE Unsent"
+msgstr "DTE no enviado"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_bank_statement_line__dte_sent_by_email
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_move__dte_sent_by_email
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_payment__dte_sent_by_email
+msgid "DTE sent by email?"
+msgstr "DTE enviado por correo electrónico?"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_bank_statement_line__dte_invalidation_move_id
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_move__dte_invalidation_move_id
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_payment__dte_invalidation_move_id
+msgid "DTE that replaces this DTE"
+msgstr "DTE que reemplaza a este DTE"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_journal__debitnote_sequence_id
+msgid "Debit Note Entry Sequence"
+msgstr "Secuencia de nota de débito"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_journal__debitnote_sequence
+msgid "Dedicated Debit Note Sequence"
+msgstr "Secuencia de nota de débito dedicada"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields.selection,name:l10n_sv_edi.selection__l10n_sv_account_document_type__invoicing_model__2
+msgid "Deferred"
+msgstr "Diferido"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_res_company__l10n_sv_destination_environment
+msgid "Destination Environment"
+msgstr "Ambiente de destino"
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.report_invoice_document
+msgid "Discount"
+msgstr "Descuento"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_l10n_sv_dte_contingency_event__display_name
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_l10n_sv_export_regime__display_name
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_l10n_sv_fiscal_warehouse__display_name
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_res_sales_point__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: l10n_sv_edi
+#: model:ir.model,name:l10n_sv_edi.model_l10n_sv_account_document_class
+msgid "Document Classes"
+msgstr "Clases de documento"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_incoterms__l10n_sv_document_code
+msgid "Document Code"
+msgstr "Código del documento"
+
+#. module: l10n_sv_edi
+#: model:ir.model,name:l10n_sv_edi.model_l10n_sv_account_document_type
+msgid "Document Types"
+msgstr "Tipos de documento"
+
+#. module: l10n_sv_edi
+#. odoo-python
+#: code:addons/l10n_sv_edi/models/account_move.py:0
+#, python-format
+msgid "Dollar(s)"
+msgstr "Dólar(es)"
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.report_invoice_document
+msgid "Due Date"
+msgstr "Fecha de vencimiento"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_tax_group__l10n_sv_code
+msgid "E-Invoicing Code"
+msgstr "Código de facturación electrónica"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_tax_group__l10n_sv_edi
+msgid "E-Invoicing Tax?"
+msgstr "¿Impuesto de facturación electrónica?"
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.view_company_form
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.view_move_form
+msgid "E-invoicing"
+msgstr "Facturación electrónica"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_res_company__l10n_sv_edi_enabled
+msgid "EDI Enabled?"
+msgstr "EDI habilitado?"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields.selection,name:l10n_sv_edi.selection__l10n_sv_account_document_class__generation_type__2
+msgid "Electronic"
+msgstr "Electrónico"
+
+#. module: l10n_sv_edi
+#: model:ir.model,name:l10n_sv_edi.model_mail_template
+msgid "Email Templates"
+msgstr "Plantillas de correo electrónico"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_l10n_sv_dte_contingency_event__end_date
+msgid "End Date"
+msgstr "Fecha de finalización"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields.selection,name:l10n_sv_edi.selection__account_move__dte_invalidation_type__1
+msgid "Error in the information of the Electronic Tax Document to invalidate."
+msgstr ""
+"Error en la informacion del Documento Tributario Electronico a invalidar."
+
+#. module: l10n_sv_edi
+#: model:mail.template,subject:l10n_sv_edi.mail_template_dte_error
+msgid "Error in {{ object.dte_control_number }}"
+msgstr "Error en {{ object.dte_control_number }}"
+
+#. module: l10n_sv_edi
+#. odoo-python
+#: code:addons/l10n_sv_edi/models/res_company.py:0
+#, python-format
+msgid ""
+"Error,\n"
+"\n"
+"Status Code: %s,\n"
+"Reason: %s\n"
+"\n"
+"Contact your administrator."
+msgstr ""
+"Error,\n"
+"\n"
+"Código de estado: %s,\n"
+"Motivo: %s\n"
+"\n"
+"Contacte con su administrador."
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_bank_statement_line__export_regime_id
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_move__export_regime_id
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_payment__export_regime_id
+msgid "Export Regime"
+msgstr "Régimen de exportación"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields.selection,name:l10n_sv_edi.selection__l10n_sv_dte_contingency_event__type__3
+msgid "Failure in the Issuer's internet service supply"
+msgstr "Falla en el suministro de servicio de internet del Emisor"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields.selection,name:l10n_sv_edi.selection__l10n_sv_dte_contingency_event__type__4
+msgid ""
+"Failure in the supply of electrical energy service of the Issuer that "
+"prevents the transmission of the DTE"
+msgstr ""
+"Falla en el suministro de servicio de energia eléctrica del Emisor que "
+"impida la trasmisión de los DTE"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_bank_statement_line__fiscal_warehouse_id
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_move__fiscal_warehouse_id
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_payment__fiscal_warehouse_id
+msgid "Fiscal Warehouse"
+msgstr "Recinto fiscal"
+
+#. module: l10n_sv_edi
+#: model:ir.model.constraint,message:l10n_sv_edi.constraint_l10n_sv_fiscal_warehouse_code_unique
+msgid "Fiscal Warehouse code must be unique!"
+msgstr "¡El código del recinto fiscal debe ser único!"
+
+#. module: l10n_sv_edi
+#: model:ir.model,name:l10n_sv_edi.model_l10n_sv_fiscal_warehouse
+msgid "Fiscal Warehouses"
+msgstr "Recintos fiscales"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_l10n_sv_dte_contingency_event__generation_code
+msgid "Generation Code"
+msgstr "Código de generación"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_l10n_sv_account_document_class__generation_type
+msgid "Generation Type"
+msgstr "Tipo de generación"
+
+#. module: l10n_sv_edi
+#: model:ir.model.constraint,message:l10n_sv_edi.constraint_account_move_dte_generation_code_unique
+msgid "Generation code must be unique per company!"
+msgstr "¡El código de generación debe ser único por compañia!"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields.selection,name:l10n_sv_edi.selection__res_branch__type__02
+msgid "Head Office"
+msgstr "Casa Matriz"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_l10n_sv_dte_contingency_event__id
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_l10n_sv_export_regime__id
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_l10n_sv_fiscal_warehouse__id
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_res_sales_point__id
+msgid "ID"
+msgstr ""
+
+#. module: l10n_sv_edi
+#: model:ir.model,name:l10n_sv_edi.model_account_incoterms
+msgid "Incoterms"
+msgstr ""
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.view_move_form
+msgid "Invalidation"
+msgstr "Invalidación"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_res_company__l10n_sv_invoice_report_id
+msgid "Invoice Report"
+msgstr "Informe de facturas"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_l10n_sv_account_document_type__invoicing_model
+msgid "Invoicing Model"
+msgstr "Modelo de facturación"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields.selection,name:l10n_sv_edi.selection__l10n_sv_dte_contingency_event__type__2
+msgid "Issuer system unavailability"
+msgstr "No disponibilidad de sistema del emisor"
+
+#. module: l10n_sv_edi
+#: model:ir.model,name:l10n_sv_edi.model_account_journal
+msgid "Journal"
+msgstr "Diario"
+
+#. module: l10n_sv_edi
+#: model:ir.model,name:l10n_sv_edi.model_account_move
+msgid "Journal Entry"
+msgstr "Asiento contable"
+
+#. module: l10n_sv_edi
+#: model:ir.model,name:l10n_sv_edi.model_account_move_line
+msgid "Journal Item"
+msgstr "Apunte contable"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_l10n_sv_dte_contingency_event____last_update
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_l10n_sv_export_regime____last_update
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_l10n_sv_fiscal_warehouse____last_update
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_res_sales_point____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_l10n_sv_dte_contingency_event__write_uid
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_l10n_sv_export_regime__write_uid
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_l10n_sv_fiscal_warehouse__write_uid
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_res_sales_point__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_l10n_sv_dte_contingency_event__write_date
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_l10n_sv_export_regime__write_date
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_l10n_sv_fiscal_warehouse__write_date
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_res_sales_point__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields.selection,name:l10n_sv_edi.selection__l10n_sv_dte_contingency_event__type__1
+msgid "MH system unavailability"
+msgstr "No disponibilidad de sistema del MH"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_tax_group__name
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_l10n_sv_export_regime__name
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_l10n_sv_fiscal_warehouse__name
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_res_sales_point__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields.selection,name:l10n_sv_edi.selection__account_tax_group__l10n_sv_edi__no
+msgid "No"
+msgstr ""
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields.selection,name:l10n_sv_edi.selection__l10n_sv_account_document_type__transmission_type__1
+msgid "Normal"
+msgstr ""
+
+#. module: l10n_sv_edi
+#. odoo-python
+#: code:addons/l10n_sv_edi/models/account_journal.py:0
+#, python-format
+msgid ""
+"On journal '%s', the same sequence is used as Credit Note Entry Sequence and"
+" Debit Note Entry Sequence."
+msgstr ""
+"En el diario '%s', se ha usado la misma secuencia para la Secuencia de "
+"facturas rectificativas y la Secuencia de nota de débito."
+
+#. module: l10n_sv_edi
+#. odoo-python
+#: code:addons/l10n_sv_edi/models/account_journal.py:0
+#, python-format
+msgid ""
+"On journal '%s', the same sequence is used as Entry Sequence and Debit Note "
+"Entry Sequence."
+msgstr ""
+"En el diario '%s', se ha usado la misma secuencia para la Secuencia de "
+"asiento y la Secuencia de nota de débito.."
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields.selection,name:l10n_sv_edi.selection__account_move__dte_invalidation_type__3
+msgid "Other"
+msgstr "Otro"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields.selection,name:l10n_sv_edi.selection__l10n_sv_dte_contingency_event__type__5
+msgid ""
+"Other (you must enter a maximum of 500 characters explaining the reason)"
+msgstr ""
+"Otro (deberá digitar un máximo de 500 caracteres explicando el motivo)"
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.report_invoice_document
+msgid "Paid on"
+msgstr "Pagado el"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields.selection,name:l10n_sv_edi.selection__l10n_sv_account_document_class__generation_type__1
+msgid "Physical"
+msgstr "Físico"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields.selection,name:l10n_sv_edi.selection__l10n_sv_account_document_type__invoicing_model__1
+msgid "Prior"
+msgstr "Previo"
+
+#. module: l10n_sv_edi
+#: model:ir.model,name:l10n_sv_edi.model_uom_uom
+msgid "Product Unit of Measure"
+msgstr "Unidad de medida del producto"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields.selection,name:l10n_sv_edi.selection__res_company__l10n_sv_destination_environment__01
+msgid "Production mode"
+msgstr "Modo producción"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_l10n_sv_dte_contingency_event__reason
+msgid "Reason"
+msgstr "Motivo"
+
+#. module: l10n_sv_edi
+#: model:ir.model.constraint,message:l10n_sv_edi.constraint_l10n_sv_export_regime_code_unique
+msgid "Regime code must be unique!"
+msgstr "¡El código del régimen debe ser único!"
+
+#. module: l10n_sv_edi
+#: model:ir.model,name:l10n_sv_edi.model_l10n_sv_export_regime
+msgid "Regimes"
+msgstr "Regímenes"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields.selection,name:l10n_sv_edi.selection__account_move__dte_invalidation_type__2
+msgid "Rescind of the operation performed."
+msgstr "Rescindir de la operación realizada."
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_bank_statement_line__response_anulardte
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_move__response_anulardte
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_payment__response_anulardte
+msgid "Response anulardte(POST)"
+msgstr "Respuesta anulardte(POST)"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_bank_statement_line__response_consultadte
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_move__response_consultadte
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_payment__response_consultadte
+msgid "Response consultadte(POST)"
+msgstr "Respuesta consultadte(POST)"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_l10n_sv_dte_contingency_event__response_contingencia
+msgid "Response contingencia(POST)"
+msgstr "Respuesta contingencia(POST)"
+
+#. module: l10n_sv_edi
+#. odoo-python
+#: code:addons/l10n_sv_edi/models/res_company.py:0
+#, python-format
+msgid "Response is not valid JSON."
+msgstr "La respuesta no es un JSON válido."
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_bank_statement_line__response_recepciondte
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_move__response_recepciondte
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_payment__response_recepciondte
+msgid "Response recepciondte(POST)"
+msgstr "Respuesta recepciondte(POST)"
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.view_company_form
+msgid "Run DTE Tests"
+msgstr "Ejecutar pruebas DTE"
+
+#. module: l10n_sv_edi
+#. odoo-python
+#: code:addons/l10n_sv_edi/models/res_company.py:0
+#, python-format
+msgid "SUCCESS: Signer works correctly."
+msgstr "ÉXITO: ​​El firmador funciona correctamente."
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_bank_statement_line__sales_point_id
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_move__sales_point_id
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_payment__sales_point_id
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_l10n_sv_dte_contingency_event__sales_point_id
+msgid "Sales Point"
+msgstr "Punto de venta"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_res_branch__sales_point_ids
+msgid "Sales Points"
+msgstr "Puntos de venta"
+
+#. module: l10n_sv_edi
+#: model:ir.model.constraint,message:l10n_sv_edi.constraint_res_sales_point_code_unique
+msgid "Sales point code must be unique per branch!"
+msgstr "¡El código del punto de venta debe ser único por sucursal!"
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.view_move_form
+msgid "Send DTE Email"
+msgstr "Enviar correo electrónico de DTE"
+
+#. module: l10n_sv_edi
+#: model:mail.template,name:l10n_sv_edi.mail_template_dte
+msgid "Sending DTE by email"
+msgstr "Envío de DTE por correo electrónico"
+
+#. module: l10n_sv_edi
+#: model:mail.template,name:l10n_sv_edi.mail_template_dte_error
+msgid "Sending DTE error by email"
+msgstr "Envío de error DTE por correo electrónico"
+
+#. module: l10n_sv_edi
+#. odoo-python
+#: code:addons/l10n_sv_edi/models/res_company.py:0
+#, python-format
+msgid "Service generates a timeout error."
+msgstr "El servicio genera un error de tiempo de espera."
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.view_company_form
+msgid "Signer"
+msgstr "Firmador"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_res_company__l10n_sv_signer_url
+msgid "Signer URL"
+msgstr "URL del firmador"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_l10n_sv_dte_contingency_event__stamp_received
+msgid "Stamp Received"
+msgstr "Sello recibido"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_l10n_sv_dte_contingency_event__start_date
+msgid "Start Date"
+msgstr "Fecha de inicio"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_bank_statement_line__supplier_dte_document_type_id
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_move__supplier_dte_document_type_id
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_payment__supplier_dte_document_type_id
+msgid "Supplier DTE document type"
+msgstr "Tipo de documento del DTE del proveedor"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields.selection,name:l10n_sv_edi.selection__account_tax_group__l10n_sv_type__tax
+msgid "Tax"
+msgstr "Impuesto"
+
+#. module: l10n_sv_edi
+#: model:ir.model,name:l10n_sv_edi.model_account_tax_group
+msgid "Tax Group"
+msgstr "Grupo de impuestos"
+
+#. module: l10n_sv_edi
+#. odoo-python
+#: code:addons/l10n_sv_edi/models/account_move.py:0
+#, python-format
+msgid "Tax group '%s' has no code!"
+msgstr "¡El grupo de impuestos '%s' no tiene código!"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields.selection,name:l10n_sv_edi.selection__res_company__l10n_sv_destination_environment__00
+msgid "Test mode"
+msgstr "Modo prueba"
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.view_company_form
+msgid "Testing"
+msgstr "Pruebas"
+
+#. module: l10n_sv_edi
+#. odoo-python
+#: code:addons/l10n_sv_edi/models/account_journal.py:0
+#, python-format
+msgid ""
+"The company is not set on sequence '%(sequence)s' configured as debit note "
+"sequence of journal '%(journal)s'."
+msgstr ""
+"La compañía no tiene establecida la secuencia '%(sequence)s' configurada "
+"como secuencia de nota de débito del diario '%(journal)s'."
+
+#. module: l10n_sv_edi
+#. odoo-python
+#: code:addons/l10n_sv_edi/models/account_move.py:0
+#, python-format
+msgid "The document type must have a non-zero version!"
+msgstr "¡El tipo de documento debe tener una versión distinta de cero!"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,help:l10n_sv_edi.field_account_journal__debitnote_sequence_id
+msgid ""
+"This field contains the information related to the numbering of\n"
+"                the debit note entries of this journal."
+msgstr ""
+"Este campo contiene la información relacionada con la numeración de\n"
+"                los asientos de notas de débito de este diario."
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_l10n_sv_account_document_type__transmission_type
+msgid "Transmission Type"
+msgstr "Tipo de transmisión"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_tax_group__l10n_sv_type
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_l10n_sv_dte_contingency_event__type
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_res_branch__type
+msgid "Type"
+msgstr "Tipo"
+
+#. module: l10n_sv_edi
+#. odoo-python
+#: code:addons/l10n_sv_edi/models/res_company.py:0
+#, python-format
+msgid ""
+"Unknown Error,\n"
+"\n"
+"%s\n"
+"\n"
+"Contact your administrator."
+msgstr ""
+"Error desconocido,\n"
+"\n"
+"%s\n"
+"\n"
+"Contacte con su administrador."
+
+#. module: l10n_sv_edi
+#. odoo-python
+#: code:addons/l10n_sv_edi/models/res_company.py:0
+#, python-format
+msgid "Unknown error."
+msgstr "Error desconocido."
+
+#. module: l10n_sv_edi
+#. odoo-python
+#: code:addons/l10n_sv_edi/models/l10n_sv_dte_contingency_event.py:0
+#, python-format
+msgid "Unsent"
+msgstr "No enviado"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_account__l10n_sv_unsent_account
+msgid "Unsent Account?"
+msgstr "¿Cuenta ajena?"
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.view_company_form
+msgid "Verify API"
+msgstr "Verificar API"
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.view_company_form
+msgid "Verify Signer"
+msgstr "Verificar firmador"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields,field_description:l10n_sv_edi.field_l10n_sv_account_document_type__version
+msgid "Version"
+msgstr "Versión"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields.selection,name:l10n_sv_edi.selection__res_branch__type__04
+msgid "Warehouse"
+msgstr "Bodega"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields.selection,name:l10n_sv_edi.selection__account_tax_group__l10n_sv_type__withholding_tax
+msgid "Withholding Tax"
+msgstr "Impuesto de retención"
+
+#. module: l10n_sv_edi
+#: model:ir.model.fields.selection,name:l10n_sv_edi.selection__account_tax_group__l10n_sv_edi__yes
+msgid "Yes"
+msgstr "Sí"
+
+#. module: l10n_sv_edi
+#. odoo-python
+#: code:addons/l10n_sv_edi/models/account_move.py:0
+#, python-format
+msgid "You can only add 10 fields maximum.!"
+msgstr "¡Sólo puedes agregar 10 campos como máximo!"
+
+#. module: l10n_sv_edi
+#. odoo-python
+#: code:addons/l10n_sv_edi/models/account_move.py:0
+#, python-format
+msgid ""
+"You cannot link an invoice with a DTE with state of 'DTE Rejected' to the "
+"DTE."
+msgstr ""
+"No se puede vincular una factura con un DTE con estado 'DTE rechazado' al "
+"DTE."
+
+#. module: l10n_sv_edi
+#. odoo-python
+#: code:addons/l10n_sv_edi/models/account_move.py:0
+#, python-format
+msgid ""
+"You cannot link an invoice with a status other than 'Posted' to the DTE."
+msgstr ""
+"No se puede vincular una factura con un estado distinto a 'Publicado' al "
+"DTE."
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.view_move_form
+msgid "anulardte(POST)"
+msgstr ""
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.view_move_form
+msgid "consultadte(POST)"
+msgstr ""
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.l10n_sv_dte_contingency_event_view_form
+msgid "contingencia(POST)"
+msgstr ""
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.report_invoice_document
+msgid "if paid before"
+msgstr "si se paga antes"
+
+#. module: l10n_sv_edi
+#: model_terms:ir.ui.view,arch_db:l10n_sv_edi.view_move_form
+msgid "recepciondte(POST)"
+msgstr ""
+
+#. module: l10n_sv_edi
+#: model:mail.template,subject:l10n_sv_edi.mail_template_dte
+msgid ""
+"{{ object.company_id.name }} has generated {{ object.dte_control_number }}"
+msgstr ""
+"{{ object.company_id.name }} ha generado {{ object.dte_control_number }}"

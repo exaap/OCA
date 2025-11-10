@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="mail_template_dte" model="mail.template">
+        <field name="name">Sending DTE by email</field>
+        <field name="model_id" ref="account.model_account_move"/>
+        <field name="email_from">{{ (object.company_id.email_formatted or user.email_formatted) }}</field>
+        <field name="subject">{{ object.company_id.name }} has generated {{ object.dte_control_number }}</field>
+        <field name="partner_to">{{ object.partner_id.id }}</field>
+        <field name="lang">{{ object.partner_id.lang }}</field>
+        <field name="auto_delete" eval="False"/>
+        <field name="body_html" type="html">
+            <div class="text-center" style="font-size: 13px; font-family: Arial, sans-serif; color: #333;">
+                <img t-att-src="'/logo.png?company=%s' % (object.company_id.id or 0)"/>
+                <p>Dear customer</p>
+                <p>
+                    <strong>
+                        <t t-out="object.partner_id.name"/>
+                    </strong>
+                </p>
+
+                <br/>
+
+                <p>
+                    <span>Receive a cordial greeting from</span>
+                    <strong>
+                        <t t-out="object.company_id.name"/>
+                    </strong>
+                </p>
+                <p>
+                    <span>We send you the</span>
+                    <strong>Electronic Tax Document,</strong>
+                    <span>in JSON and PDF format, as required by current tax regulations.</span>
+                </p>
+                <p>This document has been validated by the General Directorate of Internal Revenue (DGII).</p>
+
+                <br/>
+
+                <p>Best regards,</p>
+                <p>
+                    <strong>
+                        <t t-out="object.company_id.name"/>
+                    </strong>
+                </p>
+                <p>
+                    <span>
+                        <t t-out="object.company_id.street"/>
+                    </span>
+                    <span>
+                        <t t-out="object.company_id.street2"/>
+                    </span>
+                    <span>
+                        <t t-out="object.company_id.partner_id.district_id.name"/>
+                    </span>
+                </p>
+
+                <br/>
+
+                <p>
+                    <span>If you have any questions regarding your DTE, please contact us at the email:</span>
+                    <strong>
+                        <t t-out="object.company_id.email"/>
+                    </strong>
+                </p>
+            </div>
+        </field>
+    </record>
+
+    <record id="mail_template_dte_error" model="mail.template">
+        <field name="name">Sending DTE error by email</field>
+        <field name="model_id" ref="account.model_account_move"/>
+        <field name="email_from">{{ (object.company_id.email_formatted or user.email_formatted) }}</field>
+        <field name="subject">Error in {{ object.dte_control_number }}</field>
+        <field name="email_to">{{ object.company_id.l10n_sv_dte_error_email }}</field>
+        <field name="lang">{{ object.company_id.partner_id.lang }}</field>
+        <field name="auto_delete" eval="False"/>
+        <field name="body_html" type="html">
+            <div class="text-center" style="font-size: 13px; font-family: Arial, sans-serif; color: #333;">
+                <img t-att-src="'/logo.png?company=%s' % (object.company_id.id or 0)"/>
+                <p>
+                    <span>Review the Electronic Tax Document:</span>
+                    <strong>
+                        <t t-out="object.dte_control_number"/>
+                    </strong>
+                </p>
+
+                <br/>
+
+                <p>Best regards,</p>
+                <p>
+                    <strong>
+                        <t t-out="object.company_id.name"/>
+                    </strong>
+                </p>
+            </div>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_move_form" model="ir.ui.view">
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='tax_cash_basis_origin_move_id']" position="before">
+                <field name="supplier_dte_document_type_id"
+                    attrs="{'invisible': [('move_type', '!=', 'in_invoice')]}"/>
+            </xpath>
+
+            <xpath expr="//notebook" position="inside">
+                <page string="E-invoicing">
+                    <group>
+                        <group>
+                            <field name="sales_point_id" required="1"
+                                attrs="{'readonly': [('dte_control_number', '!=', False)]}"/>
+                        </group>
+                        <group>
+                            <field name="fiscal_warehouse_id"
+                                attrs="{'readonly': [('dte_stamp_received', '!=', False)]}"/>
+                            <field name="export_regime_id"
+                                attrs="{'readonly': [('dte_stamp_received', '!=', False)]}"/>
+                        </group>
+                    </group>
+                    <group string="DTE" attrs="{'invisible': [('dte_state', '=', False)]}">
+                        <group>
+                            <field name="dte_document_type_id"
+                                attrs="{'readonly': [('dte_control_number', '!=', False)] }"/>
+                            <label for="dte_state"/>
+                            <div>
+                                <field name="dte_state"
+                                    attrs="{'readonly': [('dte_control_number', '!=', False)]}"/>
+                                <button name="action_post_recepciondte"
+                                    string="recepciondte(POST)"
+                                    type="object"
+                                    class="oe_stat_button"
+                                    icon="fa-check"
+                                    attrs="{'invisible': [
+                                        '|',
+                                        ('state', '!=', 'posted'),
+                                        ('dte_stamp_received', '!=', False)
+                                    ]}"
+                                />
+                                <button name="action_post_consultadte"
+                                    string="consultadte(POST)"
+                                    type="object"
+                                    class="oe_stat_button"
+                                    icon="fa-check"
+                                    attrs="{'invisible': [
+                                        '|',
+                                        ('state', '!=', 'posted'),
+                                        '|',
+                                        ('dte_control_number', '=', False),
+                                        '&amp;',
+                                        ('dte_stamp_received', '!=', False),
+                                        ('response_consultadte', '!=', False)
+                                    ]}"
+                                />
+                            </div>
+                            <label for="dte_sent_by_email"/>
+                            <div>
+                                <field name="dte_sent_by_email" attrs="{'readonly': [('state', '!=', 'posted')]}"/>
+                                <button name="action_send_dte_email"
+                                    string="Send DTE Email"
+                                    type="object"
+                                    class="oe_stat_button"
+                                    icon="fa-check"
+                                    attrs="{'invisible': ['|', ('dte_sent_by_email', '=', True), ('state', '!=', 'posted')]}"
+                                />
+                            </div>
+                            <field name="dte_control_number"/>
+                        </group>
+                        <group>
+                            <field name="dte_generation_code"/>
+                            <field name="dte_stamp_received"/>
+                            <field name="dte_url" widget="url"/>
+                        </group>
+                    </group>
+                    <group attrs="{'invisible': [('dte_state', '=', False)]}">
+                        <field name="dte_contingency_event_id"
+                            attrs="{
+                                'readonly': [('dte_stamp_received', '!=', False)],
+                                'invisible': [('dte_stamp_received', '!=', False), ('dte_contingency_event_id', '=', False)]
+                            }"
+                        />
+                    </group>
+                    <group attrs="{'invisible': [('dte_state', '=', False)]}">
+                        <field name="response_recepciondte"/>
+                    </group>
+                    <group attrs="{'invisible': [('dte_state', '=', False)]}">
+                        <field name="response_consultadte"/>
+                    </group>
+                    <group string="Invalidation"
+                        attrs="{'invisible': ['|', ('state', '!=', 'cancel'), ('dte_stamp_received', '=', False)]}">
+                        <group>
+                            <label for="dte_invalidation_type"/>
+                            <div>
+                                <field name="dte_invalidation_type"
+                                    attrs="{'readonly': [('dte_invalidation_stamp_received', '!=', False)]}"/>
+                                <button name="action_post_anulardte"
+                                    string="anulardte(POST)"
+                                    type="object"
+                                    class="oe_stat_button"
+                                    icon="fa-check"
+                                    attrs="{'invisible': [
+                                        '|',
+                                        ('dte_invalidation_type', '=', False),
+                                        ('dte_invalidation_stamp_received', '!=', False)
+                                    ]}"
+                                />
+                            </div>
+                            <field name="dte_invalidation_reason" widget="text"
+                                attrs="{
+                                    'readonly': [('dte_invalidation_stamp_received', '!=', False)],
+                                    'invisible': [('dte_invalidation_type', '=', False)],
+                                    'required': [('dte_invalidation_type', '!=', False)]
+                                }"
+                            />
+                            <field name="dte_invalidation_move_id"
+                                attrs="{
+                                    'readonly': [('dte_invalidation_stamp_received', '!=', False)],
+                                    'invisible': [('dte_invalidation_type', 'in', ('2', False))],
+                                    'required': [('dte_invalidation_type', 'in', ('1', '3'))]
+                                }"
+                            />
+                        </group>
+                        <group attrs="{'invisible': [('dte_invalidation_type', '=', False)]}">
+                            <field name="dte_invalidation_generation_code"/>
+                            <field name="dte_invalidation_stamp_received"/>
+                        </group>
+                    </group>
+                    <group
+                        attrs="{'invisible': ['|', ('state', '!=', 'cancel'), ('dte_invalidation_type', '=', False)]}">
+                        <field name="response_anulardte"/>
+                    </group>
+                </page>
+            </xpath>
+
+            <xpath expr="//button[@name='button_draft']" position="attributes">
+                <attribute name="attrs">{"invisible": [
+                    "|",
+                    ("show_reset_to_draft_button", "=", False),
+                    ("dte_state", "=", "dte_invalidated")]}
+                </attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_invoice_tree" model="ir.ui.view">
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_invoice_tree"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="dte_control_number" optional="show"/>
+            </field>
+            <field name="state" position="after">
+                <field name="dte_state" optional="show"/>
+            </field>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_tax_group_tree" model="ir.ui.view">
+        <field name="model">account.tax.group</field>
+        <field name="inherit_id" ref="account.view_tax_group_tree"/>
+        <field name="arch" type="xml">
+            <field name="country_code" position="after">
+                <field name="l10n_sv_edi" required="1"/>
+                <field name="l10n_sv_code" attrs="{'required': [('l10n_sv_edi', '=', 'yes')]}"/>
+                <field name="l10n_sv_type" attrs="{'required': [('l10n_sv_edi', '=', 'yes')]}"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_tax_group_form" model="ir.ui.view">
+        <field name="model">account.tax.group</field>
+        <field name="inherit_id" ref="account.view_tax_group_form"/>
+        <field name="arch" type="xml">
+            <field name="sequence" position="after">
+                <field name="l10n_sv_edi"  required="1"/>
+                <field name="l10n_sv_code" attrs="{'required': [('l10n_sv_edi', '=', 'yes')]}"/>
+                <field name="l10n_sv_type" attrs="{'required': [('l10n_sv_edi', '=', 'yes')]}"/>
+            </field>
+        </field>
+    </record>
+</odoo>

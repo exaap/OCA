@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_branch_view_tree" model="ir.ui.view">
+        <field name="model">res.branch</field>
+        <field name="inherit_id" ref="base_multi_branch_company.res_branch_view_tree"/>
+        <field name="arch" type="xml">
+            <field name="name" position="before">
+                <field name="code"/>
+            </field>
+
+            <field name="name" position="after">
+                <field name="type"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="res_branch_view_form" model="ir.ui.view">
+        <field name="model">res.branch</field>
+        <field name="inherit_id" ref="base_multi_branch_company.res_branch_view_form"/>
+        <field name="arch" type="xml">
+            <field name="name" position="before">
+                <field name="code"/>
+            </field>
+
+            <field name="name" position="after">
+                <field name="type"/>
+            </field>
+
+            <xpath expr="//sheet" position="inside">
+                <group>
+                    <field name="sales_point_ids"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

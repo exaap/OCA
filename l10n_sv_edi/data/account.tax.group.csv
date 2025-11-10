@@ -1,0 +1,52 @@
+id,name,l10n_sv_code,l10n_sv_type
+account_tax_group_sv_20,Impuesto al Valor Agregado 13%,20,tax
+account_tax_group_sv_C3,Impuesto al Valor Agregado (exportaciones) 0%,C3,tax
+account_tax_group_sv_59,Turismo: por alojamiento (5%),59,tax
+account_tax_group_sv_71,Turismo: salida del país por vía aérea $7.00,71,tax
+account_tax_group_sv_D1,FOVIAL ($0.20 Ctvs. por galón),D1,tax
+account_tax_group_sv_C8,COTRANS ($0.10 Ctvs. por galón),C8,tax
+account_tax_group_sv_D5,Otras tasas casos especiales,D5,tax
+account_tax_group_sv_D4,Otras impuestos casos especiales,D4,tax
+account_tax_group_sv_A8,"Impuesto Especial al Combustible (0%, 0.5%, 1%)",A8,tax
+account_tax_group_sv_57,Impuesto industria de Cemento,57,tax
+account_tax_group_sv_90,Impuesto especial a la primera matrícula,90,tax
+account_tax_group_sv_A6,"Impuesto ad- valorem, armas de fuego, municiones explosivas y artículos similares",A6,tax
+account_tax_group_sv_C5,Impuesto ad- valorem por diferencial de precios de bebidas alcohólicas (8%),C5,tax
+account_tax_group_sv_C6,Impuesto ad- valorem por diferencial de precios al tabaco cigarrillos (39%),C6,tax
+account_tax_group_sv_C7,Impuesto ad- valorem por diferencial de precios al tabaco cigarros (100%),C7,tax
+account_tax_group_sv_19,"Fabricante de Bebidas Gaseosas, Isotónicas, Deportivas, Fortificantes, Energizante o Estimulante",19,tax
+account_tax_group_sv_28,"Importador de Bebidas Gaseosas, Isotónicas, Deportivas, Fortificantes, Energizante o Estimulante",28,tax
+account_tax_group_sv_31,Detallistas o Expendedores de Bebidas Alcohólicas,31,tax
+account_tax_group_sv_32,Fabricante de Cerveza,32,tax
+account_tax_group_sv_33,Importador de Cerveza,33,tax
+account_tax_group_sv_34,Fabricante de Productos de Tabaco,34,tax
+account_tax_group_sv_35,Importador de Productos de Tabaco,35,tax
+account_tax_group_sv_36,"Fabricante de Armas de Fuego, Municiones y Articulos Similares",36,tax
+account_tax_group_sv_37,"Importador de Armas de Fuego, Munición y Articulos. Similares",37,tax
+account_tax_group_sv_38,Fabricante de Explosivos,38,tax
+account_tax_group_sv_39,Importador de Explosivos,39,tax
+account_tax_group_sv_42,Fabricante de Productos Pirotécnicos,42,tax
+account_tax_group_sv_43,Importador de Productos Pirotécnicos,43,tax
+account_tax_group_sv_44,Productor de Tabaco,44,tax
+account_tax_group_sv_50,"Distribuidor de Bebidas Gaseosas, Isotónicas, Deportivas, Fortificantes, Energizante o Estimulante",50,tax
+account_tax_group_sv_51,Bebidas Alcohólicas,51,tax
+account_tax_group_sv_52,Cerveza,52,tax
+account_tax_group_sv_53,Productos del Tabaco,53,tax
+account_tax_group_sv_54,Bebidas Carbonatadas o Gaseosas Simples o Endulzadas,54,tax
+account_tax_group_sv_55,Otros Específico,55,tax
+account_tax_group_sv_58,Alcohol,58,tax
+account_tax_group_sv_77,"Importador de Jugos, Néctares, Bedias con Jugo y Refrescos",77,tax
+account_tax_group_sv_78,"Distribuidor de Jugos, Néctares, Bedias con Jugo y Refrescos",78,tax
+account_tax_group_sv_79,Sobre Llamadas Telefónicas Provenientes del Ext,79,tax
+account_tax_group_sv_85,"Detallista de Jugos, Néctares, Bedias con Jugo y Refrescos",85,tax
+account_tax_group_sv_86,Fabricante de Preparaciones Concentradas o en Polvo para la Elaboración de Bebidas,86,tax
+account_tax_group_sv_91,"Fabricante de Jugos, Néctares, Bedias con Jugo y Refrescos",91,tax
+account_tax_group_sv_92,Importador de Preparaciones Concentradas o en Polvo para la Elaboración de Bebidas,92,tax
+account_tax_group_sv_A1,Específicos y Ad-Valorem,A1,tax
+account_tax_group_sv_A5,"Bebidas Gaseosas, Isotónicas, Deportivas, Fortificantes, Energizantes o Estimulantes",A5,tax
+account_tax_group_sv_A7,Alcohol Etílico,A7,tax
+account_tax_group_sv_A9,Sacos Sintéticos,A9,tax
+account_tax_group_sv_22,Retención IVA 1%,22,withholding_tax
+account_tax_group_sv_C4,Retención IVA 13%,C4,withholding_tax
+account_tax_group_sv_C9,Otras retenciones IVA casos especiales,C9,withholding_tax
+account_tax_group_sv_ReteRenta,Retención Renta,ReteRenta,withholding_tax
