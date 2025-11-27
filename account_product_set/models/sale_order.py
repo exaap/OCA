@@ -79,7 +79,10 @@ class SaleOrder(models.Model):
 
         for set_sale_id in self.product_set_sale_ids:
             order_line_ids = self.env["sale.order.line"].search(
-                [("product_set_sale_id", "=", set_sale_id.id)]
+                [
+                    ("product_set_sale_id", "=", set_sale_id.id),
+                    ("order_id.state", "=", "draft"),
+                ]
             )
             price_subtotal = set_sale_id.product_qty * set_sale_id.price_unit
 

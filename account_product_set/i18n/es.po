@@ -68,7 +68,7 @@ msgid "Last Updated on"
 msgstr "Última actualización el"
 
 #. module: account_product_set
-#: code:addons/account_product_set/models/sale_order.py:91
+#: code:addons/account_product_set/models/sale_order.py:94
 #, python-format
 msgid "Order lines do not add up to the same value as the product sets of the sale."
 msgstr "Las líneas de pedido no suman el mismo valor que los conjuntos de productos de la venta."
