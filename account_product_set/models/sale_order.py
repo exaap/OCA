@@ -74,6 +74,18 @@ class SaleOrder(models.Model):
 
     @api.multi
     def action_confirm(self):
+        msg_product_is_kit = _(
+            "The product %s is a kit and does not have the percentages clearly established."
+        )
+        msg_kit_not_add = _(
+            "Order lines do not add up to the same value as the product sets of the sale."
+        )
+        product_set_id = False
+
+        for line_id in self.order_line:
+            if line_id.product_id.set_line_ids:
+                product_set_id = line_id.product_id
+
         if any([l.product_id.set_line_ids for l in self.order_line]):
             self.action_update_product_set_sale_ids()
 
@@ -90,10 +102,9 @@ class SaleOrder(models.Model):
                 price_subtotal -= order_line_id.price_subtotal
 
             if round(price_subtotal, 2):
-                raise UserError(
-                    _(
-                        "Order lines do not add up to the same value as the product sets of the sale."
-                    )
-                )
+                if product_set_id:
+                    raise UserError(msg_product_is_kit % product_set_id.display_name)
+
+                raise UserError(msg_kit_not_add)
 
         return super(SaleOrder, self).action_confirm()
