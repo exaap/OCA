@@ -33,6 +33,7 @@ class StockInventoryLine(models.Model):
                     )
 
                 line_id.inventory_id = split_inventory_id
+                line_id.product_qty = 0
             else:
                 line_ids += line_id
 
