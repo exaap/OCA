@@ -11,3 +11,6 @@ class MrpProduction(models.Model):
     user_machining_technician_id = fields.Many2one(
         comodel_name="res.users", string="Machining Technician"
     )
+    user_test_technician_id = fields.Many2one(
+        comodel_name="res.users", string="Test Technician"
+    )

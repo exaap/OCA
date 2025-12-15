@@ -6,7 +6,8 @@
         <field name="arch" type="xml">
             <field name="user_id" position="after">
                 <field name="user_technician_id" required="1"/>
-                <field name="user_machining_technician_id" required="1"/>
+                <field name="user_machining_technician_id"/>
+                <field name="user_test_technician_id"/>
             </field>
         </field>
     </record>
