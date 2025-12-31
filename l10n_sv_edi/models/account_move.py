@@ -265,8 +265,11 @@ class AccountMove(models.Model):
         if not self.dte_control_number and dte_document_type_id.version != 0:
             sales_point_id = self.sales_point_id
             consecutive_count = sales_point_id.consecutive_count or {}
-            consecutive = consecutive_count.get(dte_document_type_id.code, 0) + 1
-            consecutive_count[dte_document_type_id.code] = consecutive
+            year = str((self.invoice_date or fields.Date.today()).year)
+            year_count = consecutive_count.get(year) or {}
+            consecutive = year_count.get(dte_document_type_id.code, 0) + 1
+            year_count[dte_document_type_id.code] = consecutive
+            consecutive_count[year] = year_count
             sales_point_id.consecutive_count = consecutive_count
             self.dte_control_number = (
                 "DTE-"

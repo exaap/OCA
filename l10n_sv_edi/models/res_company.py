@@ -174,7 +174,9 @@ class ResCompany(models.Model):
             tests_number = 90
             sales_point_id = move_id.sales_point_id if move_id else False
             consecutive_count = sales_point_id.consecutive_count or {}
-            consecutive = consecutive_count.get(dte_document_type, 0)
+            year = str((move_id.invoice_date or fields.Date.today()).year)
+            year_count = consecutive_count.get(year) or {}
+            consecutive = year_count.get(dte_document_type, 0)
 
             while tests_number > 0:
                 if move_id and consecutive < tests_number:
@@ -204,7 +206,9 @@ class ResCompany(models.Model):
 
                     sales_point_id = move_id.sales_point_id if move_id else False
                     consecutive_count = sales_point_id.consecutive_count or {}
-                    consecutive = consecutive_count.get(dte_document_type, 0)
+                    year = str((move_id.invoice_date or fields.Date.today()).year)
+                    year_count = consecutive_count.get(year) or {}
+                    consecutive = year_count.get(dte_document_type, 0)
 
     # TODO
     def action_post_recepcionlote(self):
