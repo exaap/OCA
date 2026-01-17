@@ -13,40 +13,45 @@ class ProductBarcode(models.Model):
     _description = "Individual item in a product's barcode list"
     _order = "sequence, id"
 
-    name = fields.Char(
-        string="Barcode",
-        required=True,
-    )
-    sequence = fields.Integer(
-        default=0,
-    )
+    name = fields.Char(string="Barcode", required=True,)
+    sequence = fields.Integer(string="Sequence", default=0,)
     product_id = fields.Many2one(
         string="Product",
         comodel_name="product.product",
         #compute="_compute_product",
-        store=True,
+        #store=True,
         readonly=False,
-        ondelete="cascade",
     )
     product_tmpl_id = fields.Many2one(
         comodel_name="product.template",
         #compute="_compute_product_tmpl",
-        store=True,
+        #store=True,
         readonly=False,
-        ondelete="cascade",
     )
 
-    @api.depends("product_id")
-    def _compute_product_tmpl(self):
-        for rec in self.filtered(lambda x: not x.product_tmpl_id and x.product_id):
-            rec.product_tmpl_id = rec.product_id.product_tmpl_id
-
-    @api.depends("product_tmpl_id.product_variant_ids")
     def _compute_product(self):
         for rec in self.filtered(
-            lambda x: not x.product_id and x.product_tmpl_id.product_variant_ids
+            lambda x: not x.product_id or not x.product_tmpl_id
         ):
-            rec.product_id = rec.product_tmpl_id.product_variant_ids[0]
+            if not rec.product_tmpl_id:
+                rec.product_tmpl_id = rec.product_id.product_tmpl_id
+            elif not rec.product_id:
+                rec.product_id = rec.product_tmpl_id.product_variant_ids[0]
+
+        return self
+
+    @api.model
+    def create(self, vals):
+        res = super(ProductBarcode, self).create(vals)
+
+        return res._compute_product()
+
+    @api.multi
+    def write(self, vals):
+        rec = super(ProductBarcode, self).write(vals)
+        self._compute_product()
+
+        return rec
 
     @api.constrains("name")
     def _check_duplicates(self):
@@ -56,9 +61,6 @@ class ProductBarcode(models.Model):
             )
             if barcodes:
                 raise UserError(
-                    _(
-                        'The Barcode "%(barcode)s" already exists for product '
-                        '"%(product)s"'
-                    )
-                    % {"barcode": record.name, "product": barcodes[0].product_id.name}
+                    _('The Barcode "%s" already exists for product ' '"%s"')
+                    % (record.name, barcodes[0].product_id.name)
                 )

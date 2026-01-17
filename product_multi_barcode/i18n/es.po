@@ -9,26 +9,28 @@ msgstr ""
 "Project-Id-Version: stock-logistics-barcode (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-08 15:26+0000\n"
-"PO-Revision-Date: 2023-10-29 00:41+0000\n"
-"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
-"Language-Team: Spanish (http://www.transifex.com/oca/"
-"OCA-stock-logistics-barcode-8-0/language/es/)\n"
+"PO-Revision-Date: 2022-02-14 13:16+0000\n"
+"Last-Translator: Olga Marco Puértolas <olga.marco@creublanca.es>\n"
+"Language-Team: Spanish (http://www.transifex.com/oca/OCA-stock-logistics-"
+"barcode-8-0/language/es/)\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: product_multi_barcode
 #: model:ir.model.fields,field_description:product_multi_barcode.field_product_barcode__name
 msgid "Barcode"
-msgstr "Código de Barras"
+msgstr "Código de barras"
 
 #. module: product_multi_barcode
 #: model:ir.model.fields,field_description:product_multi_barcode.field_product_product__barcode_ids
 #: model:ir.model.fields,field_description:product_multi_barcode.field_product_template__barcode_ids
+#: model_terms:ir.ui.view,arch_db:product_multi_barcode.product_normal_form_view_multi_barcodes
 #: model_terms:ir.ui.view,arch_db:product_multi_barcode.product_search_form_view_multi_barcodes
+#: model_terms:ir.ui.view,arch_db:product_multi_barcode.product_template_form_view_multi_barcode
 msgid "Barcodes"
 msgstr "Códigos de barras"
 
@@ -61,7 +63,8 @@ msgstr "Artículo individual en la lista de códigos de barras de un producto"
 #: model:ir.model.fields,help:product_multi_barcode.field_product_product__barcode
 msgid "International Article Number used for product identification."
 msgstr ""
-"Número de Artículo Internacional usado para la identificación de producto."
+"Número de artículo internacional utilizado para la identificación del "
+"producto."
 
 #. module: product_multi_barcode
 #: model:ir.model.fields,field_description:product_multi_barcode.field_product_barcode____last_update
@@ -92,12 +95,13 @@ msgstr "Producto"
 #. module: product_multi_barcode
 #: model:ir.model,name:product_multi_barcode.model_product_template
 msgid "Product Template"
-msgstr "Plantilla del Producto"
+msgstr "Plantilla de producto"
 
 #. module: product_multi_barcode
 #: model:ir.model.fields,field_description:product_multi_barcode.field_product_barcode__product_tmpl_id
+#, fuzzy
 msgid "Product Tmpl"
-msgstr "Plant de Producto"
+msgstr "Producto Tmpl"
 
 #. module: product_multi_barcode
 #: model:ir.model.fields,field_description:product_multi_barcode.field_product_barcode__sequence
@@ -106,15 +110,9 @@ msgstr "Secuencia"
 
 #. module: product_multi_barcode
 #: code:addons/product_multi_barcode/models/product_barcode.py:0
-#, python-format
-msgid "The Barcode \"%(barcode)s\" already exists for product \"%(product)s\""
-msgstr ""
-"El código de barras \"%(barcode)s\" ya existe para el producto \"%(product)"
-"s\""
-
 #, fuzzy, python-format
-#~ msgid "The Barcode \"%s\" already exists for product \"%s\""
-#~ msgstr "El código EAN13 \"%s\" ya existe para el producto \"%s\""
+msgid "The Barcode \"%s\" already exists for product \"%s\""
+msgstr "El código EAN13 \"%s\" ya existe para el producto \"%s\""
 
 #~ msgid "EAN13"
 #~ msgstr "EAN13"

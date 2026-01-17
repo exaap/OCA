@@ -11,9 +11,7 @@ class ProductProduct(models.Model):
     _inherit = "product.product"
 
     barcode_ids = fields.One2many(
-        comodel_name="product.barcode",
-        inverse_name="product_id",
-        string="Barcodes",
+        comodel_name="product.barcode", inverse_name="product_id", string="Barcodes",
     )
     barcode = fields.Char(
         string="Main barcode",
@@ -21,6 +19,7 @@ class ProductProduct(models.Model):
         store=True,
         inverse="_inverse_barcode",
         compute_sudo=True,
+        inverse_sudo=True,
     )
 
     @api.depends("barcode_ids.name", "barcode_ids.sequence")
@@ -35,7 +34,7 @@ class ProductProduct(models.Model):
             elif not product.barcode:
                 product.barcode_ids.unlink()
             else:
-                self.env["product.barcode"].create(product._prepare_barcode_vals())
+                self.env["product.barcode"].create(self._prepare_barcode_vals())
 
     def _prepare_barcode_vals(self):
         self.ensure_one()
