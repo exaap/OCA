@@ -54,7 +54,9 @@
                                         ('dte_control_number', '=', False),
                                         '&amp;',
                                         ('dte_stamp_received', '!=', False),
-                                        ('response_consultadte', '!=', False)
+                                        '&amp;',
+                                        ('response_consultadte', '!=', False),
+                                        ('dte_state', 'in', ('dte_transmitted', 'dte_invalidated'))
                                     ]}"
                                 />
                             </div>

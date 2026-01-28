@@ -282,20 +282,27 @@
                                 t-if="display_discount">
                                 <span>Disc.%</span>
                             </th>
+                            <th class="text-center" style="border: 1px solid black;" width="25%"
+                                t-if="o.move_type in ('in_invoice', 'in_refund')">
+                                <span>Purchases</span>
+                            </th>
                             <th class="text-center" style="border: 1px solid black;" width="7%"
-                                t-if="display_unsent_sales">
+                                t-if="o.move_type in ('out_invoice', 'out_refund') and display_unsent_sales">
                                 <span>Unsent sales</span>
                             </th>
                             <th class="text-center" style="border: 1px solid black;"
-                                t-att-width="('6' if display_unsent_sales else '8') + '%'">
+                                t-att-width="('6' if display_unsent_sales else '8') + '%'"
+                                t-if="o.move_type in ('out_invoice', 'out_refund')">
                                 <span>Non-taxable sales</span>
                             </th>
                             <th class="text-center" style="border: 1px solid black;"
-                                t-att-width="('6' if display_unsent_sales else '8') + '%'">
+                                t-att-width="('6' if display_unsent_sales else '8') + '%'"
+                                t-if="o.move_type in ('out_invoice', 'out_refund')">
                                 <span>Exempt sales</span>
                             </th>
                             <th class="text-center" style="border: 1px solid black;"
-                                t-att-width="('6' if display_unsent_sales else '9') + '%'">
+                                t-att-width="('6' if display_unsent_sales else '9') + '%'"
+                                t-if="o.move_type in ('out_invoice', 'out_refund')">
                                 <span>Taxable sales</span>
                             </th>
                         </tr>
@@ -346,8 +353,8 @@
                                     </td>
                                     <t t-set="item" t-value="item + 1"/>
                                     <td class="text-end">
-                                        <span t-esc="'{0:,.0f}'.format(line.quantity) + '&#160;'"/> 
-                                        <!--span t-field="line.product_uom_id"/-->
+                                        <span t-esc="'{0:,.0f}'.format(line.quantity) + '&#160;'"/>
+                                        <!-- span t-field="line.product_uom_id"/-->
                                     </td>
                                     <td class="text-start">
                                         <t t-if="line.product_id and line.product_id.type != 'service'">
@@ -364,30 +371,37 @@
                                         <span class="text-nowrap" t-esc="'{0:,.2f}'.format(price_unit) + '&#160;'"/>
                                     </td>
                                     <td class="text-end" t-if="display_discount">
-                                        <span class="text-nowrap" t-esc="'{0:,.2f}'.format(line.discount) + '&#160;'"/>
+                                        <span class="text-nowrap"
+                                            t-esc="'{0:,.2f}'.format(line.discount) + '&#160;'"/>
                                     </td>
-                                    <td class="text-end" t-if="display_unsent_sales">
-                                        <t t-if="not iva and line.account_id.l10n_sv_unsent_account">
-                                            <t t-set="unsent_total" t-value="unsent_total + total"/>
-                                        </t>
+                                    <t t-if="not iva and line.account_id.l10n_sv_unsent_account">
+                                        <t t-set="unsent_total" t-value="unsent_total + total"/>
+                                    </t>
+                                    <td class="text-end"
+                                        t-if="o.move_type in ('out_invoice', 'out_refund') and display_unsent_sales">
                                         <span class="text-nowrap"
                                             t-esc="'{0:,.2f}'.format(total if not iva and line.account_id.l10n_sv_unsent_account else 0.00) + '&#160;'"/>
                                     </td>
-                                    <td class="text-end">
-                                        <t t-if="not iva and not line.account_id.l10n_sv_unsent_account">
-                                            <t t-set="non_taxable_total" t-value="non_taxable_total + total"/>
-                                        </t>
+                                    <td class="text-end" t-if="o.move_type in ('in_invoice', 'in_refund')">
+                                        <span class="text-nowrap" t-esc="'{0:,.2f}'.format(total) + '&#160;'"/>
+                                    </td>
+                                    <t t-if="not iva and not line.account_id.l10n_sv_unsent_account">
+                                        <t t-set="non_taxable_total" t-value="non_taxable_total + total"/>
+                                    </t>
+                                    <td class="text-end" t-if="o.move_type in ('out_invoice', 'out_refund')">
                                         <span class="text-nowrap"
                                             t-esc="'{0:,.2f}'.format(total if not iva and not line.account_id.l10n_sv_unsent_account else 0.00) + '&#160;'"/>
                                     </td>
-                                    <td class="text-end">
-                                        <span class="text-nowrap" t-esc="'{0:,.2f}'.format(exempt_total) + '&#160;'"/>
+                                    <td class="text-end" t-if="o.move_type in ('out_invoice', 'out_refund')">
+                                        <span class="text-nowrap"
+                                            t-esc="'{0:,.2f}'.format(exempt_total) + '&#160;'"/>
                                     </td>
-                                    <td class="text-end">
-                                        <t t-if="iva">
-                                            <t t-set="taxable_total" t-value="taxable_total + total"/>
-                                        </t>
-                                        <span class="text-nowrap" t-esc="'{0:,.2f}'.format(total if iva else 0.00) + '&#160;'"/>
+                                    <t t-if="iva">
+                                        <t t-set="taxable_total" t-value="taxable_total + total"/>
+                                    </t>
+                                    <td class="text-end" t-if="o.move_type in ('out_invoice', 'out_refund')">
+                                        <span class="text-nowrap"
+                                            t-esc="'{0:,.2f}'.format(total if iva else 0.00) + '&#160;'"/>
                                     </td>
                                 </t>
                                 <t t-if="line.display_type == 'line_section'">
@@ -441,7 +455,8 @@
                                 </td>
                             </tr>
                         </table>
-                        <table class="table-borderless text-center" width="100%">
+                        <table class="table-borderless text-center" width="100%"
+                            t-if="o.move_type in ('out_invoice', 'out_refund')">
                             <tr>
                                 <td style="border: none; background-color: white; color: black;">
                                     <span t-field="o.company_id.report_footer"/>
