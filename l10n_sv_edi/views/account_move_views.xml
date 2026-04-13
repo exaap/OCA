@@ -9,6 +9,26 @@
                     attrs="{'invisible': [('move_type', '!=', 'in_invoice')]}"/>
             </xpath>
 
+            <xpath expr="//button[@name='action_reverse']" position="attributes">
+                <attribute name="attrs">{"invisible": [
+                    "|",
+                    "|",
+                    ("move_type", "not in", ("out_invoice", "in_invoice")),
+                    ("state", "!=", "posted"),
+                    "&amp;",
+                    ("move_type", "=", "out_invoice"),
+                    ("dte_document_type", "!=", "03")]}
+                </attribute>
+            </xpath>
+
+            <xpath expr="//button[@name='button_draft']" position="attributes">
+                <attribute name="attrs">{"invisible": [
+                    "|",
+                    ("show_reset_to_draft_button", "=", False),
+                    ("dte_state", "=", "dte_invalidated")]}
+                </attribute>
+            </xpath>
+
             <xpath expr="//notebook" position="inside">
                 <page string="E-invoicing">
                     <group>
@@ -25,8 +45,7 @@
                     </group>
                     <group string="DTE" attrs="{'invisible': [('dte_state', '=', False)]}">
                         <group>
-                            <field name="dte_document_type_id"
-                                attrs="{'readonly': [('dte_control_number', '!=', False)] }"/>
+                            <field name="dte_document_type" invisible="1"/>
                             <label for="dte_state"/>
                             <div>
                                 <field name="dte_state"
@@ -138,12 +157,24 @@
                     </group>
                 </page>
             </xpath>
+        </field>
+    </record>
 
-            <xpath expr="//button[@name='button_draft']" position="attributes">
+    <record id="view_move_form_debit" model="ir.ui.view">
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account_debit_note.view_move_form_debit"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='%(account_debit_note.action_view_account_move_debit)d']" position="attributes">
                 <attribute name="attrs">{"invisible": [
                     "|",
-                    ("show_reset_to_draft_button", "=", False),
-                    ("dte_state", "=", "dte_invalidated")]}
+                    "|",
+                    "|",
+                    ("debit_origin_id", "!=", False),
+                    ("move_type", "not in", ("out_invoice", "in_invoice", "out_refund", "in_refund")),
+                    ("state", "!=", "posted"),
+                    "&amp;",
+                    ("move_type", "=", "out_invoice"),
+                    ("dte_document_type", "!=", "03")]}
                 </attribute>
             </xpath>
         </field>

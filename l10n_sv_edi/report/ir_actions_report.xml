@@ -133,7 +133,7 @@
             <t t-set="o" t-value="o.with_context(lang=lang)"/>
             <t t-set="forced_vat" t-value="o.fiscal_position_id.foreign_vat"/> <!-- So that it appears in the footer
             of the report instead of the company VAT if it's set -->
-            <t t-set="dte_document_type_id" t-value="o.dte_document_type_id"/>
+            <t t-set="dte_document_type_id" t-value="o.journal_id.dte_document_type_id"/>
             <t t-set="dte_control_number" t-value="o.dte_control_number"/>
             <t t-set="dte_qrcode" t-value="o._get_dte_qrcode()"/>
             <t t-set="dte_generation_code" t-value="o.dte_generation_code"/>
@@ -329,7 +329,7 @@
                             <t t-foreach="line.tax_ids" t-as="tax_id">
                                 <t t-if="tax_id.tax_group_id.l10n_sv_code == '20'">
                                     <t t-set="iva" t-value="total * tax_id.amount / 100"/>
-                                    <t t-if="o.dte_document_type_id.code == '01'">
+                                    <t t-if="dte_document_type_id.code == '01'">
                                         <t t-set="total" t-value="total + iva"/>
                                         <t t-set="price_unit"
                                             t-value="price_unit + ((price_unit - discount / line.quantity) * tax_id.amount / 100)"/>
@@ -477,7 +477,7 @@
                                     <span t-esc="'{0:,.2f}'.format(non_taxable_total + taxable_total) + '&#160;'"/>
                                 </td>
                             </tr>
-                            <t t-if="o.dte_document_type_id.code != '01'">
+                            <t t-if="dte_document_type_id.code != '01'">
                                 <tr>
                                     <td style="background-color: white; color: black;">
                                         <span>VAT 13%</span>
@@ -535,7 +535,7 @@
                                     <span t-esc="'{0:,.2f}'.format(o.amount_total) + '&#160;'"/>
                                 </td>
                             </tr>
-                            <t t-if="not o.dte_document_type_id">
+                            <t t-if="not dte_document_type_id">
                                 <!-- Payments-->
                                 <t t-if="print_with_payments">
                                     <t t-if="o.payment_state != 'invoicing_legacy'">

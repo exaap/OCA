@@ -12,7 +12,6 @@ from . import l10n_sv_account_document_type
 from . import l10n_sv_dte_contingency_event
 from . import l10n_sv_export_regime
 from . import l10n_sv_fiscal_warehouse
-from . import mail_template
 from . import res_branch
 from . import res_company
 from . import res_partner

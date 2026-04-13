@@ -100,7 +100,7 @@ class L10nSvDteContingencyEvent(models.Model):
             values.append(
                 {
                     "noItem": num_item,
-                    "tipoDoc": dte_contingency_id.dte_document_type_id.code,
+                    "tipoDoc": dte_contingency_id.journal_id.dte_document_type_id.code,
                     "codigoGeneracion": dte_contingency_id.dte_generation_code,
                 }
             )

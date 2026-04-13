@@ -87,27 +87,27 @@ class ResCompany(models.Model):
     l10n_sv_dte_01_move_id = fields.Many2one(
         comodel_name="account.move",
         string="DTE Type 01",
-        domain="[('dte_document_type_id.code', '=', '01'), ('dte_state', '=', 'dte_transmitted')]",
+        domain="[('journal_id.dte_document_type_id.code', '=', '01'), ('dte_state', '=', 'dte_transmitted')]",
     )
     l10n_sv_dte_03_move_id = fields.Many2one(
         comodel_name="account.move",
         string="DTE Type 03",
-        domain="[('dte_document_type_id.code', '=', '03'), ('dte_state', '=', 'dte_transmitted')]",
+        domain="[('journal_id.dte_document_type_id.code', '=', '03'), ('dte_state', '=', 'dte_transmitted')]",
     )
     l10n_sv_dte_05_move_id = fields.Many2one(
         comodel_name="account.move",
         string="DTE Type 05",
-        domain="[('dte_document_type_id.code', '=', '05'), ('dte_state', '=', 'dte_transmitted')]",
+        domain="[('journal_id.dte_document_type_id.code', '=', '05'), ('dte_state', '=', 'dte_transmitted')]",
     )
     l10n_sv_dte_11_move_id = fields.Many2one(
         comodel_name="account.move",
         string="DTE Type 11",
-        domain="[('dte_document_type_id.code', '=', '11'), ('dte_state', '=', 'dte_transmitted')]",
+        domain="[('journal_id.dte_document_type_id.code', '=', '11'), ('dte_state', '=', 'dte_transmitted')]",
     )
     l10n_sv_dte_14_move_id = fields.Many2one(
         comodel_name="account.move",
         string="DTE Type 14",
-        domain="[('dte_document_type_id.code', '=', '14'), ('dte_state', '=', 'dte_transmitted')]",
+        domain="[('journal_id.dte_document_type_id.code', '=', '14'), ('dte_state', '=', 'dte_transmitted')]",
     )
 
     def action_post_signer(self, dte_json=None):

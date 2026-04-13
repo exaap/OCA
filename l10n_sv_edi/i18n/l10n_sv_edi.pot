@@ -487,10 +487,7 @@ msgid "DTE Control Number"
 msgstr ""
 
 #. module: l10n_sv_edi
-#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_bank_statement_line__dte_document_type_id
 #: model:ir.model.fields,field_description:l10n_sv_edi.field_account_journal__dte_document_type_id
-#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_move__dte_document_type_id
-#: model:ir.model.fields,field_description:l10n_sv_edi.field_account_payment__dte_document_type_id
 msgid "DTE Document Type"
 msgstr ""
 
@@ -710,11 +707,6 @@ msgstr ""
 #. module: l10n_sv_edi
 #: model:ir.model.fields.selection,name:l10n_sv_edi.selection__l10n_sv_account_document_class__generation_type__2
 msgid "Electronic"
-msgstr ""
-
-#. module: l10n_sv_edi
-#: model:ir.model,name:l10n_sv_edi.model_mail_template
-msgid "Email Templates"
 msgstr ""
 
 #. module: l10n_sv_edi
