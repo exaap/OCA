@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-09 20:24+0000\n"
-"PO-Revision-Date: 2024-12-09 20:24+0000\n"
+"POT-Creation-Date: 2026-06-08 19:05+0000\n"
+"PO-Revision-Date: 2026-06-08 19:05+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -125,9 +125,21 @@ msgid "Product Applications"
 msgstr "Aplicaciones del producto"
 
 #. module: product_application
+#: model:ir.model,name:product_application.model_product_category
+msgid "Product Category"
+msgstr "Categoría de producto"
+
+#. module: product_application
 #: model:ir.model,name:product_application.model_product_template
 msgid "Product Template"
 msgstr "Plantilla de producto"
+
+#. module: product_application
+#: model:ir.model.fields,field_description:product_application.field_product_category__is_required_application
+#: model:ir.model.fields,field_description:product_application.field_product_product__is_required_application
+#: model:ir.model.fields,field_description:product_application.field_product_template__is_required_application
+msgid "Required Application?"
+msgstr "¿Se requiere aplicación?"
 
 #. module: product_application
 #: model:ir.model.fields,field_description:product_application.field_product_product__application_segment_id
@@ -147,7 +159,7 @@ msgid "Subcategory"
 msgstr "Subcategoría"
 
 #. module: product_application
-#: code:addons/product_application/models/product_template.py:49
+#: code:addons/product_application/models/product_template.py:48
 #, python-format
 msgid "You can not modify applications or product categories."
 msgstr "No puedes modificar aplicaciones ni categorías de productos."

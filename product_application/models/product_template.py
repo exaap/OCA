@@ -8,13 +8,12 @@ from odoo.exceptions import UserError
 class ProductTemplate(models.Model):
     _inherit = "product.template"
 
+    is_required_application = fields.Boolean(related="categ_id.is_required_application")
     product_application_id = fields.Many2one(
         comodel_name="product.application", string="Application"
     )
     application_category_id = fields.Many2one(
-        comodel_name="product.application.category",
-        string="Category",
-        domain=[("parent_id", "=", False)],
+        comodel_name="product.application.category", string="Category"
     )
     application_subcategory_id = fields.Many2one(
         comodel_name="product.application.category", string="Subcategory"

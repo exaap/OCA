@@ -3,4 +3,5 @@
 
 from . import product_application_category
 from . import product_application
+from . import product_category
 from . import product_template
