@@ -11,7 +11,7 @@ class AccountMoveLine(models.Model):
     _inherit = "account.move.line"
 
     def _get_item_cuerpoDocumento(self, num_item, related_document):
-        dte_document_type = self.move_id.journal_id.dte_document_type_id.code
+        dte_document_type = self.move_id.dte_document_type_id.code
         values = {}
         price_unit = self.price_unit
         discount = self.quantity * price_unit * self.discount / 100

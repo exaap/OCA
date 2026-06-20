@@ -45,6 +45,8 @@
                     </group>
                     <group string="DTE" attrs="{'invisible': [('dte_state', '=', False)]}">
                         <group>
+                            <field name="dte_document_type_id"
+                                attrs="{'readonly': [('dte_control_number', '!=', False)] }"/>
                             <field name="dte_document_type" invisible="1"/>
                             <label for="dte_state"/>
                             <div>

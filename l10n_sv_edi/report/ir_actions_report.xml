@@ -133,7 +133,7 @@
             <t t-set="o" t-value="o.with_context(lang=lang)"/>
             <t t-set="forced_vat" t-value="o.fiscal_position_id.foreign_vat"/> <!-- So that it appears in the footer
             of the report instead of the company VAT if it's set -->
-            <t t-set="dte_document_type_id" t-value="o.journal_id.dte_document_type_id"/>
+            <t t-set="dte_document_type_id" t-value="o.dte_document_type_id"/>
             <t t-set="dte_control_number" t-value="o.dte_control_number"/>
             <t t-set="dte_qrcode" t-value="o._get_dte_qrcode()"/>
             <t t-set="dte_generation_code" t-value="o.dte_generation_code"/>

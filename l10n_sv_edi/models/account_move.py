@@ -77,6 +77,10 @@ class AccountMove(models.Model):
 
     def action_post(self):
         res = super(AccountMove, self).action_post()
+        msg1 = _("Tax credit invoice cannot be confirmed if %s does not have a %s.")
+        msg2 = _(
+            "A credit note cannot be confirmed if it does not have an associated invoice."
+        )
 
         for move_id in self:
             if not move_id.company_id.l10n_sv_edi_enabled:
@@ -88,20 +92,20 @@ class AccountMove(models.Model):
             dte_document_type_id = move_id.journal_id.dte_document_type_id
             document_ref = "l10n_sv.l10n_sv_account_document_"
 
-            if (
-                move_id.reversed_entry_id
-                and move_id.move_type == "out_refund"
-                and dte_document_type_id
-                and dte_document_type_id.code == "03"
-            ):
-                dte_document_type_id = self.env.ref(document_ref + "type_05")
-            elif (
-                move_id.debit_origin_id
-                and move_id.move_type == "out_invoice"
-                and dte_document_type_id
-                and dte_document_type_id.code == "03"
-            ):
-                dte_document_type_id = self.env.ref(document_ref + "type_06")
+            if dte_document_type_id and dte_document_type_id.code == "03":
+                partner_name = move_id.partner_id.name
+
+                if not move_id.partner_id.taxpayer_registration_number:
+                    raise UserError(msg1 % (partner_name, _("NRC")))
+                elif not move_id.partner_id.industry_id:
+                    raise UserError(msg1 % (partner_name, _("economic activity")))
+                elif move_id.move_type == "out_refund":
+                    if move_id.reversed_entry_id:
+                        dte_document_type_id = self.env.ref(document_ref + "type_05")
+                    else:
+                        raise UserError(msg2)
+                elif move_id.debit_origin_id and move_id.move_type == "out_invoice":
+                    dte_document_type_id = self.env.ref(document_ref + "type_06")
             elif move_id.move_type == "in_invoice" and not dte_document_type_id:
                 for line_id in self.line_ids.filtered(
                     lambda l: l.display_type in ["tax"]
@@ -119,6 +123,7 @@ class AccountMove(models.Model):
             ):
                 continue
 
+            move_id.dte_document_type_id = dte_document_type_id
             move_id.dte_state = "dte_unsent"
 
             if move_id.company_id.l10n_sv_automatic_dte_sending:
@@ -143,7 +148,13 @@ class AccountMove(models.Model):
         domain="[('transmission_type', '!=', False)]",
         copy=False,
     )
-    dte_document_type = fields.Char(related="journal_id.dte_document_type_id.code")
+    dte_document_type_id = fields.Many2one(
+        comodel_name="l10n_sv_account.document.type",
+        string="DTE Document Type",
+        domain="[('transmission_type', '!=', False)]",
+        copy=False,
+    )
+    dte_document_type = fields.Char(related="dte_document_type_id.code")
     dte_state = fields.Selection(
         selection=[
             ("dte_unsent", "DTE Unsent"),
@@ -256,20 +267,18 @@ class AccountMove(models.Model):
         return value_in_letters
 
     def _get_dte_control_number(self):
-        dte_document_type_id = self.journal_id.dte_document_type_id
-
-        if not self.dte_control_number and dte_document_type_id.version != 0:
+        if not self.dte_control_number and self.dte_document_type_id.version != 0:
             sales_point_id = self.sales_point_id
             consecutive_count = sales_point_id.consecutive_count or {}
             year = str((self.invoice_date or fields.Date.today()).year)
             year_count = consecutive_count.get(year) or {}
-            consecutive = year_count.get(dte_document_type_id.code, 0) + 1
-            year_count[dte_document_type_id.code] = consecutive
+            consecutive = year_count.get(self.dte_document_type_id.code, 0) + 1
+            year_count[self.dte_document_type_id.code] = consecutive
             consecutive_count[year] = year_count
             sales_point_id.consecutive_count = consecutive_count
             self.dte_control_number = (
                 "DTE-"
-                + dte_document_type_id.code
+                + self.dte_document_type_id.code
                 + "-"
                 + sales_point_id.branch_id.code
                 + sales_point_id.code
@@ -289,26 +298,24 @@ class AccountMove(models.Model):
         return self.dte_generation_code
 
     def _get_dte_section_identificacion(self):
-        dte_document_type_id = self.journal_id.dte_document_type_id
-
-        if not dte_document_type_id.version:
+        if not self.dte_document_type_id.version:
             raise UserError(_("The document type must have a non-zero version!"))
 
         invoicing_model = 1
         transmission_type = 1
 
         if self.dte_contingency_event_id:
-            invoicing_model = int(dte_document_type_id.invoicing_model)
-            transmission_type = int(dte_document_type_id.transmission_type)
+            invoicing_model = int(self.dte_document_type_id.invoicing_model)
+            transmission_type = int(self.dte_document_type_id.transmission_type)
 
         if not self.dte_stamp_received:
             issue_time = datetime.now(timezone("America/El_Salvador"))
             self.dte_issue_time = issue_time.strftime("%H:%M:%S")
 
         values = {
-            "version": dte_document_type_id.version,
+            "version": self.dte_document_type_id.version,
             "ambiente": self.company_id.l10n_sv_destination_environment,
-            "tipoDte": dte_document_type_id.code,
+            "tipoDte": self.dte_document_type_id.code,
             "numeroControl": self._get_dte_control_number(),
             "codigoGeneracion": self._get_dte_generation_code(),
             "tipoModelo": invoicing_model,
@@ -319,7 +326,7 @@ class AccountMove(models.Model):
             "tipoMoneda": "USD",
         }
 
-        if dte_document_type_id.code != "11":
+        if self.dte_document_type_id.code != "11":
             values["motivoContin"] = self.dte_contingency_event_id.reason or None
         else:
             values["motivoContigencia"] = self.dte_contingency_event_id.reason or None
@@ -348,7 +355,7 @@ class AccountMove(models.Model):
 
         return [
             {
-                "tipoDocumento": document_id.journal_id.dte_document_type_id.code,
+                "tipoDocumento": document_id.dte_document_type_id.code,
                 "tipoGeneracion": 2 if document_id.dte_control_number else 1,
                 "numeroDocumento": related_document,
                 "fechaEmision": str(document_id.invoice_date),
@@ -356,7 +363,7 @@ class AccountMove(models.Model):
         ]
 
     def _get_dte_section_emisor(self):
-        dte_document_type = self.journal_id.dte_document_type_id.code
+        dte_document_type = self.dte_document_type_id.code
         issuer_id = self.company_id.partner_id
         values = issuer_id._get_partner_values("issuer", dte_document_type)
 
@@ -405,7 +412,7 @@ class AccountMove(models.Model):
         return sections
 
     def _get_dte_section_cuerpoDocumento(self, related_document):
-        dte_document_type = self.journal_id.dte_document_type_id.code
+        dte_document_type = self.dte_document_type_id.code
         values = []
         num_item = 1
         totals = {
@@ -481,7 +488,7 @@ class AccountMove(models.Model):
         return values, totals
 
     def _get_dte_section_resumen(self, totals):
-        dte_document_type = self.journal_id.dte_document_type_id.code
+        dte_document_type = self.dte_document_type_id.code
         values = {}
         iva = 0.00
         total = (
@@ -655,7 +662,7 @@ class AccountMove(models.Model):
         return values
 
     def _get_dte_section_extension(self):
-        dte_document_type = self.journal_id.dte_document_type_id.code
+        dte_document_type = self.dte_document_type_id.code
         issuer_id = self.company_id.partner_id
         receiver_id = self.partner_id
         values = {}
@@ -694,7 +701,7 @@ class AccountMove(models.Model):
         return values or None
 
     def _get_dte_signed_json(self):
-        dte_document_type = self.journal_id.dte_document_type_id.code
+        dte_document_type = self.dte_document_type_id.code
 
         if dte_document_type not in DOCUMENT_TYPES:
             return {}
@@ -774,8 +781,8 @@ class AccountMove(models.Model):
             {
                 "ambiente": self.company_id.l10n_sv_destination_environment,
                 "idEnvio": "1",
-                "version": self.journal_id.dte_document_type_id.version,
-                "tipoDte": self.journal_id.dte_document_type_id.code,
+                "version": self.dte_document_type_id.version,
+                "tipoDte": self.dte_document_type_id.code,
                 "documento": signed_json["firmaElectronica"],
                 "codigoGeneracion": self.dte_generation_code,
             },
@@ -790,7 +797,10 @@ class AccountMove(models.Model):
         )
         self.action_set_dte_json(signed_json, True)
 
-        if stamp_received:
+        if not stamp_received and response_recepciondte.get("codigoMsg") == "004":
+            self.action_post_consultadte
+
+        if self.dte_stamp_received:
             if self.company_id.l10n_sv_automatic_email_sending:
                 self.action_send_dte_email()
         else:
@@ -801,7 +811,7 @@ class AccountMove(models.Model):
             "fesv/recepcion/consultadte/",
             {
                 "nitEmisor": self.company_id.partner_id._get_partner_vat(),
-                "tdte": self.journal_id.dte_document_type_id.code,
+                "tdte": self.dte_document_type_id.code,
                 "codigoGeneracion": self.dte_generation_code,
             },
         )
@@ -853,7 +863,7 @@ class AccountMove(models.Model):
         )
         json_attachment_id = self.action_set_dte_json()
         attachment_ids = [pdf_attachment_id.id, json_attachment_id.id]
-        email_values["attachment_ids"] = [(6, 0, attachment_ids)]
+        email_values = {"attachment_ids": [(6, 0, attachment_ids)]}
         mail_id = self.action_send_email("l10n_sv_edi.mail_template_dte", email_values)
 
         if mail_id.state == "sent":
@@ -903,7 +913,7 @@ class AccountMove(models.Model):
 
         values = self.partner_id._get_partner_values("receiver")
         values |= {
-            "tipoDte": self.journal_id.dte_document_type_id.code,
+            "tipoDte": self.dte_document_type_id.code,
             "codigoGeneracion": self.dte_generation_code,
             "selloRecibido": self.dte_stamp_received,
             "numeroControl": self.dte_control_number,

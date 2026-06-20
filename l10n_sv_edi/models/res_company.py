@@ -87,27 +87,27 @@ class ResCompany(models.Model):
     l10n_sv_dte_01_move_id = fields.Many2one(
         comodel_name="account.move",
         string="DTE Type 01",
-        domain="[('journal_id.dte_document_type_id.code', '=', '01'), ('dte_state', '=', 'dte_transmitted')]",
+        domain="[('dte_document_type_id.code', '=', '01'), ('dte_state', '=', 'dte_transmitted')]",
     )
     l10n_sv_dte_03_move_id = fields.Many2one(
         comodel_name="account.move",
         string="DTE Type 03",
-        domain="[('journal_id.dte_document_type_id.code', '=', '03'), ('dte_state', '=', 'dte_transmitted')]",
+        domain="[('dte_document_type_id.code', '=', '03'), ('dte_state', '=', 'dte_transmitted')]",
     )
     l10n_sv_dte_05_move_id = fields.Many2one(
         comodel_name="account.move",
         string="DTE Type 05",
-        domain="[('journal_id.dte_document_type_id.code', '=', '05'), ('dte_state', '=', 'dte_transmitted')]",
+        domain="[('dte_document_type_id.code', '=', '05'), ('dte_state', '=', 'dte_transmitted')]",
     )
     l10n_sv_dte_11_move_id = fields.Many2one(
         comodel_name="account.move",
         string="DTE Type 11",
-        domain="[('journal_id.dte_document_type_id.code', '=', '11'), ('dte_state', '=', 'dte_transmitted')]",
+        domain="[('dte_document_type_id.code', '=', '11'), ('dte_state', '=', 'dte_transmitted')]",
     )
     l10n_sv_dte_14_move_id = fields.Many2one(
         comodel_name="account.move",
         string="DTE Type 14",
-        domain="[('journal_id.dte_document_type_id.code', '=', '14'), ('dte_state', '=', 'dte_transmitted')]",
+        domain="[('dte_document_type_id.code', '=', '14'), ('dte_state', '=', 'dte_transmitted')]",
     )
 
     def action_post_signer(self, dte_json=None):
@@ -128,8 +128,8 @@ class ResCompany(models.Model):
 
         show_error(response_json.get("body", {}), "codigo", "mensaje")
 
-    def action_post_auth(self):
-        if self.l10n_sv_api_token and self.l10n_sv_api_token_date:
+    def action_post_auth(self, invoice=False):
+        if invoice and self.l10n_sv_api_token and self.l10n_sv_api_token_date:
             delta = fields.Datetime.now() - self.l10n_sv_api_token_date
 
             if delta.total_seconds() < 86400:
@@ -157,7 +157,7 @@ class ResCompany(models.Model):
         test = "test" if self.l10n_sv_destination_environment == "00" else ""
         url = API_URL % (test, endpoint)
         headers = {
-            "Authorization": self.action_post_auth(),
+            "Authorization": self.action_post_auth(True),
             "Content-Type": "application/json;charset=UTF-8",
         }
         response_json = execute_requests_method(url, headers, json=json, method=method)
