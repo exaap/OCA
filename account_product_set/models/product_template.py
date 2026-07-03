@@ -13,28 +13,32 @@ class ProductTemplate(models.Model):
         string="Product set line",
     )
 
-    @api.model
-    def create(self, vals):
-        set_line_ids = vals.pop("set_line_ids", False)
-        rec = super(ProductTemplate, self).create(vals)
+    @api.model_create_multi
+    def create(self, vals_list):
+        product_set_obj = self.env["product.set"]
+        records = self.env["product.template"]
 
-        if set_line_ids:
-            product_set_obj = self.env["product.set"]
-            product_set_id = product_set_obj.create(
-                {
-                    "product_template_id": rec.id,
+        for vals in vals_list:
+            set_line_ids = vals.pop("set_line_ids", False)
+            record = super(ProductTemplate, self).create(vals)
+            records |= record
+
+            if set_line_ids:
+                values = {
+                    "product_template_id": record.id,
                     "is_kit": True,
-                    "ref": rec.default_code,
-                    "name": rec.name,
+                    "ref": record.default_code,
+                    "name": record.name,
+                    "set_line_ids": set_line_ids,
                 }
-            )
-            product_set_id.write({"set_line_ids": set_line_ids})
+                product_set_obj.create(values)
 
-        return rec
+        return records
 
     def write(self, vals):
         if "set_line_ids" in vals:
             product_set_obj = self.env["product.set"]
+            set_line_ids = vals.pop("set_line_ids", False)
 
             for record in self:
                 product_set_id = product_set_obj.search(
@@ -42,17 +46,14 @@ class ProductTemplate(models.Model):
                 )
 
                 if not product_set_id:
-                    product_set_id = product_set_obj.create(
-                        {
-                            "product_template_id": record.id,
-                            "is_kit": True,
-                            "ref": record.default_code,
-                            "name": record.name,
-                        }
-                    )
+                    values = {
+                        "product_template_id": record.id,
+                        "is_kit": True,
+                        "ref": record.default_code,
+                        "name": record.name,
+                    }
+                    product_set_id = product_set_obj.create(values)
 
-                product_set_id.write({"set_line_ids": vals.get("set_line_ids")})
-
-            vals.pop("set_line_ids", None)
+                product_set_id.write({"set_line_ids": set_line_ids})
 
         return super(ProductTemplate, self).write(vals)
