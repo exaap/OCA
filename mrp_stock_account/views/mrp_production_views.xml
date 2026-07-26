@@ -5,13 +5,15 @@
         <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
         <field name="arch" type="xml">
             <xpath expr="//button[@name='button_mark_done']" position="attributes">
-                <attribute name="attrs">{"invisible":
-                    ["|", ("check_to_done", "=", False), ("availability", "!=", "assigned")]}</attribute>
+                <attribute name="attrs">{
+                    "invisible": ["|", ("check_to_done", "=", False), ("availability", "!=", "assigned")]
+                    }</attribute>
             </xpath>
 
             <xpath expr="//button[@name='action_assign']" position="attributes">
-                <attribute name="attrs">{"invisible":
-                    ["|", ("edit_raw_materials", "=", False), ("availability", "in", ("assigned", "none"))]}</attribute>
+                <attribute name="attrs">{
+                    "invisible": ["|", ("edit_raw_materials", "=", False), ("availability", "in", ("assigned", "none"))]
+                    }</attribute>
             </xpath>
 
             <xpath expr="//button[@name='action_assign']" position="before">
@@ -20,10 +22,17 @@
             </xpath>
 
             <xpath expr="//button[6]" position="attributes">
-                <attribute name="attrs">{"invisible":
-                    ["|", "|", "|", "|", ("is_locked", "=", False), ("check_to_done", "=", True),
-                    ("availability", "!=", "assigned"), ("state", "not in", ("confirmed", "progress")),
-                    ("routing_id", "!=", False)]}</attribute>
+                <attribute name="attrs">{"invisible": [
+                    "|",
+                    "|",
+                    "|",
+                    "|",
+                    ("is_locked", "=", False),
+                    ("check_to_done", "=", True),
+                    ("availability", "!=", "assigned"),
+                    ("state", "not in", ("confirmed", "progress")),
+                    ("routing_id", "!=", False)
+                    ]}</attribute>
             </xpath>
 
             <xpath expr="//button[7]" position="attributes">
@@ -31,8 +40,9 @@
             </xpath>
 
             <xpath expr="//button[@name='post_inventory']" position="attributes">
-                <attribute name="attrs">{"invisible":
-                    ["|", ("post_visible", "=", False), ("availability", "!=", "assigned")]}</attribute>
+                <attribute name="attrs">{
+                    "invisible": ["|", ("post_visible", "=", False), ("availability", "!=", "assigned")]
+                    }</attribute>
             </xpath>
 
             <xpath expr="//button[@name='button_scrap']" position="attributes">
@@ -52,10 +62,13 @@
             </xpath>
 
             <field name="availability" position="after">
-                <field name="edit_raw_materials" groups="base.group_no_one"/>
+                <field name="edit_raw_materials"/>
             </field>
 
             <field name="move_raw_ids" position="replace">
+                <button name="delete_materials_consumed" string="Delete Materials Consumed" type="object"
+                    class="btn-primary" style="margin:12px 0px 2px 0px;"
+                    attrs="{'invisible': [('edit_raw_materials', '=', True)]}"/>
                 <field name="move_raw_ids"
                     context="{'final_lots': show_final_lots, 'form_view_ref': 'mrp.view_stock_move_lots', 'default_location_id': location_src_id, 'default_location_dest_id': production_location_id, 'default_state': 'confirmed', 'default_raw_material_production_id': id, 'default_picking_type_id': picking_type_id}"
                     attrs="{'delete': [('edit_raw_materials', '=', False)], 'create': [('edit_raw_materials', '=', False)], 'readonly': [('edit_raw_materials', '=', True)]}">
@@ -73,13 +86,12 @@
                         <field name="is_done" invisible="1"/>
                         <field name="sequence" invisible="1"/>
                         <field name="location_id" invisible="1"/>
-                        <field name="location_dest_id" domain="[('id', 'child_of', parent.location_dest_id)]"
-                            invisible="1"/>
+                        <field name="location_dest_id" invisible="1"
+                            domain="[('id', 'child_of', parent.location_dest_id)]"/>
                         <field name="state" invisible="1" force_save="1"/>
                         <field name="product_uom_qty" string="To Consume"/>
-                        <field name="reserved_availability"
-                            attrs="{'invisible': [('is_done', '=', True)], 'column_invisible': [('parent.state', '=', 'done')]}"
-                            string="Reserved"/>
+                        <field name="reserved_availability" string="Reserved"
+                            attrs="{'invisible': [('is_done', '=', True)], 'column_invisible': [('parent.state', '=', 'done')]}"/>
                         <field name="quantity_done" string="Consumed" readonly="1"/>
                     </tree>
                 </field>

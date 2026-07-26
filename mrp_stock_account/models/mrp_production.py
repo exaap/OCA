@@ -2,6 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import api, fields, models, _
+from odoo.exceptions import UserError
 
 
 class MrpProduction(models.Model):
@@ -31,12 +32,21 @@ class MrpProduction(models.Model):
 
         return True
 
+    def delete_materials_consumed(self):
+        for production in self:
+            production.move_raw_ids.unlink()
+
     @api.multi
     def action_confirm(self):
         for production in self:
             production.edit_raw_materials = True
             production._adjust_procure_method()
-            production.move_raw_ids._action_confirm()
+
+            if production.move_raw_ids:
+                production.move_raw_ids._action_confirm()
+            else:
+                raise UserError(_("Add materials consumed."))
+
             production._generate_price_unit()
 
         return True
